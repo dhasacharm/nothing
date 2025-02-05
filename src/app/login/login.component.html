@@ -1,0 +1,31 @@
+<div class="app">
+
+    <div class="bg"></div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <header>
+            <img src="https://assets.codepen.io/3931482/internal/avatars/users/default.png?format=auto&height=80&version=1592223909&width=80">
+        </header>
+
+        <div class="inputs">
+            <input [ngClass]="{'is-invalid': loginForm.controls['email'].invalid && loginForm.controls['email'].touched}" type="email" formControlName="email" class="form-control"  name="" placeholder="username or email">
+            <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+                <small class="error-text" *ngIf="loginForm.controls['email'].errors?.['required']">Email is required.</small>
+                <small class="error-text" *ngIf="loginForm.controls['email'].errors?.['email']">Invalid email format.</small>
+              </div>
+            <input [ngClass]="{'is-invalid': loginForm.controls['password'].invalid && loginForm.controls['password'].touched}" type="password" formControlName="password" class="form-control" placeholder="password">
+            <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+                <small class="error-text" *ngIf="loginForm.controls['password'].errors?.['required']">Password is required.</small>
+                <small class="error-text" *ngIf="loginForm.controls['password'].errors?.['minlength']">Password must be at least 6 characters.</small>
+              </div>
+        </div>
+        <footer>
+            <button type="submit" [disabled]="loginForm.invalid">Continue</button>
+        </footer>
+
+    </form>
+
+    
+
+
+</div>
