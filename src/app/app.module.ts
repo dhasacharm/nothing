@@ -18,6 +18,7 @@ import { MatExpansionModule } from '@angular/material/expansion';  // Import Mat
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';  // <-- Import HttpClientModule
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatExpansionModule,
     MatMenuModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule
 
   ],
   providers: [

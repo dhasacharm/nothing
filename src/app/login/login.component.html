@@ -1,5 +1,4 @@
 <div class="app">
-
     <div class="bg"></div>
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -7,8 +6,17 @@
             <img src="https://assets.codepen.io/3931482/internal/avatars/users/default.png?format=auto&height=80&version=1592223909&width=80">
         </header>
 
+        <div *ngIf="errorMessage" class="error-msg" id="login-error-message">
+            <mat-card class="error-box" id="error-card ">
+                <mat-card-content id="error-card">
+                    {{ errorMessage }}
+                    <img id="svg-icon-img" src="assets/icons/close.png" (click)="closeError()">
+                </mat-card-content>
+            </mat-card>
+        </div>
+
         <div class="inputs">
-            <input [ngClass]="{'is-invalid': loginForm.controls['email'].invalid && loginForm.controls['email'].touched}" type="email" formControlName="email" class="form-control"  name="" placeholder="username or email">
+            <input [ngClass]="{'is-invalid': loginForm.controls['email'].invalid && loginForm.controls['email'].touched}" type="email" formControlName="email" class="form-control" placeholder="username or email">
             <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
                 <small class="error-text" *ngIf="loginForm.controls['email'].errors?.['required']">Email is required.</small>
                 <small class="error-text" *ngIf="loginForm.controls['email'].errors?.['email']">Invalid email format.</small>
@@ -22,10 +30,5 @@
         <footer>
             <button type="submit" [disabled]="loginForm.invalid">Continue</button>
         </footer>
-
     </form>
-
-    
-
-
 </div>
