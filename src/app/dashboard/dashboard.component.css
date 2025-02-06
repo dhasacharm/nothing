@@ -1,3 +1,29 @@
+
+.example-sidenav {
+  width: 250px;
+  transition: width 0.3s;
+}
+
+.example-sidenav.collapsed {
+  width: 60px;
+}
+
+.example-sidenav .mat-list-item .full-width {
+  display: inline-block;
+  width: calc(100% - 40px);
+}
+
+.example-sidenav.collapsed .mat-list-item .full-width {
+  display: none;
+}
+
+.example-sidenav .mat-list-item .menu-button {
+  transition: transform 0.3s;
+}
+
+.example-sidenav .mat-list-item .menu-button.rotated {
+  transform: rotate(180deg);
+}
 .example-container {
    height: 100%;
   }
