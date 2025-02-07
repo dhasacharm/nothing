@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        h5 {
+            font-style: italic;
+        }
+
+        h1,
+        h3 {
+            text-align: center;
+            color: green;
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid #100808;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 2px solid black;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-1 p-2 bg-white text-dark">
+                <h5>Registration</h5>
+            </div>
+            <div class="col-sm-3 p-2 bg-white text-dark"></div>
+            <div class="col-sm-3 p-2 bg-white text-dark"></div>
+            <div class="col-sm-2 p-2 bg-white text-dark"> <input type="text" placeholder="Search Your Membership#..."
+                    required></div>
+            <div class="col-sm-2 p-2 bg-white text-dark"><input type="text" placeholder="Search Name/Phone/UHID "
+                    required></div>
+            <div class="col-sm-1 p-2 bg-white text-dark"></div>
+        </div>
+        <p class="p-3">Patient Info</p>
+        <hr>
+    </div>
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <div class="mb-3 form-box">
+                    <label class="p-2">Title*</label><br>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                        required>
+                </div>
+                <!-- <input type="text" name="Title*" required> -->
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">First Name*</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Last Name*</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+            </div>
+
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <div class="row">
+                    <div class="col-sm-6 bg-white text-dark">
+                        <label class="p-2">DOB</label><br>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                            required>
+                    </div>
+                    <div class="col-sm-6  bg-white text-dark">
+                        <label class="p-2">Age*</label><br>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                            required>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Gender*</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Mobile* </label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Alternate Mobile#</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Email</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Marital Status</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Ethnicity </label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Alternate Email</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Passport Number</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">National Id</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Attender Information </label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Nationality* </label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Address*</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Address Search</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Country</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> State </label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> District</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">City/Town</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Area</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Pin Code</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Patient Type</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Covid Vaccine</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Is VIP</label><br>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1"> </label>
+                </div>
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> VIP Type </label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Occupation</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div>
+        <p class="p-4">Visit</p>
+        <hr>
+    </div>
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Visit Type*</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Department</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Doctor*</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Payer</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Payer Type*</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Source Type*</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Referral Name*</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Reason</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Payer Number</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">MLC</label><br>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1"> </label>
+                </div>
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Token Num </label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+            </div>
+            <!-- <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2"> Occupation</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+
+            </div> -->
+
+        </div>
+    </div>
+
+    <div>
+        <p class="p-3">Consultation Bill </p>
+        <hr>
+    </div>
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <div>
+                    <label class="p-2">Discount Type</label><br>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                        required>
+                </div>
+                <div>
+                    <label class="p-2">Discount </label><br>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                        required>
+                </div>
+                <div>
+                    <label class="p-2">Remarks</label><br>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                        required>
+                </div>
+                <!-- <div>
+                    <label class="p-2">Discount Type</label><br>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                        required>
+                </div> -->
+
+            </div>
+
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Emergency</label><br>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1"> </label>
+                </div>
+
+                <div class="col-sm-3 p-3 bg-white text-dark">
+                    <label class="p-2">No Bill</label><br>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1"> </label>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-3 p-3 bg-white text-dark">
+                    <label class="p-2">Is OPD</label><br>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1"> </label>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div class="col-sm-6 p-3 bg-white text-dark">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service code / Name</th>
+                            <th>Qty</th>
+                            <th>Rate</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ip Consultation -Superspeciality</td>
+                            <td>1</td>
+                            <td>750</td>
+                            <td>750</td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="3">TOTAL</td>
+                            <td>₱750.00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">DISCOUNT</td>
+                            <td>₱0.00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">RECEIVED</td>
+                            <td>₱750.00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">DUE</td>
+                            <td>₱0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Payment Type</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+
+                <div>
+                    <label class="p-2"> Receipt Amount</label><br>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                        required>
+                </div>
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <table style="width:100%">
+                    <!-- <caption>DETAILS</caption> -->
+                    <tr>
+                        <th>Net Amount</th>
+                        <th>₹100.00</th>
+                    </tr>
+                    <tr>
+                        <td>Paid Amount</td>
+                        <td>₹100.00</td>
+
+                    </tr>
+                    <tr>
+                        <td>Refund</td>
+                        <td>₹0.00
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div>
+
+        <!-- <div>
+            <p class="p-3">Promotion Scheme</p>
+        </div> -->
+
+        <div class="container-fluid mt-3">
+            <div class="row">
+                <div class="col-sm-2 p-3 bg-white text-dark">
+                    <!-- <label class="p-2">Gender*</label><br>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                        required> -->
+                    <p>Promotion Scheme</p>
+                </div>
+                <div class="col-sm-2 p-3 bg-white text-dark">
+                    <!-- <label class="p-2">Gender*</label><br>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                        required> -->
+                </div>
+                <div class="col-sm-2 p-3 bg-white text-dark">
+                    <label class="p-2">Membership Number</label><br>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                        required>
+                </div>
+                <div class="col-sm-2 p-3 bg-white text-dark">
+                    <label class="p-2">Type </label><br>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                        required>
+                </div>
+                <div class="col-sm-2 p-3 bg-white text-dark">
+                    <label class="p-2">Alternate Mobile#</label><br>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                        required>
+                </div>
+                <div class="col-sm-2 p-3 bg-white text-dark">
+                    <label class="p-2">Email</label><br>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                        required>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div>
+        <hr>
+    </div>
+
+    <div>
+        <p class="p-3">Upload & Image Preview</p>
+    </div>
+
+    <div>
+        <hr>
+    </div>
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <!-- <label class="p-2">Gender*</label><br> -->
+                <!-- <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required> -->
+                <p><button type="submit">Upload</button> <button type="submit">Upload</button> <button
+                        type="submit">Upload</button>
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <!-- <label class="p-2">Gender*</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required> -->
+            </div>
+            <div class="col-sm-3  bg-white text-dark">
+                <label class="p-2">Registered Date</label><br>
+                <!-- <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required> -->
+                <p class="p-2">02/07/2025</p>
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <label class="p-2">Registered By</label><br>
+                <!-- <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required> -->
+            </div>
+            <!-- <div class="col-sm-1 p-3 bg-white text-dark">
+                <label class="p-2">Email</label><br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+            </div> -->
+        </div>
+    </div>
+
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 p-3 bg-white text-dark">
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <p><button>Activate</button></p>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

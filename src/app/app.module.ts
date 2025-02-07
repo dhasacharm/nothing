@@ -20,7 +20,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { QuickregistrationComponent } from './quickregistration/quickregistration.component';  // <-- Import HttpClientModule
-
+import { OpregisterComponent } from './opregister/opregister.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { QuickregistrationComponent } from './quickregistration/quickregistratio
     NavbarComponent,
     SidebarComponent,
     DashboardComponent,
-    QuickregistrationComponent
+    QuickregistrationComponent,
+    OpregisterComponent
   ],
   imports: [
     BrowserModule,
