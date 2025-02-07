@@ -28,15 +28,21 @@
 
                 <!-- Submenu -->
                 <div class="submenu" [ngClass]="{'expanded': item.showSubmenu}" *ngIf="item.showSubmenu">
-                    <a mat-list-item *ngFor="let subItem of item.subNav" [routerLink]="subItem.route">
+                    <a id="sub-nav-list" mat-list-item *ngFor="let subItem of item.subNav" [routerLink]="subItem.route">
                         {{ subItem.title }}
                     </a>
                 </div>
             </ng-container>
         </mat-nav-list>
     </mat-sidenav>
-
+    <!-- <mat-drawer-content>
+        <app-quickregistration></app-quickregistration>
+    </mat-drawer-content> -->
     <div class="example-sidenav-content">
         Main content that resizes properly
     </div>
+    <mat-sidenav-content>
+        <!-- Main content -->
+         <app-quickregistration></app-quickregistration>
+      </mat-sidenav-content>
 </mat-sidenav-container>

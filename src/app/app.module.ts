@@ -18,7 +18,8 @@ import { MatExpansionModule } from '@angular/material/expansion';  // Import Mat
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { HttpClientModule } from '@angular/common/http';  // <-- Import HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
+import { QuickregistrationComponent } from './quickregistration/quickregistration.component';  // <-- Import HttpClientModule
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';  // <-- Import HttpClie
     LoginComponent,
     NavbarComponent,
     SidebarComponent,
-    DashboardComponent
+    DashboardComponent,
+    QuickregistrationComponent
   ],
   imports: [
     BrowserModule,
