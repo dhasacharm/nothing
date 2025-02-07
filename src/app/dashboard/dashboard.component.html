@@ -1,49 +1,9 @@
-<mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="toggleSidenav()"><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">Admin</h1>
-    <span class="spacer"></span>
-    <button mat-icon-button [matMenuTriggerFor]="userMenu">
-        <mat-icon>account_circle</mat-icon>
-    </button>
-    <mat-menu #userMenu="matMenu">
-        <button mat-menu-item (click)="logout()">
-            <mat-icon>exit_to_app</mat-icon>
-            <span>Logout</span>
-        </button>
-    </mat-menu>
-</mat-toolbar>
+<app-navbar (sidenavToggle)="toggleSidenav()"></app-navbar>
 <mat-sidenav-container class="example-container" autosize>
-    <mat-sidenav #sidenav id="sidenav-fixed-container" class="example-sidenav" mode="side" [ngClass]="{'collapsed': !isExpanded}" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
-        <mat-nav-list>
-            <ng-container *ngFor="let item of navigation_list">
-                <mat-list-item (click)="toggleSubmenu(item)" class="parent">
-                    <!-- Title -->
-                    <span class="full-width" *ngIf="item.showSubmenu || isExpanded || isShowing">
-                        {{ item.title }}
-                    </span>
-
-                    <!-- Icon that rotates when submenu is expanded -->
-                    <mat-icon id="customIconSize" class="menu-button" [ngClass]="{'rotated' : item.showSubmenu}" *ngIf="item.showSubmenu || isExpanded || isShowing">expand_more</mat-icon>
-                </mat-list-item>
-
-                <!-- Submenu -->
-                <div class="submenu" [ngClass]="{'expanded': item.showSubmenu}" *ngIf="item.showSubmenu">
-                    <a id="sub-nav-list" mat-list-item *ngFor="let subItem of item.subNav" [routerLink]="subItem.route">
-                        {{ subItem.title }}
-                    </a>
-                </div>
-            </ng-container>
-        </mat-nav-list>
+    <mat-sidenav #sidenav id="sidenav-fixed-container" class="example-sidenav" mode="side" [ngClass]="{'collapsed': !isExpanded}" opened="true">
+        <app-sidebar [isExpanded]="isExpanded"></app-sidebar>
     </mat-sidenav>
-    <!-- <mat-drawer-content>
-        <app-quickregistration></app-quickregistration>
-    </mat-drawer-content> -->
-    <div class="example-sidenav-content">
-        Main content that resizes properly
-    </div>
     <mat-sidenav-content>
-        <!-- Main content -->
-         <app-quickregistration></app-quickregistration>
-          <!-- <app-opregister></app-opregister> -->
-      </mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
 </mat-sidenav-container>

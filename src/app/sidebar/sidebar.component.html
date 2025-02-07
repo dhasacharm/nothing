@@ -1,1 +1,22 @@
-<p>sidebar works!</p>
+<mat-sidenav #sidenav id="sidenav-fixed-container" class="example-sidenav" mode="side" [ngClass]="{'collapsed': !isExpanded}" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+    <mat-nav-list>
+        <ng-container *ngFor="let item of navigation_list">
+            <mat-list-item (click)="toggleSubmenu(item)" class="parent">
+                <!-- Title -->
+                <span class="full-width" *ngIf="item.showSubmenu || isExpanded || isShowing">
+                    {{ item.title }}
+                </span>
+
+                <!-- Icon that rotates when submenu is expanded -->
+                <mat-icon id="customIconSize" class="menu-button" [ngClass]="{'rotated' : item.showSubmenu}" *ngIf="item.showSubmenu || isExpanded || isShowing">expand_more</mat-icon>
+            </mat-list-item>
+
+            <!-- Submenu -->
+            <div class="submenu" [ngClass]="{'expanded': item.showSubmenu}" *ngIf="item.showSubmenu">
+                <a id="sub-nav-list" mat-list-item *ngFor="let subItem of item.subNav" [routerLink]="subItem.route">
+                    {{ subItem.title }}
+                </a>
+            </div>
+        </ng-container>
+    </mat-nav-list>
+</mat-sidenav>

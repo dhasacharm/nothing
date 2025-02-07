@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    font-family: 'poppins', sans-serif;
+    font-size: 14px;
 
+}
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: po }
 @import "~@fortawesome/fontawesome-free/css/all.css";
 input.form-control{
     padding: 11px;
@@ -9,7 +13,33 @@ input.form-control{
     border: 2px solid #405c7cb8;
     border-radius: 30px;
     background-color: transparent;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'poppins', sans-serif;
    
-   
+    height: 32px;
+    background-color: #f9f9f9 !important;
+    border-radius: 12px;
+    margin-bottom: 0px !important;
+    background: #f8f8f8;
+    border: 1.5px solid #aaa;
+}
+
+.font-size-14px {
+    font-size: 14px;
+}
+input::file-selector-button {
+    display: block;
+  }
+
+  .draftbutton {
+    background: linear-gradient(270deg, #005687 0%, #1F94C6 100%);
+    border-radius: 30px;
+    width: auto;
+    padding: 0 20px;
+    height: 32px;
+    margin: 0 2px;
+    border: 0;
+    color: #fff !important;
+}
+.margin-left-10px {
+    margin-left: 10px;
 }

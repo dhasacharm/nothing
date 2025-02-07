@@ -1,5 +1,11 @@
+.example-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .example-sidenav {
-  width: 250px;
+  width: 200px;
   transition: width 0.3s;
 }
 
@@ -7,87 +13,28 @@
   width: 60px;
 }
 
-.example-sidenav .mat-list-item .full-width {
-  display: inline-block;
-  width: calc(100% - 40px);
-}
-
-.example-sidenav.collapsed .mat-list-item .full-width {
-  display: none;
-}
-
-.example-sidenav .mat-list-item .menu-button {
-  transition: transform 0.3s;
-}
-
-.example-sidenav .mat-list-item .menu-button.rotated {
-  transform: rotate(180deg);
-}
-#sub-nav-list.mdc-list-item__content{
-  font-size: 13px;
-}
-.example-container {
-  height: 100%;
+.mat-sidenav-content {
+  flex: 1;
+  padding: 20px;
+  transition: margin-left 0.3s;
 }
 
 .example-sidenav-content {
+  padding: 20px;
+}
+
+.mat-sidenav-container {
   display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
+  flex: 1;
+  height: calc(100vh - 64px); /* Adjust based on your toolbar height */
 }
 
-.example-sidenav {
-  user-select: none;
+.mat-sidenav {
+  flex: 0 0 auto;
 }
 
-.full-width {
-  width: 100%;
-  font-size: 14px;
-
-}
-
-.menu-button {
-  transition: 300ms ease-in-out;
-  transform: rotate(0deg);
-}
-
-.menu-button.rotated {
-  transform: rotate(180deg);
-}
-
-.submenu {
-  overflow-y: hidden;
-  transition: transform 300ms ease;
-  transform: scaleY(0);
-  transform-origin: top;
-  padding-left: 30px;
-}
-
-.submenu.expanded {
-  transform: scaleY(1);
-}
-
-.mat-drawer-inner-container {
-  background: linear-gradient(90deg, #66a4c4 0%, #257aa6 100%);
-}
-
-.example-toolbar {
-  background: linear-gradient(90deg, #66a4c4 0%, #257aa6 100%);
-}
-
-#sidenav-fixed-container {
-  background: linear-gradient(90deg, #66a4c4 0%, #257aa6 100%);
-}
-
-/* .mat-drawer-side {
-    background: linear-gradient(90deg, #66a4c4 0%, #257aa6 100%) !important;
-    width: 210px;
-
-  } */
-.mat-drawer {
-  border-top-right-radius: 0%;
-  width: 200px;
+.mat-sidenav-content {
+  flex: 1 1 auto;
 }
 
 #customIconSize {

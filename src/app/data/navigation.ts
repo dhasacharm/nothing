@@ -69,7 +69,7 @@ export const navigation = [
             },
             {
                 title: 'Registration',
-                route: '/preferences'
+                route: '/dashboard/register'
             },
             {
                 title: 'Simple Registration',
