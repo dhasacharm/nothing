@@ -1,0 +1,98 @@
+.container {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .card-flex-box-doctor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .card-box-item {
+    width: 180px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .card-box-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-box-item:hover {
+    transform: scale(1.05);
+  }
+  
+
+  .box-bg-color1 {
+    background: #5d9cec;
+  }
+  
+  .box-bg-color2 {
+    background: #ff902c;
+  }
+  
+  .box-bg-color3 {
+    background: #B97C3B;
+  }
+  
+  .box-bg-color4 {
+    background: #5EBE28;
+  }
+  
+  .box-bg-color5 {
+    background: #e91e63cc;
+  }
+  
+  .box-bg-color6 {
+    background: #8c5be4e8;
+  }
+  
+  .box-bg-color7 {
+    background: #d45ae8;
+  }
+  
+  .box-bg-color8 {
+    background: #e84646;
+  }
+  
+  .box-bg-color9 {
+    background: #B39F4D;
+  }
+  
+  i {
+    font-size: 20px;
+  }
+  .card-flex-box-appointment {
+    display: grid
+;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    font-size: 14px;
+}
+.card-box-item {
+    border-radius: 20px;
+    padding: 10px;
+    height: 74px;
+    color: #fff;
+    display: flex
+;
+    flex-wrap: wrap;
+    align-items: center;
+    width: -webkit-fill-available;
+}
+.card-box-header {
+    display: flex
+;
+    padding-bottom: 5px;
+    width: 100%;
+    justify-content: space-between;
+}

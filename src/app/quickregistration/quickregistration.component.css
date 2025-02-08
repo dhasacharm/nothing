@@ -1,0 +1,113 @@
+
+
+.margin-left-1em {
+    margin-left: 1em;
+}
+/* Styles for wrapping the search box */
+input::placeholder {
+    font-size: 12px;
+    font-family: 'poppins', sans-serif;
+    }
+    .form-control:focus {
+        color: var(--bs-body-color);
+        background-color: none;
+        border-color: none;
+        /* outline: 0; */
+        box-shadow: none;
+    }
+    .step-token-number {
+        background: #4c4545;
+        border-radius: 0.8em;
+        -moz-border-radius: 0.8em;
+        -webkit-border-radius: 1.8em;
+        color: #ffffff;
+        display: inline-block;
+        font-weight: bold;
+        line-height: 3.6em;
+        margin-right: 5px;
+        text-align: center;
+        width: 3.6em;
+    }
+    .span-inlinr-flex {
+        display: flex;
+    }
+    .margin-left-2px {
+        margin-left: 5px;
+        cursor: pointer;
+    }
+    
+    /* Bootstrap 4 text input with search icon */
+    
+    .has-search .form-control {
+        padding-left: 2.375rem;
+    }
+    
+    .has-search .form-control-feedback {
+        position: absolute;
+        z-index: 2;
+        display: block;
+        width: 2.375rem;
+        height: 2.375rem;
+        line-height: 2.375rem;
+        text-align: center;
+        pointer-events: none;
+        color: #aaa;
+    }
+    
+    
+    /* Default styles for mobile (less than 768px wide) */
+    body {
+        font-size: 14px;
+        background-color: lightblue;
+      }
+      
+      /* Larger mobile and tablets (768px to 1024px wide) */
+      @media (min-width: 768px) and (max-width: 1024px) {
+        body {
+          font-size: 16px;
+          background-color: lightgreen;
+        }
+      }
+      
+      /* Larger laptops and smaller desktops (1025px to 1440px wide) */
+      @media (min-width: 1025px) and (max-width: 1440px) {
+        body {
+          font-size: 18px;
+          background-color: lightcoral;
+        }
+      }
+      
+      /* Desktops and larger devices (1441px wide and up) */
+      @media (min-width: 1441px) {
+        .add-Icon-img {
+            width: 30px;
+        }
+        .form-check-input {
+            width: 2em;
+            height: 2em;
+        }
+        .drhms-img-thumbnail {
+            width: 225px;
+            max-height: 200px;
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            height: 175px;
+    
+        }
+        .hidden {
+            display: none;
+          }
+          button.drhms-webcam-btn {
+            border: 1px solid #00125a;
+            background: #00125a;
+            border-radius: 6px;
+            color: #fafafa !important;
+            padding: 4px 5px;
+        }
+        .accordion-button {
+            padding: 0;
+            background: none;
+            box-shadow:none 
+        }
+      }
+      

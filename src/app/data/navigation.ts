@@ -65,7 +65,7 @@ export const navigation = [
         subNav: [
             {
                 title: 'OP VisitBill Link',
-                route: '/profile'
+                route: '/dashboard/op-vist-link'
             },
             {
                 title: 'Registration',
@@ -73,7 +73,7 @@ export const navigation = [
             },
             {
                 title: 'Simple Registration',
-                route: '/preferences'
+                route: '/dashboard/quickregistration'
             },
             {
                 title: 'Bulk Checkout',

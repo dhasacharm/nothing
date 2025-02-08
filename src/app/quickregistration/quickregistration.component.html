@@ -1,7 +1,29 @@
-<div>
-    <h2 class="p-2">Simple Registration</h2>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-7 p-2 bg-white text-dark">
+            <h5>Simple Registration</h5>
+        </div>
+        <div class="col-sm-3 p-2 bg-white text-dark">
+            <!-- Actual search box -->
+            <div class="form-group has-search">
+                <span class="fa fa-search form-control-feedback"></span>
+                <input type="text" class="form-control" placeholder="Search Your Membership#...">
+            </div>
+        </div>
+        <div class="col-sm-2 p-2 bg-white text-end">
+            <div>
+                <img class="add-Icon-img ml-5" src="../../assets/icons/plus.png">
+                <img class="add-Icon-img ml-4 margin-left-1em" src="../../assets/icons/bed.png">
+                <img class="add-Icon-img ml-4 margin-left-1em" src="../../assets/icons/home.png">
+
+            </div>
+        </div>
+
+    </div>
+
 </div>
-<div class="container-fluid mt-3">
+<div class="container-fluid ">
     <div class="row">
         <div class="col-sm-3 p-3  text-dark">
             <label class="p-2">Type</label><br>
@@ -22,7 +44,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid mt-3">
+<div class="container-fluid ">
     <div class="row">
         <div class="col-sm-1 p-3 text-dark">
             <label class="p-2">Age</label><br>
@@ -48,7 +70,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid mt-3">
+<div class="container-fluid ">
     <div class="row">
         <div class="col-sm-3 p-3 text-dark">
             <label class="p-2">Nationality ID</label><br>
@@ -71,7 +93,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid mt-3">
+<div class="container-fluid ">
     <div class="row">
         <div class="col-sm-3 p-3 text-dark">
             <label class="p-2">MLC</label><br>
@@ -91,28 +113,83 @@
         </div>
     </div>
 </div>
-<div>
-    <p class="p-3">Upload & Image Preview</p>
+
+
+<div class="mt-2">
+    <p class="">Upload & Image Preview</p>
     <hr>
+
 </div>
-<div>
-    <p><button type="submit">Upload</button> <button type="submit">Upload</button> <button type="submit">Upload</button>
-    </p>
-</div>
-<div class="container-fluid mt-3">
+
+
+<div class="container-fluid ">
     <div class="row">
-        <div class="col-sm-2 p-3 bg-white text-dark">
+        <div class="col-sm-3  bg-white text-dark">
+            <canvas class="drhms-img-thumbnail" #canv1>
+                <img [src]="imageUrl" #imagePreview alt="Default Image">
+            </canvas>
+            <div>
+                <input type="file" accept="image/*" #fileInput class="hidden" (change)="previewImage($event)">
+                <button type="button" class="btn btn-outline-primary" (click)="triggerFileInput()">Upload</button>
+                <button type="button" class="drhms-webcam-btn margin-left-10px" (click)="captureImage()">Webcam</button>
+                <button type="button" class="btn btn-outline-danger margin-left-10px" (click)="removeImage()">Remove</button>
+                <video #video width="320" height="240" autoplay style="display:none;"></video>
+                <button #snap style="display:none;" (click)="snapImage()">Snap</button>
+            </div>
         </div>
-        <div class="col-sm-2 p-3 bg-white text-dark">
-        </div>
-        <div class="col-sm-2 p-3 bg-white text-dark">
-        </div>
-        <div class="col-sm-2 p-3 bg-white text-dark">
-        </div>
-        <div class="col-sm-2 p-3 bg-white text-dark">
-        </div>
-        <div class="col-sm-2 p-3 bg-white text-dark">
-            <p><button>Activate</button></p>
-        </div>
+        
+
     </div>
 </div>
+
+
+<div class="container-fluid mt-3">
+    <div class="row">
+
+        <div class="text-end">
+            <p><button class="draftbutton">Activate</button></p>
+
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    function previewImage(event) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            const output = document.getElementById('imagePreview');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+    function captureImage() {
+        const video = document.getElementById('video');
+        const snapButton = document.getElementById('snap');
+        video.style.display = 'block';
+        snapButton.style.display = 'block';
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                video.srcObject = stream;
+            })
+            .catch(function(err) {
+                console.log("An error occurred: " + err);
+            });
+    }
+    function snapImage() {
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canv1');
+        const context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const imagePreview = document.getElementById('imagePreview');
+        imagePreview.src = canvas.toDataURL('image/png');
+        video.style.display = 'none';
+        document.getElementById('snap').style.display = 'none';
+        video.srcObject.getTracks().forEach(track => track.stop());
+    }
+    function removeImage() {
+        const imagePreview = document.getElementById('imagePreview');
+        imagePreview.src = '../../assets/icons/default.jpg';
+    }
+</script>

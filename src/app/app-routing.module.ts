@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { OpregisterComponent } from './opregister/opregister.component';
 import { QuickregistrationComponent } from './quickregistration/quickregistration.component';
+import { OpvisitlinkComponent } from './opvisitlink/opvisitlink.component';
+import { FrontOfficeDashboardComponent } from './front-office-dashboard/front-office-dashboard.component';
 
 const routes: Routes = [
   {
@@ -15,8 +17,24 @@ const routes: Routes = [
     path:"dashboard",
     component: DashboardComponent,
     children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'front-dashboard',
+      },
+      {
+        path:"front-dashboard",
+        component:FrontOfficeDashboardComponent
+      },
       { path: 'register', component: OpregisterComponent },
-      { path: 'quick-reg', component: QuickregistrationComponent }
+      {
+        path:"op-vist-link",
+        component:OpvisitlinkComponent
+      },
+      {
+        path:"quickregistration",
+        component:QuickregistrationComponent
+      }
     ]
   },
   {
@@ -26,7 +44,8 @@ const routes: Routes = [
   {
     path:"op-register",
     component:OpregisterComponent
-  }
+  },
+  
 
 ];
 

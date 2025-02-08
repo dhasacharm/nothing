@@ -43,3 +43,6 @@ input::file-selector-button {
 .margin-left-10px {
     margin-left: 10px;
 }
+.add-Icon-img {
+    cursor: pointer;
+}

@@ -1,0 +1,58 @@
+.container {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .filters {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-group input, .filter-group select {
+    padding: 5px;
+    width: 200px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .pagination button {
+    padding: 5px 10px;
+    margin: 2px;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+  }
+  
+  .pagination button.active {
+    background: navy;
+    color: white;
+  }
+  
