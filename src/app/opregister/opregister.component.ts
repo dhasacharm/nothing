@@ -1,4 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ReferralModalComponent } from '../referral-modal/referral-modal.component';
 
 @Component({
   selector: 'app-opregister',
@@ -13,6 +16,30 @@ export class OpregisterComponent {
   @ViewChild('canv1') canvas!: ElementRef;
   fileToUpload: any;
   imageUrl: string = '../../assets/icons/default.jpg';
+
+  registerForm: FormGroup;
+
+  constructor(private fb: FormBuilder, public dialog: MatDialog) {
+    this.registerForm = this.fb.group({
+      referralName: ['', Validators.required],
+      reason: ['', Validators.required],
+      payerNumber: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]]
+    });
+  }
+
+  openReferralModal(title: string,): void {
+    const dialogRef = this.dialog.open(ReferralModalComponent, {
+      width: '250px',
+      data: { title }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.registerForm.patchValue(result);
+      }
+    });
+  }
   handleFileInput(file: FileList) {
     this.fileToUpload = file.item(0);
 

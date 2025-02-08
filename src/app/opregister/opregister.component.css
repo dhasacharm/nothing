@@ -1,7 +1,37 @@
 
 
 /* Styles for wrapping the search box */
-
+input::placeholder {
+font-size: 12px;
+font-family: 'poppins', sans-serif;
+}
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: none;
+    border-color: none;
+    /* outline: 0; */
+    box-shadow: none;
+}
+.step-token-number {
+    background: #4c4545;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 1.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 3.6em;
+    margin-right: 5px;
+    text-align: center;
+    width: 3.6em;
+}
+.span-inlinr-flex {
+    display: flex;
+}
+.margin-left-2px {
+    margin-left: 5px;
+    cursor: pointer;
+}
 
 /* Bootstrap 4 text input with search icon */
 
@@ -70,6 +100,11 @@ body {
         border-radius: 6px;
         color: #fafafa !important;
         padding: 4px 5px;
+    }
+    .accordion-button {
+        padding: 0;
+        background: none;
+        box-shadow:none 
     }
   }
   

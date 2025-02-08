@@ -1,4 +1,4 @@
-<div class="container-fluid mt-3">
+<div class="container-fluid">
     <div class="row">
         <div class="col-sm-1 p-2 bg-white text-dark">
             <h5>Registration</h5>
@@ -24,9 +24,15 @@
             </div>
         </div>
     </div>
-    <p class="">Patient Info</p>
-    <hr>
+
 </div>
+<div class="container-fluid">
+    <div class="row">
+        <p class="">Patient Info</p>
+        <hr>
+    </div>
+</div>
+
 
 <div class="container-fluid mt-3">
     <div class="row">
@@ -34,7 +40,7 @@
         <div class="col-sm-3  bg-white text-dark">
             <div class="mb-3 form-box">
                 <div class="mb-3">
-                    <label class="p-2">Title*</label><br>
+                    <label class="p-2">Title<span style="color:red">*</span></label><br>
                     <select class="form-select" id="options" name="options" required>
                         <option value="" disabled selected>Select an option</option>
                         <option value="option1">Option 1</option>
@@ -44,14 +50,14 @@
                 </div>
 
             </div>
-            <!-- <input type="text" name="Title*" required> -->
+            <!-- <input type="text" name="Title<span style="color:red">*</span>" required> -->
         </div>
         <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">First Name*</label><br>
+            <label class="p-2">First Name<span style="color:red">*</span></label><br>
             <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
         </div>
         <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">Last Name*</label><br>
+            <label class="p-2">Last Name<span style="color:red">*</span></label><br>
             <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
         </div>
 
@@ -63,7 +69,7 @@
                         required>
                 </div>
                 <div class="col-sm-6  bg-white text-dark">
-                    <label class="p-2">Age*</label><br>
+                    <label class="p-2">Age<span style="color:red">*</span></label><br>
                     <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                         required>
                 </div>
@@ -80,7 +86,7 @@
     <div class="row">
         <div class="col-sm-3  bg-white text-dark">
             <div class="mb-3">
-                <label class="p-2">Gender*</label><br>
+                <label class="p-2">Gender<span style="color:red">*</span></label><br>
                 <select class="form-select" id="options" name="options" required>
                     <option value="" disabled selected>Select an option</option>
                     <option value="option1">Option 1</option>
@@ -90,7 +96,7 @@
             </div>
         </div>
         <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">Mobile* </label><br>
+            <label class="p-2">Mobile<span style="color:red">*</span> </label><br>
             <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
         </div>
         <div class="col-sm-3  bg-white text-dark">
@@ -158,12 +164,12 @@
 
         </div>
         <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2"> Nationality* </label><br>
+            <label class="p-2"> Nationality<span style="color:red">*</span> </label><br>
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
 
         </div>
         <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2"> Address*</label><br>
+            <label class="p-2"> Address<span style="color:red">*</span></label><br>
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
 
         </div>
@@ -254,9 +260,8 @@
             </div>
         </div>
         <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2"> Occupation</label><br>
             <div class="mb-3">
-                <label class="p-2"> VIP Type</label><br>
+                <label class="p-2"> Occupation</label><br>
                 <select class="form-select" id="options" name="options" required>
                     <option value="" disabled selected>Select an option</option>
                     <option value="option1">Option 1</option>
@@ -268,20 +273,21 @@
 
     </div>
 </div>
-<div class="accordion" id="accordionPanelsStayOpenExample">
+<div class="accordion mt-2 mb-3" id="accordionPanelsStayOpenExample">
 
     <div class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne"
         aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-        <p class="p-1">Visit</p>
-        <hr>
+        <p class="">Visit</p>
     </div>
+    <hr>
+
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
         aria-labelledby="panelsStayOpen-headingOne">
 
         <div class="container-fluid mt-3">
             <div class="row">
                 <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2">Visit Type*</label><br>
+                    <label class="p-2">Visit Type<span style="color:red">*</span></label><br>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                         required>
 
@@ -293,7 +299,7 @@
 
                 </div>
                 <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2"> Doctor*</label><br>
+                    <label class="p-2"> Doctor<span style="color:red">*</span></label><br>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                         required>
 
@@ -310,28 +316,37 @@
         <div class="container-fluid mt-3">
             <div class="row">
                 <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2">Payer Type*</label><br>
+                    <label class="p-2">Payer Type<span style="color:red">*</span></label><br>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                         required>
 
                 </div>
                 <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2"> Source Type*</label><br>
+                    <label class="p-2"> Source Type<span style="color:red">*</span></label><br>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                         required>
 
                 </div>
                 <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2"> Referral Name*</label><br>
+                    <label class="p-2"> Referral Name<span style="color:red">*</span></label><br>
+                    <span class="span-inlinr-flex">
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                         required>
+                        <!-- <div> -->
+                            <img class="add-Icon-img margin-left-2px"  src="../../assets/icons/plus.png" (click)="openReferralModal('Referral Name')"></span>
+                        <!-- </div> -->
 
                 </div>
                 <div class="col-sm-3 p-3 bg-white text-dark">
                     <label class="p-2"> Reason</label><br>
+                    <span class="span-inlinr-flex">
+
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                         required>
-
+                        <!-- <div> -->
+                            <img class="add-Icon-img margin-left-2px" src="../../assets/icons/plus.png" (click)="openReferralModal('Reason')">
+                        <!-- </div> -->
+                         </span>
                 </div>
             </div>
         </div>
@@ -353,8 +368,7 @@
                 </div>
                 <div class="col-sm-3 p-3 bg-white text-dark">
                     <label class="p-2"> Token Num </label><br>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
+                    <span class="step-token-number">1</span>
 
                 </div>
                 <!-- <div class="col-sm-3 p-3 bg-white text-dark">
@@ -371,9 +385,10 @@
 
     <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
         data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-        <p class="p-3">Consultation Bill </p>
-        <hr>
+        <p class="">Consultation Bill </p>
     </div>
+    <hr>
+
     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse show collapse"
         aria-labelledby="panelsStayOpen-headingTwo">
         <div class="container-fluid mt-3">
@@ -394,33 +409,31 @@
                         <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                             required>
                     </div>
-                    <!-- <div>
-                    <label class="p-2">Discount Type</label><br>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
-                </div> -->
 
                 </div>
 
                 <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2">Emergency</label><br>
-                    <div class="form-check">
+                    <div>
+                        <label>Emergency</label><br>
+
                         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                         <label class="form-check-label" for="defaultCheck1"> </label>
                     </div>
 
-                    <div class="col-sm-3 p-3 bg-white text-dark">
-                        <label class="p-2">No Bill</label><br>
-                        <div class="form-check">
+                    <div>
+                        <div>
+                            <label>No Bill</label><br>
+
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                             <label class="form-check-label" for="defaultCheck1"> </label>
                         </div>
                     </div>
 
 
-                    <div class="col-sm-3 p-3 bg-white text-dark">
-                        <label class="p-2">Is OPD</label><br>
-                        <div class="form-check">
+                    <div>
+                        <div>
+                            <label>Is OPD</label><br>
+
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                             <label class="form-check-label" for="defaultCheck1"> </label>
                         </div>
@@ -520,41 +533,34 @@
         <hr>
     </div>
 </div>
-<div>
+<div class="accordion mb-5" id="accordionPanelsStayOpenExample">
 
-    <!-- <div>
-            <p class="p-3">Promotion Scheme</p>
-        </div> -->
+    <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+        aria-controls="panelsStayOpen-collapseThree">
+        <p class="">Promotion Scheme</p>
 
-    <div class="container-fluid mt-3">
+    </div>
+    <hr>
+    <div class="container-fluid mt-3" id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+        aria-labelledby="panelsStayOpen-headingThree">
         <div class="row">
-            <div class="col-sm-2  bg-white text-dark">
-                <!-- <label class="p-2">Gender*</label><br>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required> -->
-                <p>Promotion Scheme</p>
-            </div>
-            <div class="col-sm-2  bg-white text-dark">
-                <!-- <label class="p-2">Gender*</label><br>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required> -->
-            </div>
-            <div class="col-sm-2  bg-white text-dark">
+            <div class="col-sm-3  bg-white text-dark">
                 <label class="p-2">Membership Number</label><br>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                     required>
             </div>
-            <div class="col-sm-2  bg-white text-dark">
+            <div class="col-sm-3  bg-white text-dark">
                 <label class="p-2">Type </label><br>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                     required>
             </div>
-            <div class="col-sm-2  bg-white text-dark">
+            <div class="col-sm-3  bg-white text-dark">
                 <label class="p-2">Alternate Mobile#</label><br>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                     required>
             </div>
-            <div class="col-sm-2 p-3 bg-white text-dark">
+            <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">Email</label><br>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                     required>
@@ -567,31 +573,31 @@
 
 
 
-<div>
+<div class="mt-2">
     <p class="">Upload & Image Preview</p>
+    <hr>
+
 </div>
 
-<div>
-    <hr>
-</div>
 
 <div class="container-fluid mt-3">
     <div class="row">
         <div class="col-sm-3  bg-white text-dark">
             <canvas class="drhms-img-thumbnail" #canv1>
-                <img  [src]="imageUrl" #imagePreview alt="Default Image">
+                <img [src]="imageUrl" #imagePreview alt="Default Image">
             </canvas>
             <div>
-                <input type="file" accept="image/*" #fileInput class="hidden" (change)="previewImage($event)">
+                <input type="file" accept="image/" #fileInput class="hidden" (change)="previewImage($event)">
                 <button type="button" class="btn btn-outline-primary" (click)="triggerFileInput()">Upload</button>
                 <button type="button" class="drhms-webcam-btn margin-left-10px" (click)="captureImage()">Webcam</button>
-                <button type="button" class="btn btn-outline-danger margin-left-10px" (click)="removeImage()">Remove</button>
+                <button type="button" class="btn btn-outline-danger margin-left-10px"
+                    (click)="removeImage()">Remove</button>
                 <video #video width="320" height="240" autoplay style="display:none;"></video>
-    
+
             </div>
-                    </div>
+        </div>
         <div class="col-sm-3 p-3 bg-white text-dark">
-            <!-- <label class="p-2">Gender*</label><br>
+            <!-- <label class="p-2">Gender<span style="color:red">*</span></label><br>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                     required> -->
         </div>
@@ -606,7 +612,7 @@
             <!-- <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                     required> -->
         </div>
-        
+
     </div>
 </div>
 
@@ -614,56 +620,10 @@
 <div class="container-fluid mt-3">
     <div class="row">
 
-        <div class="text-end" >
+        <div class="text-end">
             <p><button class="draftbutton">Activate</button></p>
 
         </div>
 
     </div>
 </div>
-
-
-<script>
-    function previewImage(event) {
-        const reader = new FileReader();
-        reader.onload = function() {
-            const output = document.getElementById('imagePreview');
-            output.src = reader.result;
-        };
-        reader.readAsDataURL(event.target.files[0]);
-    }
-
-    function captureImage() {
-        const video = document.getElementById('video');
-        const snapButton = document.getElementById('snap');
-        video.style.display = 'block';
-        snapButton.style.display = 'block';
-
-        navigator.mediaDevices.getUserMedia({ video: true })
-            .then(function(stream) {
-                video.srcObject = stream;
-            })
-            .catch(function(err) {
-                console.log("An error occurred: " + err);
-            });
-    }
-
-    function snapImage() {
-        const video = document.getElementById('video');
-        const canvas = document.getElementById('canv1');
-        const context = canvas.getContext('2d');
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-        const imagePreview = document.getElementById('imagePreview');
-        imagePreview.src = canvas.toDataURL('image/png');
-
-        video.style.display = 'none';
-        document.getElementById('snap').style.display = 'none';
-        video.srcObject.getTracks().forEach(track => track.stop());
-    }
-
-    function removeImage() {
-        const imagePreview = document.getElementById('imagePreview');
-        imagePreview.src = '../../assets/icons/default.jpg';
-    }
-</script>

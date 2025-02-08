@@ -21,6 +21,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { QuickregistrationComponent } from './quickregistration/quickregistration.component';  // <-- Import HttpClientModule
 import { OpregisterComponent } from './opregister/opregister.component';
+import { ReferralModalComponent } from './referral-modal/referral-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { OpregisterComponent } from './opregister/opregister.component';
     SidebarComponent,
     DashboardComponent,
     QuickregistrationComponent,
-    OpregisterComponent
+    OpregisterComponent,
+    ReferralModalComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { OpregisterComponent } from './opregister/opregister.component';
     MatMenuModule,
     MatCardModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
 
   ],
   providers: [
