@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { OpregisterComponent } from './opregister/opregister.component';
 import { QuickregistrationComponent } from './quickregistration/quickregistration.component';
+import { FullregisterComponent } from './fullregister/fullregister.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: 'register', component: OpregisterComponent },
-      { path: 'quick-reg', component: QuickregistrationComponent }
+      { path: 'quick-reg', component: QuickregistrationComponent },
+      {path:"full-reg",component:FullregisterComponent}
     ]
   },
   {

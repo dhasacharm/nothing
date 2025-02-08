@@ -23,6 +23,7 @@ import { QuickregistrationComponent } from './quickregistration/quickregistratio
 import { OpregisterComponent } from './opregister/opregister.component';
 import { ReferralModalComponent } from './referral-modal/referral-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FullregisterComponent } from './fullregister/fullregister.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     DashboardComponent,
     QuickregistrationComponent,
     OpregisterComponent,
-    ReferralModalComponent
+    ReferralModalComponent,
+    FullregisterComponent
   ],
   imports: [
     BrowserModule,
