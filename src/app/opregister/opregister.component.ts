@@ -36,7 +36,9 @@ export class OpregisterComponent implements AfterViewInit {
 
   openReferralModal(title: string): void {
     const dialogRef = this.dialog.open(ReferralModalComponent, {
-      width: '600px', // Set the width to make the modal larger
+      width: '100vw',
+      maxWidth: '100vw',
+      height: '70vh',
       data: { title }
     });
 

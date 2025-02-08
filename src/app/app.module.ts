@@ -25,6 +25,7 @@ import { ReferralModalComponent } from './referral-modal/referral-modal.componen
 import { MatDialogModule } from '@angular/material/dialog';
 import { OpvisitlinkComponent } from './opvisitlink/opvisitlink.component';
 import { FrontOfficeDashboardComponent } from './front-office-dashboard/front-office-dashboard.component';
+import { FullregisterComponent } from './fullregister/fullregister.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FrontOfficeDashboardComponent } from './front-office-dashboard/front-of
     OpregisterComponent,
     ReferralModalComponent,
     OpvisitlinkComponent,
-    FrontOfficeDashboardComponent
+    FrontOfficeDashboardComponent,
+    FullregisterComponent
   ],
   imports: [
     BrowserModule,

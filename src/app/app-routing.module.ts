@@ -6,6 +6,7 @@ import { OpregisterComponent } from './opregister/opregister.component';
 import { QuickregistrationComponent } from './quickregistration/quickregistration.component';
 import { OpvisitlinkComponent } from './opvisitlink/opvisitlink.component';
 import { FrontOfficeDashboardComponent } from './front-office-dashboard/front-office-dashboard.component';
+import { FullregisterComponent } from './fullregister/fullregister.component';
 
 const routes: Routes = [
   {
@@ -34,7 +35,8 @@ const routes: Routes = [
       {
         path:"quickregistration",
         component:QuickregistrationComponent
-      }
+      },
+      {path:"full-reg",component:FullregisterComponent}
     ]
   },
   {
