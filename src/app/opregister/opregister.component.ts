@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ReferralModalComponent } from '../referral-modal/referral-modal.component';
@@ -8,13 +8,12 @@ import { ReferralModalComponent } from '../referral-modal/referral-modal.compone
   templateUrl: './opregister.component.html',
   styleUrls: ['./opregister.component.css']
 })
-export class OpregisterComponent {
+export class OpregisterComponent implements AfterViewInit {
   @ViewChild('fileInput') fileInput!: ElementRef;
   @ViewChild('imagePreview') imagePreview!: ElementRef;
   @ViewChild('video') video!: ElementRef;
   @ViewChild('snap') snap!: ElementRef;
   @ViewChild('canv1') canvas!: ElementRef;
-  fileToUpload: any;
   imageUrl: string = '../../assets/icons/default.jpg';
 
   registerForm: FormGroup;
@@ -28,9 +27,16 @@ export class OpregisterComponent {
     });
   }
 
-  openReferralModal(title: string,): void {
+  ngAfterViewInit() {
+    // Ensure that the @ViewChild elements are available
+    if (!this.fileInput || !this.imagePreview || !this.video || !this.snap || !this.canvas) {
+      console.error('One or more @ViewChild elements are not available');
+    }
+  }
+
+  openReferralModal(title: string): void {
     const dialogRef = this.dialog.open(ReferralModalComponent, {
-      width: '250px',
+      width: '600px', // Set the width to make the modal larger
       data: { title }
     });
 
@@ -40,17 +46,7 @@ export class OpregisterComponent {
       }
     });
   }
-  handleFileInput(file: FileList) {
-    this.fileToUpload = file.item(0);
 
-    //Show image preview
-    let reader = new FileReader();
-    reader.onload = (event: any) => {
-      this.imageUrl = event.target.result;
-    }
-    reader.readAsDataURL(this.fileToUpload);
-  }
-  
   previewImage(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
@@ -96,17 +92,24 @@ export class OpregisterComponent {
 
     videoElement.style.display = 'none';
     this.snap.nativeElement.style.display = 'none';
-    videoElement.srcObject.getTracks().forEach((track: { stop: () => any; }) => track.stop());
+    (videoElement.srcObject as MediaStream).getTracks().forEach((track: MediaStreamTrack) => track.stop());
   }
 
   removeImage() {
     const canvasElement = this.canvas.nativeElement;
     const context = canvasElement.getContext('2d');
     context.clearRect(0, 0, canvasElement.width, canvasElement.height);
-    this.imagePreview.nativeElement.src = '../../assets/icons/default.jpg';
+    this.imageUrl = '../../assets/icons/default.jpg';
   }
 
   triggerFileInput() {
     this.fileInput.nativeElement.click();
+  }
+
+  onSubmit() {
+    if (this.registerForm.valid) {
+      console.log('Form Submitted', this.registerForm.value);
+      // Handle form submission logic here
+    }
   }
 }

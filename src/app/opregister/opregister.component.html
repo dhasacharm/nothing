@@ -587,13 +587,12 @@
                 <img [src]="imageUrl" #imagePreview alt="Default Image">
             </canvas>
             <div>
-                <input type="file" accept="image/" #fileInput class="hidden" (change)="previewImage($event)">
+                <input type="file" accept="image/*" #fileInput class="hidden" (change)="previewImage($event)">
                 <button type="button" class="btn btn-outline-primary" (click)="triggerFileInput()">Upload</button>
                 <button type="button" class="drhms-webcam-btn margin-left-10px" (click)="captureImage()">Webcam</button>
-                <button type="button" class="btn btn-outline-danger margin-left-10px"
-                    (click)="removeImage()">Remove</button>
+                <button type="button" class="btn btn-outline-danger margin-left-10px" (click)="removeImage()">Remove</button>
                 <video #video width="320" height="240" autoplay style="display:none;"></video>
-
+                <button #snap style="display:none;" (click)="snapImage()">Snap</button>
             </div>
         </div>
         <div class="col-sm-3 p-3 bg-white text-dark">
@@ -627,3 +626,43 @@
 
     </div>
 </div>
+
+
+<script>
+    function previewImage(event) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            const output = document.getElementById('imagePreview');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+    function captureImage() {
+        const video = document.getElementById('video');
+        const snapButton = document.getElementById('snap');
+        video.style.display = 'block';
+        snapButton.style.display = 'block';
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                video.srcObject = stream;
+            })
+            .catch(function(err) {
+                console.log("An error occurred: " + err);
+            });
+    }
+    function snapImage() {
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canv1');
+        const context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const imagePreview = document.getElementById('imagePreview');
+        imagePreview.src = canvas.toDataURL('image/png');
+        video.style.display = 'none';
+        document.getElementById('snap').style.display = 'none';
+        video.srcObject.getTracks().forEach(track => track.stop());
+    }
+    function removeImage() {
+        const imagePreview = document.getElementById('imagePreview');
+        imagePreview.src = '../../assets/icons/default.jpg';
+    }
+</script>
