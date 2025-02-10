@@ -26,6 +26,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { OpvisitlinkComponent } from './opvisitlink/opvisitlink.component';
 import { FrontOfficeDashboardComponent } from './front-office-dashboard/front-office-dashboard.component';
 import { FullregisterComponent } from './fullregister/fullregister.component';
+import { BulkCheckOutComponent } from './bulk-check-out/bulk-check-out.component';
+import { PatientRegisteredComponent } from './patient-registered/patient-registered.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { FullregisterComponent } from './fullregister/fullregister.component';
     ReferralModalComponent,
     OpvisitlinkComponent,
     FrontOfficeDashboardComponent,
-    FullregisterComponent
+    FullregisterComponent,
+    BulkCheckOutComponent,
+    PatientRegisteredComponent
   ],
   imports: [
     BrowserModule,

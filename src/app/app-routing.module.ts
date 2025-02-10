@@ -7,6 +7,8 @@ import { QuickregistrationComponent } from './quickregistration/quickregistratio
 import { OpvisitlinkComponent } from './opvisitlink/opvisitlink.component';
 import { FrontOfficeDashboardComponent } from './front-office-dashboard/front-office-dashboard.component';
 import { FullregisterComponent } from './fullregister/fullregister.component';
+import { BulkCheckOutComponent } from './bulk-check-out/bulk-check-out.component';
+import { PatientRegisteredComponent } from './patient-registered/patient-registered.component';
 
 const routes: Routes = [
   {
@@ -15,7 +17,7 @@ const routes: Routes = [
     redirectTo: '/dashboard',
   },
   {
-    path:"dashboard",
+    path: "dashboard",
     component: DashboardComponent,
     children: [
       {
@@ -24,30 +26,32 @@ const routes: Routes = [
         redirectTo: 'front-dashboard',
       },
       {
-        path:"front-dashboard",
-        component:FrontOfficeDashboardComponent
+        path: "front-dashboard",
+        component: FrontOfficeDashboardComponent
       },
       { path: 'register', component: OpregisterComponent },
       {
-        path:"op-vist-link",
-        component:OpvisitlinkComponent
+        path: "op-vist-link",
+        component: OpvisitlinkComponent
       },
       {
-        path:"quickregistration",
-        component:QuickregistrationComponent
+        path: "quickregistration",
+        component: QuickregistrationComponent
       },
-      {path:"full-reg",component:FullregisterComponent}
+      { path: "full-reg", component: FullregisterComponent },
+      { path: "BulkCheckOut", component:BulkCheckOutComponent }
+      ,{ path: "PatientRegistered", component:PatientRegisteredComponent}
     ]
   },
   {
-    path:"login",
+    path: "login",
     component: LoginComponent
   },
   {
-    path:"op-register",
-    component:OpregisterComponent
+    path: "op-register",
+    component: OpregisterComponent
   },
-  
+
 
 ];
 
