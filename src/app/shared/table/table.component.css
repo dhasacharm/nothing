@@ -1,0 +1,38 @@
+/* Table Container */
+.table-container {
+    width: 100%;
+    margin: auto;
+}
+
+/* Search Box */
+.filter-box {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Table Wrapper (Fix Height for Scroll) */
+.mat-table-wrapper {
+    max-height: 400px; /* Adjust height as needed */
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Sticky Header */
+th.sticky-header {
+    position: sticky;
+    top: 0;
+    background: #1976D2; /* Custom Header Color (Material Blue) */
+    color: white;
+    z-index: 2;
+}
+
+/* Elevation Effect */
+.mat-elevation-z8 {
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* Pagination Styling */
+mat-paginator {
+    margin-top: 10px;
+}

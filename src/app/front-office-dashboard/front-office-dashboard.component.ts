@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-front-office-dashboard',
@@ -8,7 +8,12 @@ import { Component } from '@angular/core';
 
 
 
+
 export class FrontOfficeDashboardComponent {
+  
+
+
+  
   userPermissions = {
     FrontOfficeDashboard: {
       Registration: true,
@@ -22,7 +27,7 @@ export class FrontOfficeDashboardComponent {
       FrontOfficeReports: true
     }
   };
-
+  
   registraion() {
     console.log('Navigating to Registration / OP Visit');
   }

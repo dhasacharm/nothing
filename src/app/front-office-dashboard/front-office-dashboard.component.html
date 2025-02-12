@@ -1,43 +1,78 @@
+<div class="row page-titles">
+    <div class="col-md-7 align-self-center">
+        <h4 class="text-themecolor">Dashboard</h4>
+    </div>
+    <div class="col-md-5 align-self-center">
+        <div class="row">
+            <div class="col-sm-6">
+                
+                <div class="date-wrapper">
+                    <i class="fa fa-calendar" ></i>
+                    <mat-datepicker #picker></mat-datepicker>
+
+                    <input type="date" (click)="picker.open()" [matDatepicker]="picker" class="form-control"  />
+                </div>
+                
+            </div>
+            <div class="col-md-4 align-self-center text-right">
+                <div class="d-flex justify-content-end align-items-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="col-sm-12">
     <div class="card-flex-box-appointment">
         <div class="card-box-item box-bg-color1">
             <div class="card-box-header"><i class="fas fa-user-injured" aria-hidden="true"></i>
-                <div translate="dashboard.newpatient.lbl" class="ng-scope"><span class="ng-scope">New Patients</span></div>
+                <div translate="dashboard.newpatient.lbl" class="ng-scope"><span class="ng-scope">New Patients</span>
+                </div>
             </div>
             <div class="ng-binding">0</div>
         </div>
         <div class="card-box-item box-bg-color2">
             <div class="card-box-header">
                 <div><i class="fas fa-user" aria-hidden="true"></i></div>
-                <div translate="dashboard.follow.lbl" class="ng-scope"><span class="ng-scope">FollowUp Patients</span></div>
+                <div translate="dashboard.follow.lbl" class="ng-scope"><span class="ng-scope">FollowUp Patients</span>
+                </div>
             </div>
             <div class="ng-binding">0</div>
         </div>
         <div class="card-box-item box-bg-color3">
             <div class="card-box-header">
                 <div><i class="far fa-calendar-check" aria-hidden="true"></i></div>
-                <div translate="dashboard.appoitments.lbl" class="ng-scope"><span class="ng-scope">Schedule  Appointments</span></div>
+                <div translate="dashboard.appoitments.lbl" class="ng-scope"><span class="ng-scope">Schedule
+                        Appointments</span></div>
             </div>
             <div class="ng-binding">0</div>
         </div>
         <div class="card-box-item box-bg-color4">
             <div class="card-box-header">
                 <div><i class="far fa-calendar-times" aria-hidden="true"></i></div>
-                <div translate="dashboard.inactive.lbl" class="ng-scope"><span class="ng-scope">Inactive Patients</span></div>
+                <div translate="dashboard.inactive.lbl" class="ng-scope"><span class="ng-scope">Inactive Patients</span>
+                </div>
             </div>
             <div class="ng-binding">0</div>
         </div>
         <div class="card-box-item box-bg-color5">
             <div class="card-box-header">
                 <div><i class="fas fa-user-plus" aria-hidden="true"></i></div>
-                <div translate="dashboard.admissions.lbl" class="ng-scope"><span class="ng-scope">Admissions</span></div>
+                <div translate="dashboard.admissions.lbl" class="ng-scope"><span class="ng-scope">Admissions</span>
+                </div>
             </div>
             <div class="ng-binding">0</div>
         </div>
         <div class="card-box-item box-bg-color6">
             <div class="card-box-header">
                 <div><i class="fa fa-indent" aria-hidden="true"></i></div>
-                <div translate="dashboard.discharges.lbl" class="ng-scope"><span class="ng-scope">Discharges</span></div>
+                <div translate="dashboard.discharges.lbl" class="ng-scope"><span class="ng-scope">Discharges</span>
+                </div>
             </div>
             <div class="ng-binding">0</div>
         </div>
@@ -57,3 +92,4 @@
         </div>
     </div>
 </div>
+

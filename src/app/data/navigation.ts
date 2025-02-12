@@ -1,7 +1,7 @@
 export const navigation = [
     {
         title: 'System Setting',
-        icon: 'dashboard',
+        icon: 'fas fa-cogs',
         subNav: [
             {
                 title: 'Organizations',
@@ -47,7 +47,7 @@ export const navigation = [
     },
     {
         title: 'User Settings',
-        icon: 'people',
+        icon: 'fas fa-users-cog',
         subNav: [
             {
                 title: 'Users',
@@ -61,7 +61,7 @@ export const navigation = [
     },
     {
         title: 'Front Office',
-        icon: 'settings',
+        icon: 'fas fa-user-plus',
         subNav: [
             {
                 title: 'OP VisitBill Link',
@@ -77,59 +77,29 @@ export const navigation = [
             },
             {
                 title: 'Bulk Checkout',
-                route: '/preferences'
+                route: '/dashboard/BulkCheckOut'
             },
             {
                 title: 'Full Registration',
-                route: '/preferences'
+                route: '/dashboard/full-reg'
             },
             {
                 title: 'Front Office Dashboard',
-                route: '/preferences'
+                route: '/dashboard'
             },
             {
                 title: 'Patient Registered',
-                route: '/preferences'
+                route: '/dashboard/PatientRegistered'
             },
             {
                 title: 'IVF Registration',
-                route: '/preferences'
-            },
-        ]
-    },
-    {
-        title: 'Appointment',
-        icon: 'settings',
-        subNav: [
-            {
-                title: 'Appointment Sessions',
-                route: '/dashboard'
-            },
-            {
-                title: 'Appointments',
-                route: '/dashboard'
-            },
-            {
-                title: 'Appointments From App',
-                route: '/dashboard'
-            },
-            {
-                title: 'Future Appointments',
-                route: '/dashboard'
-            },
-            {
-                title: 'Consultion Bills',
-                route: '/dashboard'
-            },
-            {
-                title: 'Admin Appointment Dashboard',
-                route: '/dashboard'
+                route: '/dashboard/preferences'
             },
         ]
     },
     {
         title: 'Billing',
-        icon: 'settings',
+        icon: 'fas fa-file-invoice-dollar',
         subNav: [
             {
                 title: 'OP Billing',
@@ -211,7 +181,7 @@ export const navigation = [
     },
     {
         title: 'Appointment',
-        icon: 'settings',
+        icon: 'fas fa-receipt',
         subNav: [
             {
                 title: 'Appointment Sessions',
@@ -241,7 +211,7 @@ export const navigation = [
     },
     {
         title: 'Billing Master',
-        icon: 'settings',
+        icon: 'fas fa-receipt',
         subNav: [
             {
                 title: 'Billing Group',
@@ -275,7 +245,7 @@ export const navigation = [
     },
     {
         title: 'LIS',
-        icon: 'settings',
+        icon: 'fas fa-microscope',
         subNav: [
             {
                 title: 'Order Acceptance',
@@ -325,7 +295,7 @@ export const navigation = [
     },
     {
         title: 'RIS',
-        icon: 'settings',
+        icon: 'fas fa-project-diagram',
         subNav: [
             {
                 title: 'Order Acceptance',

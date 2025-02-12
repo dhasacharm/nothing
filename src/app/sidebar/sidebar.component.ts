@@ -11,8 +11,11 @@ export class SidebarComponent {
 
   @Input() isExpanded = true;
   isShowing = false;
-  navigation_list = navigation.map(item => ({ ...item, showSubmenu: false }));
+  navigation_list = navigation.map(item => ({ ...item, showSubmenu: false, }));
 
+  ngOnInit() {
+    console.log(this.isExpanded)
+  }
 
   toggleSidenav() {
     this.isExpanded = !this.isExpanded;
