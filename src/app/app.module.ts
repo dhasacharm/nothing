@@ -62,6 +62,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { TableComponent } from './shared/table/table.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +78,8 @@ import { TableComponent } from './shared/table/table.component';
     FullregisterComponent,
     BulkCheckOutComponent,
     PatientRegisteredComponent,
-    TableComponent
+    TableComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,34 +1,32 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-1 p-2 bg-white text-dark">
-            <h5>Registration</h5>
+        <div class="col-sm-7 p-2 bg-white text-dark">
+            <h4>Registration</h4>
         </div>
-        <div class="col-sm-3 p-2 bg-white text-dark"></div>
-        <div class="col-sm-3 p-2 bg-white text-dark"></div>
-        <div class="col-sm-2 p-2 bg-white text-dark">
-            <!-- Actual search box -->
-            <div class="form-group has-search">
-                <span class="fa fa-search form-control-feedback"></span>
-                <input type="text" class="form-control" placeholder="Search Your Membership#...">
+        <div class="col-sm-5 p-2 bg-white text-dark">
+            <div class="row">
+                <!-- Actual search box -->
+                <div class="form-group has-search col-5">
+                    <span class="fa fa-search form-control-feedback"></span>
+                    <input type="text" class="form-control" placeholder="Search Your Membership#...">
+                </div>
+                <div class="form-group has-search col-5">
+                    <span class="fa fa-search form-control-feedback"></span>
+                    <input type="text" class="form-control" placeholder="Search Name/Phone/UHID">
+                </div>
+                <div class="col-2">
+                    <img class="add-Icon-img" src="../../assets/icons/plus.png">
+                </div>
             </div>
+
         </div>
-        <div class="col-sm-2 p-2 bg-white text-dark">
-            <div class="form-group has-search">
-                <span class="fa fa-search form-control-feedback"></span>
-                <input type="text" class="form-control" placeholder="Search Name/Phone/UHID">
-            </div>
-        </div>
-        <div class="col-sm-1 p-2 bg-white text-dark">
-            <div>
-                <img class="add-Icon-img" src="../../assets/icons/plus.png">
-            </div>
-        </div>
+
     </div>
 
 </div>
 <div class="container-fluid">
     <div class="row">
-        <p class="">Patient Info</p>
+        <p class="m-0">Patient Info</p>
         <hr>
     </div>
 </div>
@@ -41,12 +39,18 @@
             <div class="mb-3 form-box">
                 <div class="mb-3">
                     <label class="p-2">Title<span style="color:red">*</span></label><br>
+                    <div class="select-wrapper">
+
                     <select class="form-select" id="options" name="options" required>
+
                         <option value="" disabled selected>Select an option</option>
                         <option value="option1">Option 1</option>
                         <option value="option2">Option 2</option>
                         <option value="option3">Option 3</option>
                     </select>
+                    <i class="fa fa-chevron-down select-icon"></i>
+                    </div>
+
                 </div>
 
             </div>
@@ -330,23 +334,25 @@
                 <div class="col-sm-3 p-3 bg-white text-dark">
                     <label class="p-2"> Referral Name<span style="color:red">*</span></label><br>
                     <span class="span-inlinr-flex">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                            required>
                         <!-- <div> -->
-                            <img class="add-Icon-img margin-left-2px"  src="../../assets/icons/plus.png" (click)="openReferralModal('Referral Name')"></span>
-                        <!-- </div> -->
+                        <img class="add-Icon-img margin-left-2px" src="../../assets/icons/plus.png"
+                            (click)="openReferralModal('Referral Name')"></span>
+                    <!-- </div> -->
 
                 </div>
                 <div class="col-sm-3 p-3 bg-white text-dark">
                     <label class="p-2"> Reason</label><br>
                     <span class="span-inlinr-flex">
 
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                            required>
                         <!-- <div> -->
-                            <img class="add-Icon-img margin-left-2px" src="../../assets/icons/plus.png" (click)="openReferralModal('Reason')">
+                        <img class="add-Icon-img margin-left-2px" src="../../assets/icons/plus.png"
+                            (click)="openReferralModal('Reason')">
                         <!-- </div> -->
-                         </span>
+                    </span>
                 </div>
             </div>
         </div>
@@ -590,7 +596,8 @@
                 <input type="file" accept="image/*" #fileInput class="hidden" (change)="previewImage($event)">
                 <button type="button" class="btn btn-outline-primary" (click)="triggerFileInput()">Upload</button>
                 <button type="button" class="drhms-webcam-btn margin-left-10px" (click)="captureImage()">Webcam</button>
-                <button type="button" class="btn btn-outline-danger margin-left-10px" (click)="removeImage()">Remove</button>
+                <button type="button" class="btn btn-outline-danger margin-left-10px"
+                    (click)="removeImage()">Remove</button>
                 <video #video width="320" height="240" autoplay style="display:none;"></video>
                 <button #snap style="display:none;" (click)="snapImage()">Snap</button>
             </div>
@@ -631,7 +638,7 @@
 <script>
     function previewImage(event) {
         const reader = new FileReader();
-        reader.onload = function() {
+        reader.onload = function () {
             const output = document.getElementById('imagePreview');
             output.src = reader.result;
         };
@@ -643,10 +650,10 @@
         video.style.display = 'block';
         snapButton.style.display = 'block';
         navigator.mediaDevices.getUserMedia({ video: true })
-            .then(function(stream) {
+            .then(function (stream) {
                 video.srcObject = stream;
             })
-            .catch(function(err) {
+            .catch(function (err) {
                 console.log("An error occurred: " + err);
             });
     }

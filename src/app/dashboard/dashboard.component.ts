@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { navigation } from '../data/navigation';
 
@@ -12,5 +12,14 @@ export class DashboardComponent {
 
   toggleSidenav() {
     this.isExpanded = !this.isExpanded;
+  }
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(e: Event) {
+    const element = document.querySelector('.footer') as HTMLElement;
+    if (window.pageYOffset > 100) {
+      element.classList.add('scrolled');
+    } else {
+      element.classList.remove('scrolled');
+    }
   }
 }

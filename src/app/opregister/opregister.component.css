@@ -107,4 +107,25 @@ body {
         box-shadow:none 
     }
   }
-  
+  .select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.select-wrapper select {
+    width: 100%;
+    padding-right: 30px; /* Space for the icon */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.select-wrapper .select-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #aaa;
+}

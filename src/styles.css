@@ -7,6 +7,11 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: po }
 @import "~@fortawesome/fontawesome-free/css/all.css";
+.form-select {
+  border-radius: 20px;
+  background: #e8f0fe !important;
+  border: 1.5px solid #aaa;
+}
 input.form-control{
     padding: 11px;
     border: none;
@@ -16,10 +21,10 @@ input.form-control{
     font-family: 'poppins', sans-serif;
    
     height: 32px;
-    background-color: #f9f9f9 !important;
+    background: #e8f0fe !important;
+    border: 1.5px solid #aaa;
     border-radius: 12px;
     margin-bottom: 0px !important;
-    background: #f8f8f8;
     border: 1.5px solid #aaa;
 }
 
@@ -67,3 +72,9 @@ input::file-selector-button {
     background-color: #ddd; /* Background color on hover */  
     color: black; /* Text color on hover */  
   }  
+
+  .fa-calendar:before {
+    content: "\f073";
+}
+
+

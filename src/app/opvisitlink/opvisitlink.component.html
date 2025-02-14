@@ -3,15 +3,24 @@
     <h2 class="title">OP Visit Details</h2>
     <div class="row">
         <div class="col-sm-2">
-            <div class="filter-group">
-                <label>From Date</label>
-                <input class="form-control" type="date">
-            </div>
+                <div class="date-wrapper">
+                    <label>From Date:</label>
+
+                    <i class="fa fa-calendar" ></i>
+                    <mat-datepicker #picker></mat-datepicker>
+
+                    <input type="date" (click)="picker.open()" [matDatepicker]="picker" class="form-control"  />
+                </div>
+                
+
         </div>
         <div class="col-sm-2">
-            <div class="filter-group">
-                <label>To Date</label>
-                <input class="form-control" type="date">
+            <div class="date-wrapper">
+                <label>To Date:</label>
+                <i class="fa fa-calendar" ></i>
+                <mat-datepicker #picker></mat-datepicker>
+
+                <input type="date" (click)="picker.open()" [matDatepicker]="picker" class="form-control"  />
             </div>
         </div>
         <div class="col-sm-2">
