@@ -112,6 +112,7 @@ export class OpregisterComponent implements AfterViewInit {
     if (this.registerForm.valid) {
       console.log('Form Submitted', this.registerForm.value);
       // Handle form submission logic here
+      
     }
   }
 }

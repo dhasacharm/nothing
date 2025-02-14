@@ -70,10 +70,15 @@
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
         </div>
         <div class="col-sm-2 p-3  text-dark">
-            <label class="p-2">
+            <div class="date-wrapper">
+                <label class="p-2">DOB</label>
 
-                DOB*</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+                <i class="fa fa-calendar" ></i>
+                <mat-datepicker #picker></mat-datepicker>
+
+                <input type="date" (click)="picker.open()" [matDatepicker]="picker" class="form-control"  />
+            </div>
+            
         </div>
         <div class="col-sm-3 p-3 text-dark">
             <label class="p-2">
