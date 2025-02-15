@@ -23,110 +23,157 @@
     </div>
 
 </div>
+<form [formGroup]="simpleRegistrationForm">
 <div class="container-fluid ">
     <div class="row">
-        <div class="col-sm-3 p-3  text-dark">
-            <label class="p-2">Type</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+        <div class="col-sm-3   text-dark">
+            <div class="mb-2 form-box">
+                <div class="mb-2">
+                    <label class="p-2">Type</label><br>
+                    <div class="select-wrapper">
+
+                        <select formControlName="Types" class="form-select" id="options" name="options" required>
+                            <option value="" disabled selected></option>
+                            <option *ngFor="let item of getDropdownValues('Types')" [value]="item.value">{{
+                                item.label }}</option>
+                        </select>
+                        <i class="fa fa-chevron-down select-icon"></i>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-        <div class="col-sm-3 p-3  text-dark">
-            <label class="p-2">Title*</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+        <div class="col-sm-3   text-dark">
+            <div class="mb-2 form-box">
+                <div class="mb-2">
+                    <label class="p-2">Title<span style="color:red">*</span></label><br>
+                    <div class="select-wrapper">
+
+                        <select formControlName="title" class="form-select" id="options" name="options" required>
+                            <option value="" disabled selected></option>
+                            <option *ngFor="let item of getDropdownValues('Title')" [value]="item.value">{{
+                                item.label }}</option>
+                        </select>
+                        <i class="fa fa-chevron-down select-icon"></i>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-        <div class="col-sm-3 p-3 text-dark">
+        <div class="col-sm-3 text-dark">
             <label class="p-2">First Name*</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+            <input formControlName="FirstName" type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter Your First Name" required>
         </div>
-        <div class="col-sm-3 p-3 text-dark">
-            <label class="p-2">
-                Last Name*</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+        <div class="col-sm-3 text-dark">
+            <label class="p-2">Last Name*</label><br>
+            <input formControlName="LastName" type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter Your Last Name" required>
         </div>
     </div>
 </div>
 <div class="container-fluid ">
     <div class="row">
-        <div class="col-sm-1 p-3 text-dark">
+        <div class="col-sm-1 text-dark">
             <label class="p-2">Age</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+            <input formControlName="Age" type="text" class="form-control" id="age" name="age" placeholder="Enter Your Age" required>
         </div>
-        <div class="col-sm-2 p-3  text-dark">
+        <div class="col-sm-2 text-dark">
             <div class="date-wrapper">
                 <label class="p-2">DOB</label>
-
-                <i class="fa fa-calendar" ></i>
+                <i class="fa fa-calendar"></i>
                 <mat-datepicker #picker></mat-datepicker>
-
-                <input type="date" (click)="picker.open()" [matDatepicker]="picker" class="form-control"  />
+                <input formControlName="DOB" type="date" (click)="picker.open()" [matDatepicker]="picker" class="form-control" />
             </div>
-            
         </div>
-        <div class="col-sm-3 p-3  text-dark">
-            <label class="p-2">Gender*</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+        <div class="col-sm-3   text-dark">
+            <div class="mb-2">
+                <label class="p-2">Gender<span style="color:red">*</span></label><br>
+                <div class="select-wrapper">
+
+                    <select formControlName="Gender" class="form-select" id="options" name="options" required>
+                        <option value="" disabled selected></option>
+                        <option *ngFor="let item of getDropdownValues('Gender')" [value]="item.value">{{
+                            item.label }}</option>
+                    </select>
+                    <i class="fa fa-chevron-down select-icon"></i>
+                </div>
+
+            </div>
         </div>
-        <div class="col-sm-3 p-3  text-dark">
-            <label class="p-2">
-                Mobile*</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+        <div class="col-sm-3 text-dark">
+            <label class="p-2">Mobile*</label><br>
+            <input formControlName="Mobile" type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Your Mobile Number" required>
         </div>
-        <div class="col-sm-3 p-3 text-dark">
-            <label class="p-2">
-                Marital Status</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+        <div class="col-sm-3  text-dark">
+            <div class="mb-2">
+                <label class="p-2">Marital Status</label><br>
+                <div class="select-wrapper">
+
+                    <select formControlName="MaritalStatus" class="form-select" id="options" name="options" required>
+                        <option value="" disabled selected></option>
+                        <option *ngFor="let item of getDropdownValues('MaritalStatus')" [value]="item.value">{{
+                            item.label }}</option>
+                    </select>
+                    <i class="fa fa-chevron-down select-icon"></i>
+                </div>
+
+            </div>
+           
         </div>
     </div>
 </div>
 <div class="container-fluid ">
     <div class="row">
-        <div class="col-sm-3 p-3 text-dark">
-            <label class="p-2">Nationality ID</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+        <div class="col-sm-3 text-dark">
+            <label class="p-2">Nationality<span style="color:red">*</span></label><br>
+            <input formControlName="Nationality" type="text" class="form-control" id="nationality" name="nationality" placeholder="Enter Your Nationality" required>
         </div>
-        <div class="col-sm-3 p-3  text-dark">
+        <div class="col-sm-3 text-dark">
             <label class="p-2">Address Search</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+            <input formControlName="addressSearch" type="text" class="form-control" id="addressSearch" name="addressSearch" placeholder="Enter Address Search" required>
         </div>
-        <div class="col-sm-3 p-3  text-dark">
-            <label class="p-2">
-                Address</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+        <div class="col-sm-3 text-dark">
+            <label class="p-2">Address<span style="color:red">*</span></label><br>
+            <input formControlName="AddressLine1" type="text" class="form-control" id="address" name="address" placeholder="Enter Your Address" required>
         </div>
-        <div class="col-sm-3 p-3 text-dark">
-            <label class="p-2">
-                VIP Type
-            </label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+        <div class="col-sm-3  text-dark">
+            <div class="mb-2">
+                <label class="p-2"> VIP Type</label><br>
+                <div class="select-wrapper">
+
+                    <select formControlName="VipType" class="form-select" id="options" name="options" required>
+                        <option value="" disabled selected></option>
+                        <option *ngFor="let item of getDropdownValues('VipType')" [value]="item.value">{{
+                            item.label }}</option>
+                    </select>
+                    <i class="fa fa-chevron-down select-icon"></i>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <div class="container-fluid ">
     <div class="row">
-        <div class="col-sm-3 p-3 text-dark">
-            <label class="p-2">MLC</label><br>
+        <div class="col-sm-3  text-dark">
+            <label class="">MLC</label><br>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                </label>
+                <input formControlName="IsMlc" class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
             </div>
         </div>
-        <div class="col-sm-3 p-3  text-dark">
-            <label class="p-2">Is VIP</label><br>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                </label>
-            </div>
+        <div class="col-sm-3   text-dark">
+            <label class="">IsVIP</label><br>
+                <div class="form-check">
+                    <input formControlName="IsVip" class="form-check-input " type="checkbox" value="" id="defaultCheck1">
+                </div>
         </div>
     </div>
 </div>
 
-
-<div class="mt-2">
-    <p class="">Upload & Image Preview</p>
-    <hr>
-
+<div class="mt-4">
+    <h4 class="">Upload & Image Preview</h4>
 </div>
+<hr>
 
 
 <div class="container-fluid ">
@@ -136,7 +183,7 @@
                 <img [src]="imageUrl" #imagePreview alt="Default Image">
             </canvas>
             <div>
-                <input type="file" accept="image/*" #fileInput class="hidden" (change)="previewImage($event)">
+                <input formControlName="UserPic" type="file" accept="image/*" #fileInput class="hidden" (change)="previewImage($event)">
                 <button type="button" class="btn btn-outline-primary" (click)="triggerFileInput()">Upload</button>
                 <button type="button" class="drhms-webcam-btn margin-left-10px" (click)="captureImage()">Webcam</button>
                 <button type="button" class="btn btn-outline-danger margin-left-10px" (click)="removeImage()">Remove</button>
@@ -144,22 +191,23 @@
                 <button #snap style="display:none;" (click)="snapImage()">Snap</button>
             </div>
         </div>
-        
+       
 
     </div>
 </div>
 
 
-<div class="container-fluid mt-3">
+<div class="container-fluid">
     <div class="row">
 
-        <div class="text-end">
+        <div class="text-end qucik-reg-save-button">
             <p><button class="draftbutton">Activate</button></p>
 
         </div>
 
     </div>
 </div>
+</form>
 
 
 <script>

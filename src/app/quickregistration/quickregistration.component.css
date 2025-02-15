@@ -149,7 +149,7 @@ input::placeholder {
 .date-wrapper i {
   position: absolute;
   left: 10px;
-  top: 70%;
+  top: 77%;
   transform: translateY(-50%);
   color: #666;
   font-size: 16px;
@@ -191,3 +191,31 @@ input.date-picker[type="date"]::-webkit-calendar-picker-indicator {
   background: transparent;
 }
       
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding-right: 30px; /* Space for the icon */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.select-wrapper .select-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #aaa;
+}
+hr {
+  border: none;
+}
+.qucik-reg-save-button {
+  margin-top: -30px;
+}

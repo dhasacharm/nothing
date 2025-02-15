@@ -1,20 +1,44 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angular/core';
+import { dropdownValue } from '../data/PatientRegister';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-quickregistration',
   templateUrl: './quickregistration.component.html',
-  styleUrl: './quickregistration.component.css'
+  styleUrls: ['./quickregistration.component.css']
 })
-export class QuickregistrationComponent {
- @ViewChild('fileInput') fileInput!: ElementRef;
+export class QuickregistrationComponent implements OnInit, AfterViewInit {
+  @ViewChild('fileInput') fileInput!: ElementRef;
   @ViewChild('imagePreview') imagePreview!: ElementRef;
   @ViewChild('video') video!: ElementRef;
   @ViewChild('snap') snap!: ElementRef;
   @ViewChild('canv1') canvas!: ElementRef;
   imageUrl: string = '../../assets/icons/default.jpg';
+  FormDropDownValue: any = dropdownValue;
+  simpleRegistrationForm!: FormGroup;
 
+  constructor(private fb: FormBuilder) {}
 
-  
+  ngOnInit(): void {
+    this.simpleRegistrationForm = this.fb.group({
+      Types: ['', Validators.required],
+      title: ['', Validators.required],
+      FirstName: ['', Validators.required],
+      LastName: ['', Validators.required],
+      Age: ['', Validators.required],
+      DOB: ['', Validators.required],
+      Gender: ['', Validators.required],
+      Mobile: ['', Validators.required],
+      MaritalStatus: ['', Validators.required],
+      Nationality: ['', Validators.required],
+      addressSearch: ['', Validators.required],
+      AddressLine1: ['', Validators.required],
+      VipType: ['', Validators.required],
+      IsMlc: [false],
+      IsVip: [false],
+      UserPic: [""]
+    });
+  }
 
   ngAfterViewInit() {
     // Ensure that the @ViewChild elements are available
@@ -23,7 +47,10 @@ export class QuickregistrationComponent {
     }
   }
 
- 
+  getDropdownValues(name: string) {
+    const dropdown = this.FormDropDownValue.find((item: { name: string, value: any[] }) => item.name === name);
+    return dropdown ? dropdown.value : [];
+  }
 
   previewImage(event: Event) {
     const input = event.target as HTMLInputElement;

@@ -12,6 +12,13 @@ body { margin: 0; font-family: po }
 input {
   cursor: pointer;
 }
+select {
+  cursor: pointer;
+}
+input[type=date], input[type=datetime-local], input[type=month], input[type=time]  {
+  text-transform: uppercase;
+}
+
 .form-select {
   border-radius: 20px;
   background: #e8f0fe !important;

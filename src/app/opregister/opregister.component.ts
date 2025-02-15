@@ -76,7 +76,9 @@ export class OpregisterComponent implements AfterViewInit, OnInit {
       MembershipType: ['', Validators.required],
       Membership_Alternate_Num: ['', Validators.required],
       Membership_Alternate_Email: ['', [Validators.required, Validators.email]],
-      UserPic: ['']
+      UserPic: [''],
+      
+
     });
   }
 
@@ -171,7 +173,6 @@ export class OpregisterComponent implements AfterViewInit, OnInit {
     if (this.patientRegisterForm.valid) {
       console.log('Form Submitted', this.patientRegisterForm.value);
       // Handle form submission logic here
-      
     }
   }
 }
