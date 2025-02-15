@@ -27,612 +27,610 @@
 <div class="container-fluid">
     <div class="row">
         <p class="m-0">Patient Info</p>
-        <hr>
     </div>
 </div>
+<hr>
+<form [formGroup]="patientRegisterForm">
 
 
-<div class="container-fluid mt-3">
-    <div class="row">
+    <div class="container-fluid mt-3">
+        <div class="row">
 
-        <div class="col-sm-3  bg-white text-dark">
-            <div class="mb-3 form-box">
+            <div class="col-sm-3  bg-white text-dark">
+                <div class="mb-3 form-box">
+                    <div class="mb-3">
+                        <label class="p-2">Title<span style="color:red">*</span></label><br>
+                        <div class="select-wrapper">
+
+                            <select formControlName="title" class="form-select" id="options" name="options" required>
+                                <option value="" disabled selected></option>
+                                <option *ngFor="let item of getDropdownValues('Title')" [value]="item.value">{{
+                                    item.label }}</option>
+                            </select>
+                            <i class="fa fa-chevron-down select-icon"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- <input type="text" name="Title<span style="color:red">*</span>" required> -->
+            </div>
+            <div class="col-sm-3  bg-white text-dark">
+                <label class="p-2">First Name<span style="color:red">*</span></label><br>
+                <input type="text" class="form-control" id="email" formControlName="FirstName"  name="FirstName" placeholder="Frist Name" required>
+            </div>
+            <div class="col-sm-3  bg-white text-dark">
+                <label class="p-2">Last Name<span style="color:red">*</span></label><br>
+                <input type="text" class="form-control" id="email" formControlName="LastName" name="email" placeholder="Last Name" required>
+            </div>
+
+            <div class="col-sm-3  bg-white text-dark">
+                <div class="row">
+                    <div class="col-sm-6 bg-white text-dark">
+                        <div class="date-wrapper">
+                            <label class="p-2">DOB</label>
+
+                            <i class="fa fa-calendar"></i>
+                            <mat-datepicker #picker></mat-datepicker>
+
+                            <input type="date" formControlName="DOB" placeholder="DD/MM/YYYY" (click)="picker.open()" [matDatepicker]="picker"
+                                class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6  bg-white text-dark">
+                        <label class="p-2">Age<span style="color:red">*</span></label><br>
+                        <input type="text" class="form-control" formControlName="Age" id="email" name="email" placeholder="Age" required>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3  bg-white text-dark">
                 <div class="mb-3">
-                    <label class="p-2">Title<span style="color:red">*</span></label><br>
-                    <div class="select-wrapper">
+                    <label class="p-2">Gender<span style="color:red">*</span></label><br>
+                    <select formControlName="Gender" class="form-select" id="options" name="options" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3 bg-white text-dark">
+                <label class="p-2">Mobile<span style="color:red">*</span></label><br>
+                <input type="text" formControlName="Mobile" class="form-control" id="mobile" name="mobile" placeholder="Enter Your Mobile Number"
+                    required>
+            </div>
+            <div class="col-sm-3 bg-white text-dark">
+                <label class="p-2">Alternate Mobile#</label><br>
+                <input type="text" formControlName="AlternateMobileNum" class="form-control" id="altMobile" name="altMobile"
+                    placeholder="Enter Your Alternate Mobile Number" required>
+            </div>
+            <div class="col-sm-3 bg-white text-dark">
+                <label class="p-2">Email</label><br>
+                <input type="email" formControlName="Email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                    required>
+            </div>
+        </div>
+    </div>
 
-                    <select class="form-select" id="options" name="options" required>
 
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3  bg-white text-dark">
+                <div class="mb-3">
+                    <label class="p-2">Marital Status</label><br>
+                    <select formControlName="MaritalStatus" class="form-select" id="options" name="options" required>
                         <option value="" disabled selected>Select an option</option>
                         <option value="option1">Option 1</option>
                         <option value="option2">Option 2</option>
                         <option value="option3">Option 3</option>
                     </select>
-                    <i class="fa fa-chevron-down select-icon"></i>
-                    </div>
-
-                </div>
-
-            </div>
-            <!-- <input type="text" name="Title<span style="color:red">*</span>" required> -->
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">First Name<span style="color:red">*</span></label><br>
-            <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">Last Name<span style="color:red">*</span></label><br>
-            <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-        </div>
-
-        <div class="col-sm-3  bg-white text-dark">
-            <div class="row">
-                <div class="col-sm-6 bg-white text-dark">
-                    <label class="p-2">DOB</label><br>
-                    <input type="date" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
-                </div>
-                <div class="col-sm-6  bg-white text-dark">
-                    <label class="p-2">Age<span style="color:red">*</span></label><br>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
                 </div>
             </div>
-
-        </div>
-
-
-    </div>
-</div>
-
-
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="col-sm-3  bg-white text-dark">
-            <div class="mb-3">
-                <label class="p-2">Gender<span style="color:red">*</span></label><br>
-                <select class="form-select" id="options" name="options" required>
-                    <option value="" disabled selected>Select an option</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                </select>
+            <div class="col-sm-3  bg-white text-dark">
+                <div class="mb-3">
+                    <label class="p-2">Ethnicity </label><br>
+                    <select formControlName="Ethnicity" class="form-select" id="options" name="options" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">Mobile<span style="color:red">*</span> </label><br>
-            <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">Alternate Mobile#</label><br>
-            <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">Email</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-        </div>
-    </div>
-</div>
-
-
-
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="col-sm-3  bg-white text-dark">
-            <div class="mb-3">
-                <label class="p-2">Marital Status</label><br>
-                <select class="form-select" id="options" name="options" required>
-                    <option value="" disabled selected>Select an option</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                </select>
+            <div class="col-sm-3 bg-white text-dark">
+                <label class="p-2">Alternate Email</label><br>
+                <input formControlName="AlternateEmail" type="email" class="form-control" id="altEmail" name="altEmail"
+                    placeholder="Enter Your Alternate Email" required>
             </div>
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <div class="mb-3">
-                <label class="p-2">Ethnicity </label><br>
-                <select class="form-select" id="options" name="options" required>
-                    <option value="" disabled selected>Select an option</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">Alternate Email</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">Passport Number</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-
-        </div>
-    </div>
-</div>
-
-
-
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">National Id</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">Attender Information </label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2"> Nationality<span style="color:red">*</span> </label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2"> Address<span style="color:red">*</span></label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-
-        </div>
-    </div>
-</div>
-
-
-
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">Address Search</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2"> Country</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2"> State </label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2"> District</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-
-        </div>
-    </div>
-</div>
-
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">City/Town</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2"> Area</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2"> Pin Code</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <div class="mb-3">
-                <label class="p-2"> Patient Type</label><br>
-                <select class="form-select" id="options" name="options" required>
-                    <option value="" disabled selected>Select an option</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                </select>
+            <div class="col-sm-3 bg-white text-dark">
+                <label class="p-2">Passport Number</label><br>
+                <input formControlName="PassportNumber" type="text" class="form-control" id="passportNumber" name="passportNumber"
+                    placeholder="Enter Your Passport Number" required>
             </div>
         </div>
     </div>
-</div>
-
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">Covid Vaccine</label><br>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2"> Is VIP</label><br>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1"> </label>
-            </div>
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <div class="mb-3">
-                <label class="p-2"> VIP Type</label><br>
-                <select class="form-select" id="options" name="options" required>
-                    <option value="" disabled selected>Select an option</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <div class="mb-3">
-                <label class="p-2"> Occupation</label><br>
-                <select class="form-select" id="options" name="options" required>
-                    <option value="" disabled selected>Select an option</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                </select>
-            </div>
-        </div>
-
-    </div>
-</div>
-<div class="accordion mt-2 mb-3" id="accordionPanelsStayOpenExample">
-
-    <div class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne"
-        aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-        <p class="">Visit</p>
-    </div>
-    <hr>
-
-    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-        aria-labelledby="panelsStayOpen-headingOne">
-
-        <div class="container-fluid mt-3">
-            <div class="row">
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2">Visit Type<span style="color:red">*</span></label><br>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
-
-                </div>
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2"> Department</label><br>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
-
-                </div>
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2"> Doctor<span style="color:red">*</span></label><br>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
-
-                </div>
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2"> Payer</label><br>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="container-fluid mt-3">
-            <div class="row">
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2">Payer Type<span style="color:red">*</span></label><br>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
-
-                </div>
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2"> Source Type<span style="color:red">*</span></label><br>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
-
-                </div>
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2"> Referral Name<span style="color:red">*</span></label><br>
-                    <span class="span-inlinr-flex">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                            required>
-                        <!-- <div> -->
-                        <img class="add-Icon-img margin-left-2px" src="../../assets/icons/plus.png"
-                            (click)="openReferralModal('Referral Name')"></span>
-                    <!-- </div> -->
-
-                </div>
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2"> Reason</label><br>
-                    <span class="span-inlinr-flex">
-
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                            required>
-                        <!-- <div> -->
-                        <img class="add-Icon-img margin-left-2px" src="../../assets/icons/plus.png"
-                            (click)="openReferralModal('Reason')">
-                        <!-- </div> -->
-                    </span>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-fluid mt-3">
-            <div class="row">
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2">Payer Number</label><br>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
-
-                </div>
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2">MLC</label><br>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        <label class="form-check-label" for="defaultCheck1"> </label>
-                    </div>
-                </div>
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2"> Token Num </label><br>
-                    <span class="step-token-number">1</span>
-
-                </div>
-                <!-- <div class="col-sm-3 p-3 bg-white text-dark">
-                <label class="p-2"> Occupation</label><br>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
-
-            </div> -->
-
-            </div>
-        </div>
-    </div>
-</div>
-<div class="accordion" id="accordionPanelsStayOpenExample">
-
-    <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-        <p class="">Consultation Bill </p>
-    </div>
-    <hr>
-
-    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse show collapse"
-        aria-labelledby="panelsStayOpen-headingTwo">
-        <div class="container-fluid mt-3">
-            <div class="row">
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                    <div>
-                        <label class="p-2">Discount Type</label><br>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                            required>
-                    </div>
-                    <div>
-                        <label class="p-2">Discount </label><br>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                            required>
-                    </div>
-                    <div>
-                        <label class="p-2">Remarks</label><br>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                            required>
-                    </div>
-
-                </div>
-
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                    <div>
-                        <label>Emergency</label><br>
-
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        <label class="form-check-label" for="defaultCheck1"> </label>
-                    </div>
-
-                    <div>
-                        <div>
-                            <label>No Bill</label><br>
-
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1"> </label>
-                        </div>
-                    </div>
-
-
-                    <div>
-                        <div>
-                            <label>Is OPD</label><br>
-
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1"> </label>
-                        </div>
-                    </div>
-
-
-                </div>
 
 
 
-                <div class="col-sm-6 p-3 bg-white text-dark">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Service code / Name</th>
-                                <th>Qty</th>
-                                <th>Rate</th>
-                                <th>Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Ip Consultation -Superspeciality</td>
-                                <td>1</td>
-                                <td>750</td>
-                                <td>750</td>
-
-                            </tr>
-                            <tr>
-                                <td colspan="3">TOTAL</td>
-                                <td>₱750.00</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">DISCOUNT</td>
-                                <td>₱0.00</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">RECEIVED</td>
-                                <td>₱750.00</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">DUE</td>
-                                <td>₱0.00</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-        </div>
-
-
-        <div class="container-fluid mt-3">
-            <div class="row">
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                    <label class="p-2">Payment Type</label><br>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
-
-                    <div>
-                        <label class="p-2"> Receipt Amount</label><br>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                            required>
-                    </div>
-                </div>
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                </div>
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                </div>
-                <div class="col-sm-3 p-3 bg-white text-dark">
-                    <table style="width:100%">
-                        <tbody>
-                            <tr>
-                                <th>Net Amount</th>
-                                <th>₹100.00</th>
-                            </tr>
-                            <tr>
-                                <td>Paid Amount</td>
-                                <td>₹100.00</td>
-
-                            </tr>
-                            <tr>
-                                <td>Refund</td>
-                                <td>₹0.00
-                                </td>
-
-                            </tr>
-                        </tbody>
-                        <!-- <caption>DETAILS</caption> -->
-
-
-                    </table>
-
-                </div>
-            </div>
-        </div>
-        <hr>
-    </div>
-</div>
-<div class="accordion mb-5" id="accordionPanelsStayOpenExample">
-
-    <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-        aria-controls="panelsStayOpen-collapseThree">
-        <p class="">Promotion Scheme</p>
-
-    </div>
-    <hr>
-    <div class="container-fluid mt-3" id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
-        aria-labelledby="panelsStayOpen-headingThree">
+    <div class="container-fluid mt-3">
         <div class="row">
-            <div class="col-sm-3  bg-white text-dark">
-                <label class="p-2">Membership Number</label><br>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+            <div class="col-sm-3 bg-white text-dark">
+                <label class="p-2">National Id</label><br>
+                <input formControlName="NationalId" type="text" class="form-control" id="nationalId" name="nationalId"
+                    placeholder="Enter Your National Id" required>
+            </div>
+            <div class="col-sm-3 bg-white text-dark">
+                <label class="p-2">Attender Information</label><br>
+                <input type="text" formControlName="Attender_Information" class="form-control" id="attenderInfo" name="attenderInfo"
+                    placeholder="Enter Attender Information" required>
+            </div>
+            <div class="col-sm-3 bg-white text-dark">
+                <label class="p-2">Nationality<span style="color:red">*</span></label><br>
+                <input formControlName="Nationality" type="text" class="form-control" id="nationality" name="nationality"
+                    placeholder="Enter Your Nationality" required>
+            </div>
+            <div class="col-sm-3 bg-white text-dark">
+                <label class="p-2">Address<span style="color:red">*</span></label><br>
+                <input formControlName="AddressLine1" type="text" class="form-control" id="address" name="address" placeholder="Enter Your Address"
                     required>
             </div>
-            <div class="col-sm-3  bg-white text-dark">
-                <label class="p-2">Type </label><br>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+        </div>
+    </div>
+
+
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 bg-white text-dark">
+                <label class="p-2">Address Search</label><br>
+                <input formControlName="addressSearch" type="text" class="form-control" id="addressSearch" name="addressSearch"
+                    placeholder="Enter Address Search" required>
+            </div>
+            <div class="col-sm-3 bg-white text-dark">
+                <div class="mb-3">
+                    <label class="p-2">Country</label>
+                    <div class="select-wrapper">
+                        <select formControlName="Country" class="form-select" id="options" name="options" required>
+                            <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+                        </select>
+                        <i class="fa fa-chevron-down select-icon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 bg-white text-dark">
+                <label class="p-2">State</label><br>
+                <input formControlName="State" type="text" class="form-control" id="state" name="state" placeholder="Enter Your State" required>
+            </div>
+            <div class="col-sm-3 bg-white text-dark">
+                <label class="p-2">District</label><br>
+                <input formControlName="District" type="text" class="form-control" id="district" name="district" placeholder="Enter Your District"
                     required>
             </div>
-            <div class="col-sm-3  bg-white text-dark">
-                <label class="p-2">Alternate Mobile#</label><br>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+        </div>
+    </div>
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 bg-white text-dark">
+                <label class="p-2">City/Town</label><br>
+                <input formControlName="City" type="text" class="form-control" id="cityTown" name="cityTown" placeholder="Enter Your City/Town"
                     required>
             </div>
             <div class="col-sm-3 bg-white text-dark">
-                <label class="p-2">Email</label><br>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                <label class="p-2">Area</label><br>
+                <input formControlName="Area" type="text" class="form-control" id="area" name="area" placeholder="Enter Your Area" required>
+            </div>
+            <div class="col-sm-3 bg-white text-dark">
+                <label class="p-2">Pin Code</label><br>
+                <input formControlName="Pincode" type="text" class="form-control" id="pinCode" name="pinCode" placeholder="Enter Your Pin Code"
                     required>
             </div>
-        </div>
-    </div>
-
-
-</div>
-
-
-
-<div class="mt-2">
-    <p class="">Upload & Image Preview</p>
-    <hr>
-
-</div>
-
-
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="col-sm-3  bg-white text-dark">
-            <canvas class="drhms-img-thumbnail" #canv1>
-                <img [src]="imageUrl" #imagePreview alt="Default Image">
-            </canvas>
-            <div>
-                <input type="file" accept="image/*" #fileInput class="hidden" (change)="previewImage($event)">
-                <button type="button" class="btn btn-outline-primary" (click)="triggerFileInput()">Upload</button>
-                <button type="button" class="drhms-webcam-btn margin-left-10px" (click)="captureImage()">Webcam</button>
-                <button type="button" class="btn btn-outline-danger margin-left-10px"
-                    (click)="removeImage()">Remove</button>
-                <video #video width="320" height="240" autoplay style="display:none;"></video>
-                <button #snap style="display:none;" (click)="snapImage()">Snap</button>
+            <div class="col-sm-3  bg-white text-dark">
+                <div class="mb-3">
+                    <label class="p-2"> Patient Type</label><br>
+                    <select formControlName="PatientType" class="form-select" id="options" name="options" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
             </div>
         </div>
-        <div class="col-sm-3 p-3 bg-white text-dark">
-            <!-- <label class="p-2">Gender<span style="color:red">*</span></label><br>
+    </div>
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3 bg-white text-dark">
+                <label class="p-2">Covid Vaccine</label><br>
+                <input formControlName="CovidVaccine" type="text" class="form-control" id="covidVaccine" name="covidVaccine"
+                    placeholder="Enter Covid Vaccine Details" required>
+            </div>
+            <div class="col-sm-3  bg-white text-dark">
+                <label class="p-2"> Is VIP</label><br>
+                <div class="form-check">
+                    <input formControlName="IsVip" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                </div>
+            </div>
+            <div class="col-sm-3  bg-white text-dark">
+                <div class="mb-3">
+                    <label class="p-2"> VIP Type</label><br>
+                    <select formControlName="VipType" class="form-select" id="options" name="options" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3  bg-white text-dark">
+                <div class="mb-3">
+                    <label class="p-2"> Occupation</label><br>
+                    <select formControlName="Occupation" class="form-select" id="options" name="options" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="accordion mt-2 mb-3" id="accordionPanelsStayOpenExample">
+
+        <div class="accordion-button" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+            aria-controls="panelsStayOpen-collapseOne">
+            <p class="">Visit</p>
+        </div>
+        <hr>
+
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+            aria-labelledby="panelsStayOpen-headingOne">
+
+            <div class="container-fluid mt-3">
+                <div class="row">
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                        <label class="p-2">Visit Type<span style="color:red">*</span></label><br>
+                        <input formControlName="VisaType" type="text" class="form-control" id="visitType" name="visitType"
+                            placeholder="Enter Visit Type" required>
+                    </div>
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                        <label class="p-2">Department</label><br>
+                        <input formControlName="Department" type="text" class="form-control" id="department" name="department"
+                            placeholder="Enter Department" required>
+                    </div>
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                        <label class="p-2">Doctor<span style="color:red">*</span></label><br>
+                        <input formControlName="Doctor" type="text" class="form-control" id="doctor" name="doctor"
+                            placeholder="Enter Doctor Name" required>
+                    </div>
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                        <label class="p-2">Payer</label><br>
+                        <input formControlName="Payer" type="text" class="form-control" id="payer" name="payer"
+                            placeholder="Enter Payer Details" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid mt-3">
+                <div class="row">
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                        <label class="p-2">Payer Type<span style="color:red">*</span></label><br>
+                        <input formControlName="PayerType" type="text" class="form-control" id="payerType" name="payerType"
+                            placeholder="Enter Payer Type" required>
+                    </div>
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                        <label class="p-2">Source Type<span style="color:red">*</span></label><br>
+                        <input formControlName="Source_Type" type="text" class="form-control" id="sourceType" name="sourceType"
+                            placeholder="Enter Source Type" required>
+                    </div>
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                        <label class="p-2"> Referral Name<span style="color:red">*</span></label><br>
+                        <span class="span-inlinr-flex">
+                            <input formControlName="ReferralName" type="email" class="form-control" id="email" name="email"
+                                placeholder="Enter Your Email" required>
+                            <!-- <div> -->
+                            <img class="add-Icon-img margin-left-2px" src="../../assets/icons/plus.png"
+                                (click)="openReferralModal('Referral Name')"></span>
+                        <!-- </div> -->
+
+                    </div>
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                        <label class="p-2"> Reason</label><br>
+                        <span class="span-inlinr-flex">
+
+                            <input formControlName="Reason" type="email" class="form-control" id="email" name="email"
+                                placeholder="Enter Your Email" required>
+                            <!-- <div> -->
+                            <img class="add-Icon-img margin-left-2px" src="../../assets/icons/plus.png"
+                                (click)="openReferralModal('Reason')">
+                            <!-- </div> -->
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid mt-3">
+                <div class="row">
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                        <label class="p-2">Payer Number</label><br>
+                        <input formControlName="PayerNumber" type="text" class="form-control" id="payerNumber" name="payerNumber"
+                            placeholder="Enter Payer Number" required>
+                    </div>
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                        <label class="p-2">MLC</label><br>
+                        <div class="form-check">
+                            <input formControlName="IsMlc"  class="form-check-input" type="checkbox" value="" id="mlc">
+                        </div>
+                    </div>
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                        <label class="p-2">Token Num</label><br>
+                        <span class="step-token-number">1</span>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+
+        <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseTwo">
+            <p class="">Consultation Bill </p>
+        </div>
+        <hr>
+
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse show collapse"
+            aria-labelledby="panelsStayOpen-headingTwo">
+            <div class="container-fluid mt-3">
+                <div class="row">
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                        <div>
+                            <label class="p-2">Discount Type</label><br>
+                            <input  formControlName="Discount_Type" type="email" class="form-control" id="email" name="email"
+                                placeholder="Enter Your Email" required>
+                        </div>
+                        <div>
+                            <label class="p-2">Discount </label><br>
+                            <input formControlName="Discount" type="email" class="form-control" id="email" name="email"
+                                placeholder="Enter Your Email" required>
+                        </div>
+                        <div>
+                            <label class="p-2">Remarks</label><br>
+                            <input formControlName="Remarks" type="email" class="form-control" id="email" name="email"
+                                placeholder="Enter Your Email" required>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                        <div>
+                            <label>Emergency</label><br>
+
+                            <input  formControlName="Emergency"  class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        </div>
+
+                        <div>
+                            <div>
+                                <label>No Bill</label><br>
+
+                                <input formControlName="No_Bill" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            </div>
+                        </div>
+
+
+                        <div>
+                            <div>
+                                <label>Is OPD</label><br>
+
+                                <input formControlName="Is_OPD" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="col-sm-6 p-3 bg-white text-dark">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Service code / Name</th>
+                                    <th>Qty</th>
+                                    <th>Rate</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ip Consultation -Superspeciality</td>
+                                    <td>1</td>
+                                    <td>750</td>
+                                    <td>750</td>
+
+                                </tr>
+                                <tr>
+                                    <td colspan="3">TOTAL</td>
+                                    <td>₱750.00</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">DISCOUNT</td>
+                                    <td>₱0.00</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">RECEIVED</td>
+                                    <td>₱750.00</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">DUE</td>
+                                    <td>₱0.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="container-fluid mt-3">
+                <div class="row">
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                        <label class="p-2">Payment Type</label><br>
+                        <input formControlName="Payment_Type" type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                            required>
+
+                        <div>
+                            <label class="p-2"> Receipt Amount</label><br>
+                            <input formControlName="Receipt_Amount" type="email" class="form-control" id="email" name="email"
+                                placeholder="Enter Your Email" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                    </div>
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                    </div>
+                    <div class="col-sm-3 p-3 bg-white text-dark">
+                        <table style="width:100%">
+                            <tbody>
+                                <tr>
+                                    <th>Net Amount</th>
+                                    <th>₹100.00</th>
+                                </tr>
+                                <tr>
+                                    <td>Paid Amount</td>
+                                    <td>₹100.00</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Refund</td>
+                                    <td>₹0.00
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                            <!-- <caption>DETAILS</caption> -->
+
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div class="accordion mb-5" id="accordionPanelsStayOpenExample">
+
+        <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseThree">
+            <p class="">Promotion Scheme</p>
+
+        </div>
+        <hr>
+        <div class="container-fluid mt-3" id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingThree">
+            <div class="row">
+                <div class="col-sm-3  bg-white text-dark">
+                    <label class="p-2">Membership Number</label><br>
+                    <input formControlName="Membership_Number" type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                        required>
+                </div>
+                <div class="col-sm-3  bg-white text-dark">
+                    <label class="p-2">Type </label><br>
+                    <input formControlName="MembershipType"  type="email" class="form-control" id="text" name="email" placeholder="Enter Your Email"
+                        required>
+                </div>
+                <div class="col-sm-3  bg-white text-dark">
+                    <label class="p-2">Alternate Mobile#</label><br>
+                    <input formControlName="Membership_Alternate_Num"  type="email" class="form-control" id="text" name="email" placeholder="Enter Your Email"
+                        required>
+                </div>
+                <div class="col-sm-3 bg-white text-dark">
+                    <label class="p-2">Email</label><br>
+                    <input formControlName="Membership_Alternate_Email" type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                        required>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <div class="mt-2">
+        <p class="">Upload & Image Preview</p>
+        <hr>
+
+    </div>
+
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-3  bg-white text-dark">
+                <canvas class="drhms-img-thumbnail" #canv1>
+                    <img [src]="imageUrl" #imagePreview alt="Default Image">
+                </canvas>
+                <div>
+                    <input formControlName="UserPic" type="file" accept="image/*" #fileInput class="hidden" (change)="previewImage($event)">
+                    <button type="button" class="btn btn-outline-primary" (click)="triggerFileInput()">Upload</button>
+                    <button type="button" class="drhms-webcam-btn margin-left-10px"
+                        (click)="captureImage()">Webcam</button>
+                    <button type="button" class="btn btn-outline-danger margin-left-10px"
+                        (click)="removeImage()">Remove</button>
+                    <video #video width="320" height="240" autoplay style="display:none;"></video>
+                    <button #snap style="display:none;" (click)="snapImage()">Snap</button>
+                </div>
+            </div>
+            <div class="col-sm-3 p-3 bg-white text-dark">
+                <!-- <label class="p-2">Gender<span style="color:red">*</span></label><br>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                     required> -->
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">Registered Date</label><br>
-            <!-- <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+            </div>
+            <div class="col-sm-3  bg-white text-dark">
+                <label class="p-2">Registered Date</label><br>
+                <!-- <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                     required> -->
-            <p class="p-2">02/07/2025</p>
-        </div>
-        <div class="col-sm-3  bg-white text-dark">
-            <label class="p-2">Registered By</label><br>
-            <!-- <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+                <p class="p-2">02/07/2025</p>
+            </div>
+            <div class="col-sm-3  bg-white text-dark">
+                <label class="p-2">Registered By</label><br>
+                <!-- <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                     required> -->
-        </div>
-
-    </div>
-</div>
-
-
-<div class="container-fluid mt-3">
-    <div class="row">
-
-        <div class="text-end">
-            <p><button class="draftbutton">Activate</button></p>
+            </div>
 
         </div>
-
     </div>
-</div>
+
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+
+            <div class="text-end">
+                <p><button class="draftbutton">Activate</button></p>
+
+            </div>
+
+        </div>
+    </div>
+</form>
 
 
 <script>

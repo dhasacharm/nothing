@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,NO_ERRORS_SCHEMA  } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -64,6 +64,8 @@ import {MatTreeModule} from '@angular/material/tree';
 import { TableComponent } from './shared/table/table.component';
 import { FooterComponent } from './footer/footer.component';
 @NgModule({
+  schemas: [NO_ERRORS_SCHEMA],
+
   declarations: [
     AppComponent,
     LoginComponent,

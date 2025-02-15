@@ -129,3 +129,85 @@ body {
     pointer-events: none;
     color: #aaa;
 }
+
+
+  
+.datepicker {
+  position: relative;
+}
+
+.datepicker i.fa.fa-calendar {
+  position: absolute;
+  left: 10px;
+  top: 6px;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+.datepicker input[type="text"]:focus+i {
+  color: dodgerBlue;
+}
+
+.datepicker.inputIconBg i {
+  background-color: #aaa;
+  color: #fff;
+  padding: 9px 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.datepicker.inputIconBg input[type="text"]:focus+i {
+  color: #fff;
+  background-color: dodgerBlue;
+}
+
+.date-wrapper {
+  position: relative;
+  display: inline-block;
+  /* width: 200px; */
+  float: right;
+}
+
+.date-wrapper i {
+  position: absolute;
+  left: 10px;
+  top: 76%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 16px;
+  cursor: pointer; /* Make the icon clickable */
+}
+
+.date-wrapper input {
+  width: 100%;
+  padding-left: 35px; /* Space for the icon */
+  
+  cursor: pointer;
+  
+}
+
+/* Hide the default datepicker icon */
+.date-wrapper input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  width: 0;
+}
+
+/* Optional: Add hover effect */
+.date-wrapper input:hover {
+  border-color: #666;
+}
+
+
+input.picker[type="date"] {
+  position: relative;
+}
+
+input.date-picker[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  color: transparent;
+  background: transparent;
+}

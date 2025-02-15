@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RegisterForm } from '../data/fullRegister';
 @Component({
   selector: 'app-fullregister',
   templateUrl: './fullregister.component.html',
@@ -8,6 +7,5 @@ import { RegisterForm } from '../data/fullRegister';
 export class FullregisterComponent {
 
 
-  input_data_list = RegisterForm
 
 }

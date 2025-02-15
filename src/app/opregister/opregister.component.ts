@@ -1,38 +1,97 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ReferralModalComponent } from '../referral-modal/referral-modal.component';
+import { dropdownValue } from '../data/PatientRegister';
+
 
 @Component({
   selector: 'app-opregister',
   templateUrl: './opregister.component.html',
   styleUrls: ['./opregister.component.css']
 })
-export class OpregisterComponent implements AfterViewInit {
+export class OpregisterComponent implements AfterViewInit, OnInit {
   @ViewChild('fileInput') fileInput!: ElementRef;
   @ViewChild('imagePreview') imagePreview!: ElementRef;
   @ViewChild('video') video!: ElementRef;
   @ViewChild('snap') snap!: ElementRef;
   @ViewChild('canv1') canvas!: ElementRef;
   imageUrl: string = '../../assets/icons/default.jpg';
+  countries: string[] = [ 'India'];
+  FormDropDownValue :any = dropdownValue
+  patientRegisterForm!: FormGroup;
 
-  registerForm: FormGroup;
+  constructor(private fb: FormBuilder, public dialog: MatDialog) {}
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog) {
-    this.registerForm = this.fb.group({
-      referralName: ['', Validators.required],
-      reason: ['', Validators.required],
-      payerNumber: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
+  ngOnInit(): void {
+    this.patientRegisterForm = this.fb.group({
+      title: ['', Validators.required],
+      FirstName: ['', Validators.required],
+      LastName: ['', Validators.required],
+      DOB: ['', Validators.required],
+      Age: ['', Validators.required],
+      Gender: ['', Validators.required],
+      Mobile: ['', Validators.required],
+      AlternateMobileNum: [''],
+      Email: ['', [Validators.required, Validators.email]],
+      MaritalStatus: ['', Validators.required],
+      Ethnicity: ['', Validators.required],
+      AlternateEmail: ['', [Validators.required, Validators.email]],
+      PassportNumber: ['', Validators.required],
+      NationalId: ['', Validators.required],
+      Attender_Information: ['', Validators.required],
+      Nationality: ['', Validators.required],
+      AddressLine1: ['', Validators.required],
+      addressSearch: ['', Validators.required],
+      Country: ['', Validators.required],
+      State: ['', Validators.required],
+      District: ['', Validators.required],
+      City: ['', Validators.required],
+      Area: ['', Validators.required],
+      Pincode: ['', Validators.required],
+      PatientType: ['', Validators.required],
+      CovidVaccine: ['', Validators.required],
+      IsVip: [false],
+      VipType: ['', Validators.required],
+      Occupation: ['', Validators.required],
+      VisaType: ['', Validators.required],
+      Department: ['', Validators.required],
+      Doctor: ['', Validators.required],
+      Payer: ['', Validators.required],
+      PayerType: ['', Validators.required],
+      Source_Type: ['', Validators.required],
+      ReferralName: ['', Validators.required],
+      Reason: ['', Validators.required],
+      PayerNumber: ['', Validators.required],
+      IsMlc: [false],
+      Discount_Type: ['', Validators.required],
+      Discount: ['', Validators.required],
+      Remarks: ['', Validators.required],
+      Emergency: [false],
+      No_Bill: [false],
+      Is_OPD: [false],
+      Payment_Type: ['', Validators.required],
+      Receipt_Amount: ['', Validators.required],
+      Membership_Number: ['', Validators.required],
+      MembershipType: ['', Validators.required],
+      Membership_Alternate_Num: ['', Validators.required],
+      Membership_Alternate_Email: ['', [Validators.required, Validators.email]],
+      UserPic: ['']
     });
   }
 
+  getDropdownValues(name: string) {
+    const dropdown = this.FormDropDownValue.find((item: { name: string, value: any[] }) => item.name === name);
+    return dropdown ? dropdown.value : [];
+  }
   ngAfterViewInit() {
     // Ensure that the @ViewChild elements are available
     if (!this.fileInput || !this.imagePreview || !this.video || !this.snap || !this.canvas) {
       console.error('One or more @ViewChild elements are not available');
     }
   }
+
+
 
   openReferralModal(title: string): void {
     const dialogRef = this.dialog.open(ReferralModalComponent, {
@@ -44,7 +103,7 @@ export class OpregisterComponent implements AfterViewInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.registerForm.patchValue(result);
+        this.patientRegisterForm.patchValue(result);
       }
     });
   }
@@ -109,8 +168,8 @@ export class OpregisterComponent implements AfterViewInit {
   }
 
   onSubmit() {
-    if (this.registerForm.valid) {
-      console.log('Form Submitted', this.registerForm.value);
+    if (this.patientRegisterForm.valid) {
+      console.log('Form Submitted', this.patientRegisterForm.value);
       // Handle form submission logic here
     }
   }
