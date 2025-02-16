@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-7 p-2 bg-white text-dark">
@@ -23,7 +22,7 @@
     </div>
 
 </div>
-<form [formGroup]="simpleRegistrationForm">
+<form [formGroup]="simpleRegistrationForm" (ngSubmit)="onSubmit()">
 <div class="container-fluid ">
     <div class="row">
         <div class="col-sm-3   text-dark">
@@ -32,8 +31,7 @@
                     <label class="p-2">Type</label><br>
                     <div class="select-wrapper">
 
-                        <select formControlName="Types" class="form-select" id="options" name="options" required>
-                            <option value="" disabled selected></option>
+                        <select formControlName="Types" class="form-select" id="options" name="options" >
                             <option *ngFor="let item of getDropdownValues('Types')" [value]="item.value">{{
                                 item.label }}</option>
                         </select>
@@ -50,9 +48,8 @@
                     <label class="p-2">Title<span style="color:red">*</span></label><br>
                     <div class="select-wrapper">
 
-                        <select formControlName="title" class="form-select" id="options" name="options" required>
-                            <option value="" disabled selected></option>
-                            <option *ngFor="let item of getDropdownValues('Title')" [value]="item.value">{{
+                        <select (change)="onTitleChange($event)" formControlName="title" class="form-select" id="options" name="options" >
+                            <option  *ngFor="let item of getDropdownValues('Title')" [value]="item.value">{{
                                 item.label }}</option>
                         </select>
                         <i class="fa fa-chevron-down select-icon"></i>
@@ -63,54 +60,51 @@
             </div>
         </div>
         <div class="col-sm-3 text-dark">
-            <label class="p-2">First Name*</label><br>
-            <input formControlName="FirstName" type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter Your First Name" required>
-        </div>
-        <div class="col-sm-3 text-dark">
-            <label class="p-2">Last Name*</label><br>
-            <input formControlName="LastName" type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter Your Last Name" required>
-        </div>
-    </div>
-</div>
-<div class="container-fluid ">
-    <div class="row">
-        <div class="col-sm-1 text-dark">
-            <label class="p-2">Age</label><br>
-            <input formControlName="Age" type="text" class="form-control" id="age" name="age" placeholder="Enter Your Age" required>
+            <label class="p-2">Patient Name <span style="color:red">*</span></label><br>
+            <input formControlName="PatientName" type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter Your First Name" required>
+            <div *ngIf="simpleRegistrationForm.get('PatientName')?.touched && simpleRegistrationForm.get('PatientName')?.invalid" class="text-danger">
+                <small *ngIf="simpleRegistrationForm.get('PatientName')?.errors?.['required']">Patient Name is required.</small>
+                <small *ngIf="simpleRegistrationForm.get('PatientName')?.errors?.['pattern']">Invalid Patient Name.</small>
+            </div>
         </div>
         <div class="col-sm-2 text-dark">
             <div class="date-wrapper">
                 <label class="p-2">DOB</label>
                 <i class="fa fa-calendar"></i>
                 <mat-datepicker #picker></mat-datepicker>
-                <input formControlName="DOB" type="date" (click)="picker.open()" [matDatepicker]="picker" class="form-control" />
+                <input  [value]="simpleRegistrationForm.get('DOB')?.value" formControlName="DOB" (dateChange)="setDOB($event)" type="text" (click)="picker.open()" [matDatepicker]="picker" class="form-control" placeholder="DD/MM/YYYY" />
             </div>
         </div>
+        <div class="col-sm-1 text-dark">
+            <label class="p-2">Age</label><br>
+            <input formControlName="Age" type="text" class="form-control" id="age" name="age" placeholder="Age"  readonly>
+        </div>
+        
+        
+    </div>
+</div>
+<div class="container-fluid ">
+    <div class="row">
         <div class="col-sm-3   text-dark">
             <div class="mb-2">
                 <label class="p-2">Gender<span style="color:red">*</span></label><br>
-                <div class="select-wrapper">
-
-                    <select formControlName="Gender" class="form-select" id="options" name="options" required>
-                        <option value="" disabled selected></option>
-                        <option *ngFor="let item of getDropdownValues('Gender')" [value]="item.value">{{
-                            item.label }}</option>
-                    </select>
-                    <i class="fa fa-chevron-down select-icon"></i>
-                </div>
-
+                <input type="text" formControlName="Gender" class="form-control" readonly />
             </div>
         </div>
         <div class="col-sm-3 text-dark">
             <label class="p-2">Mobile*</label><br>
-            <input formControlName="Mobile" type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Your Mobile Number" required>
+            <input pattern="^[0-9]{10}$" formControlName="Mobile" type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Your Mobile Number" required>
+            <div *ngIf="simpleRegistrationForm.get('Mobile')?.touched && simpleRegistrationForm.get('Mobile')?.invalid" class="text-danger">
+                <small *ngIf="simpleRegistrationForm.get('Mobile')?.errors?.['required']">Mobile number is required.</small>
+                <small *ngIf="simpleRegistrationForm.get('Mobile')?.errors?.['pattern']">Mobile number must be 10 digits.</small>
+            </div>
         </div>
         <div class="col-sm-3  text-dark">
             <div class="mb-2">
                 <label class="p-2">Marital Status</label><br>
                 <div class="select-wrapper">
 
-                    <select formControlName="MaritalStatus" class="form-select" id="options" name="options" required>
+                    <select formControlName="MaritalStatus" class="form-select" id="options" name="options" >
                         <option value="" disabled selected></option>
                         <option *ngFor="let item of getDropdownValues('MaritalStatus')" [value]="item.value">{{
                             item.label }}</option>
@@ -121,28 +115,46 @@
             </div>
            
         </div>
+        <div class="col-sm-3 text-dark">
+            <label class="p-2">Nationality ID<span style="color:red">*</span></label><br>
+            <input formControlName="NationalityId" type="text" class="form-control" id="nationality" name="nationality" placeholder="Enter Your Nationality" required>
+            <div *ngIf="simpleRegistrationForm.get('NationalityId')?.touched && simpleRegistrationForm.get('NationalityId')?.invalid" class="text-danger">
+                <small *ngIf="simpleRegistrationForm.get('NationalityId')?.errors?.['required']">Nationality ID is required.</small>
+            </div>
+        </div>
     </div>
 </div>
 <div class="container-fluid ">
     <div class="row">
         <div class="col-sm-3 text-dark">
-            <label class="p-2">Nationality<span style="color:red">*</span></label><br>
-            <input formControlName="Nationality" type="text" class="form-control" id="nationality" name="nationality" placeholder="Enter Your Nationality" required>
+            <label class="p-2">Address<span style="color:red">*</span></label><br>
+            <input formControlName="AddressLine1" type="text" class="form-control" id="address" name="address" placeholder="Enter Your Address" required>
+            <div *ngIf="simpleRegistrationForm.get('AddressLine1')?.touched && simpleRegistrationForm.get('AddressLine1')?.invalid" class="text-danger">
+                <small *ngIf="simpleRegistrationForm.get('AddressLine1')?.errors?.['required']">Address is required.</small>
+            </div>
         </div>
         <div class="col-sm-3 text-dark">
             <label class="p-2">Address Search</label><br>
-            <input formControlName="addressSearch" type="text" class="form-control" id="addressSearch" name="addressSearch" placeholder="Enter Address Search" required>
+            <input formControlName="addressSearch" type="text" class="form-control" id="addressSearch" name="addressSearch" placeholder="Enter Address Search" >
         </div>
-        <div class="col-sm-3 text-dark">
-            <label class="p-2">Address<span style="color:red">*</span></label><br>
-            <input formControlName="AddressLine1" type="text" class="form-control" id="address" name="address" placeholder="Enter Your Address" required>
+        <div class="col-sm-1  text-dark">
+            <label class="p-2">MLC</label><br>
+            <div class="form-check">
+                <input formControlName="IsMlc" class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+            </div>
+        </div>
+        <div class="col-sm-2   text-dark">
+            <label class="p-2">IsVIP</label><br>
+                <div class="form-check">
+                    <input formControlName="IsVip" class="form-check-input " type="checkbox" value="" id="defaultCheck1">
+                </div>
         </div>
         <div class="col-sm-3  text-dark">
             <div class="mb-2">
                 <label class="p-2"> VIP Type</label><br>
                 <div class="select-wrapper">
 
-                    <select formControlName="VipType" class="form-select" id="options" name="options" required>
+                    <select formControlName="VipType" class="form-select" id="options" name="options" >
                         <option value="" disabled selected></option>
                         <option *ngFor="let item of getDropdownValues('VipType')" [value]="item.value">{{
                             item.label }}</option>
@@ -150,22 +162,6 @@
                     <i class="fa fa-chevron-down select-icon"></i>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<div class="container-fluid ">
-    <div class="row">
-        <div class="col-sm-3  text-dark">
-            <label class="">MLC</label><br>
-            <div class="form-check">
-                <input formControlName="IsMlc" class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
-            </div>
-        </div>
-        <div class="col-sm-3   text-dark">
-            <label class="">IsVIP</label><br>
-                <div class="form-check">
-                    <input formControlName="IsVip" class="form-check-input " type="checkbox" value="" id="defaultCheck1">
-                </div>
         </div>
     </div>
 </div>
@@ -201,7 +197,7 @@
     <div class="row">
 
         <div class="text-end qucik-reg-save-button">
-            <p><button class="draftbutton">Activate</button></p>
+            <p><button type="submit" class="draftbutton">Activate</button></p>
 
         </div>
 

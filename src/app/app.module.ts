@@ -56,6 +56,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -123,6 +124,7 @@ import { FooterComponent } from './footer/footer.component';
     MatListModule,
     MatMenuModule,
     MatNativeDateModule,
+    MatDatepickerModule ,
     MatPaginatorModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,

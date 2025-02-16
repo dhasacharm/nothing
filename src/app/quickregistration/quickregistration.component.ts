@@ -1,11 +1,19 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { dropdownValue } from '../data/PatientRegister';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { formatDate } from '@angular/common';
+import {
+  DateAdapter,
+  MAT_DATE_LOCALE,
+  MAT_DATE_FORMATS
+} from "@angular/material/core";
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: 'app-quickregistration',
   templateUrl: './quickregistration.component.html',
-  styleUrls: ['./quickregistration.component.css']
+  styleUrls: ['./quickregistration.component.css'],
+  
 })
 export class QuickregistrationComponent implements OnInit, AfterViewInit {
   @ViewChild('fileInput') fileInput!: ElementRef;
@@ -17,27 +25,94 @@ export class QuickregistrationComponent implements OnInit, AfterViewInit {
   FormDropDownValue: any = dropdownValue;
   simpleRegistrationForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  
+
+  constructor(private fb: FormBuilder) {
+
+  }
 
   ngOnInit(): void {
     this.simpleRegistrationForm = this.fb.group({
-      Types: ['', Validators.required],
+      Types: [this.getDropdownValues('Types')[0]?.value || '', Validators.required],
       title: ['', Validators.required],
-      FirstName: ['', Validators.required],
-      LastName: ['', Validators.required],
-      Age: ['', Validators.required],
-      DOB: ['', Validators.required],
+      PatientName: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
+      DOB: [''],
+      Age: [''],
       Gender: ['', Validators.required],
-      Mobile: ['', Validators.required],
-      MaritalStatus: ['', Validators.required],
-      Nationality: ['', Validators.required],
-      addressSearch: ['', Validators.required],
-      AddressLine1: ['', Validators.required],
-      VipType: ['', Validators.required],
+      Mobile: ['', Validators.required], 
+      MaritalStatus: ['',],
+      NationalityId: ['', ],
+      AddressLine1: [''],
+      addressSearch: [''],
       IsMlc: [false],
       IsVip: [false],
-      UserPic: [""]
+      VipType: [''],
+      UserPic: ['']
     });
+
+    // ✅ Listen for Title Change & Update Gender
+    this.simpleRegistrationForm.get('title')?.valueChanges.subscribe(selectedTitle => {
+      this.updateGenderBasedOnTitle(selectedTitle);
+    });
+     // Detect DOB changes and calculate age
+     this.simpleRegistrationForm.get('DOB')?.valueChanges.subscribe((dob) => {
+      if (dob) {
+        this.calculateAge(dob);
+      }
+    });
+
+  }
+
+  // ✅ Function to Calculate Age
+  calculateAge(dob: string) {
+    const birthDate = new Date(dob);
+    const today = new Date();
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    
+    // Adjust age if the birthday hasn't occurred yet this year
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    this.simpleRegistrationForm.get('Age')?.setValue(age);
+  }
+
+ // Convert JavaScript Date to YYYY-MM-DD
+ formatDate(date: Date) {
+    if (!date) return ''; // Prevent errors if date is null
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Ensure 2-digit month
+    const day = String(date.getDate()).padStart(2, '0'); // Ensure 2-digit day
+    return `${year}-${month}-${day}`;
+  }
+
+setDOB(event: any) {
+  if (event.value) {
+    const selectedDate = new Date(event.value);
+    console.log("Formatted Date:", this.formatDate(selectedDate)); // Debugging
+    this.simpleRegistrationForm.get('DOB')?.setValue(this.formatDate(selectedDate));
+  }
+}
+  onTitleChange(event: any) {
+    const selectedTitle = event.target.value;
+    this.updateGenderBasedOnTitle(selectedTitle);
+  }
+  // ✅ Function to Update Gender Based on Title
+  updateGenderBasedOnTitle(title: string) {
+    let gender = '';
+
+    if (['Mr.', 'MASTER.', 'RREV.BROTHER.'].includes(title)) {
+      gender = 'Male';
+    } else if (['Mrs.', 'Ms.', 'BABY OF.', 'BABY.'].includes(title)) {
+      gender = 'Female';
+    } else {
+      gender = 'Other'; // For neutral titles like "Dr.", "TEAM", etc.
+    }
+    console.log(gender)
+    this.simpleRegistrationForm.get('Gender')?.setValue(gender);
   }
 
   ngAfterViewInit() {
@@ -110,4 +185,29 @@ export class QuickregistrationComponent implements OnInit, AfterViewInit {
   triggerFileInput() {
     this.fileInput.nativeElement.click();
   }
+
+  onSubmit() {
+    console.log(this.simpleRegistrationForm.value);
+    console.log(this.simpleRegistrationForm.errors); // Shows form errors (if any)
+
+    if (this.simpleRegistrationForm.valid) {
+      console.log('✅ Form Submitted Successfully!', this.simpleRegistrationForm.value);
+    } else {
+      console.log('❌ Form Invalid! Please check your inputs.');
+      this.markFormGroupTouched(this.simpleRegistrationForm); // ✅ Highlight errors
+    }
+  }
+  
+  // ✅ Function to Mark Invalid Fields as Touched
+  markFormGroupTouched(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      const control = formGroup.get(field);
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control); // Recursively check nested forms
+      } else {
+        control?.markAsTouched(); // Mark field as touched to show errors
+      }
+    });
+  }
+  
 }
