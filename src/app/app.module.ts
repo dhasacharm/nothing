@@ -64,6 +64,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { TableComponent } from './shared/table/table.component';
 import { FooterComponent } from './footer/footer.component';
+import { ToasterComponent } from './shared/toaster/toaster.component';
 @NgModule({
   schemas: [NO_ERRORS_SCHEMA],
 
@@ -82,7 +83,8 @@ import { FooterComponent } from './footer/footer.component';
     BulkCheckOutComponent,
     PatientRegisteredComponent,
     TableComponent,
-    FooterComponent
+    FooterComponent,
+    ToasterComponent
   ],
   imports: [
     BrowserModule,

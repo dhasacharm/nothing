@@ -8,7 +8,8 @@ import {
   MAT_DATE_FORMATS
 } from "@angular/material/core";
 import { DatePipe } from "@angular/common";
-
+import { PatientRegisterService } from '../../services/FrontOffice/patient-register.service'; // Import the service
+import { ToasterService } from '../shared/services/toaster.service';
 @Component({
   selector: 'app-quickregistration',
   templateUrl: './quickregistration.component.html',
@@ -27,7 +28,7 @@ export class QuickregistrationComponent implements OnInit, AfterViewInit {
 
   
 
-  constructor(private fb: FormBuilder) {
+  constructor(private toaster: ToasterService,private fb: FormBuilder, private patientRegisterService: PatientRegisterService) { // Inject the service
 
   }
 
@@ -37,6 +38,7 @@ export class QuickregistrationComponent implements OnInit, AfterViewInit {
       title: ['', Validators.required],
       PatientName: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
       DOB: [''],
+      FromType:["quickRegister"],
       Age: [''],
       Gender: ['', Validators.required],
       Mobile: ['', Validators.required], 
@@ -192,6 +194,17 @@ setDOB(event: any) {
 
     if (this.simpleRegistrationForm.valid) {
       console.log('✅ Form Submitted Successfully!', this.simpleRegistrationForm.value);
+      this.patientRegisterService.registerPatient(this.simpleRegistrationForm.value).subscribe(
+        response => {
+          console.log('✅ Patient registered successfully!', response);
+        },
+        error => {
+          this.toaster.show('Something went wrong!', 'error');
+
+          console.error('❌ Error registering patient:', error);
+        }
+      );
+
     } else {
       console.log('❌ Form Invalid! Please check your inputs.');
       this.markFormGroupTouched(this.simpleRegistrationForm); // ✅ Highlight errors

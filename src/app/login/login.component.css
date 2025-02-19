@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,900|Poppins:400,500');
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
 input.is-invalid {
     border-color: red !important; /* Change the border color to red for invalid inputs */
