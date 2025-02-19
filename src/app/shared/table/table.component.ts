@@ -53,6 +53,7 @@ export class TableComponent implements OnInit, OnChanges {
 
   loadTableData(tableData: any[]) {
     this.dataSource.data = tableData;
+    console.log(this.dataSource)
     this.displayedColumns = this.headers;
     setTimeout(() => {
       if (this.paginator) this.dataSource.paginator = this.paginator;

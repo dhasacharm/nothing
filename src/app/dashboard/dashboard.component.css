@@ -33,6 +33,7 @@
 
 .mat-sidenav {
   flex: 0 0 auto;
+  overflow: hidden;
 }
 
 .mat-sidenav-content {
@@ -46,4 +47,6 @@
 .spacer {
   flex: 1 1 auto;
 }
-
+.mat-drawer-inner-container {
+  overflow-y: hidden;
+}

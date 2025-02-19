@@ -17,4 +17,14 @@ private apiUrl = environment.API_URL;  // Using the API URL from environment
     });
 
     return this.http.post<any>(`${this.apiUrl}${this.patientEndpoint}`, patientData, { headers });
-  }}
+  }
+
+  getPatients() {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.get<any>(`${this.apiUrl}${this.patientEndpoint}`, { headers });
+  }
+  
+}

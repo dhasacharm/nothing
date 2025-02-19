@@ -70,6 +70,7 @@
   
   .mat-drawer-inner-container {
     background: linear-gradient(90deg, #66a4c4 0%, #257aa6 100%);
+    overflow-y: hidden;
   }
   
   .example-toolbar {
@@ -98,3 +99,6 @@
   .spacer {
     flex: 1 1 auto;
   }
+  .mat-drawer-inner-container {
+    overflow-y: hidden;
+}

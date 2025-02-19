@@ -1,73 +1,75 @@
 <div class="container-op-visit container-fluid">
 
-    <h2 class="title">OP Visit Details</h2>
     <div class="row">
-        <div class="col-sm-2">
+
+        <div class="row">
+            <h2 class="title">OP Visit Details</h2>
+
+            <div class="col-sm-2">
                 <div class="date-wrapper">
                     <label>From Date:</label>
 
-                    <i class="fa fa-calendar" ></i>
-                    <mat-datepicker #picker></mat-datepicker>
+                    <i class="fa fa-calendar"></i>
+                    <mat-datepicker #Frompicker></mat-datepicker>
 
-                    <input type="date" (click)="picker.open()" [matDatepicker]="picker" class="form-control"  />
+                    <input type="date" (click)="Frompicker.open()" [matDatepicker]="Frompicker" class="form-control" />
                 </div>
-                
+
+
+            </div>
+            <div class="col-sm-2">
+                <div class="date-wrapper">
+                    <label>To Date:</label>
+                    <i class="fa fa-calendar"></i>
+                    <mat-datepicker #Topicker></mat-datepicker>
+
+                    <input type="date" (click)="Topicker.open()" [matDatepicker]="Topicker" class="form-control" />
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="filter-group">
+                    <label>Doctor</label>
+                    <input class="form-control" type="text" placeholder="Search Your Doctor...">
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="filter-group">
+                    <label>Patient Search</label>
+                    <input class="form-control" type="text" placeholder="Search Name/Phone/UHID...">
+                </div>
+
+            </div>
+            <div class="col-sm-2">
+                <label class="">Department</label>
+                <select class="form-select" id="options" name="options" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <label class="">Billing Status</label>
+                <select class="form-select" id="options" name="options" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+            </div>
 
         </div>
-        <div class="col-sm-2">
-            <div class="date-wrapper">
-                <label>To Date:</label>
-                <i class="fa fa-calendar" ></i>
-                <mat-datepicker #picker></mat-datepicker>
 
-                <input type="date" (click)="picker.open()" [matDatepicker]="picker" class="form-control"  />
-            </div>
-        </div>
-        <div class="col-sm-2">
-            <div class="filter-group">
-                <label>Doctor</label>
-                <input class="form-control" type="text" placeholder="Search Your Doctor...">
-            </div>
-        </div>
-        <div class="col-sm-2">
-            <div class="filter-group">
-                <label>Patient Search</label>
-                <input class="form-control" type="text" placeholder="Search Name/Phone/UHID...">
+        <div class="row mt-5">
+            <div class="col-12">
+                <app-table [headers]="['PatientName', 'Types', 'Gender','Mobile']" [data]="tableData">
+                </app-table>
+
             </div>
 
         </div>
-        <div class="col-sm-2">
-            <label class="">Department</label>
-            <select class="form-select" id="options" name="options" required>
-                <option value="" disabled selected>Select an option</option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-            </select>
-        </div>
-        <div class="col-sm-2">
-            <label class="">Billing Status</label>
-            <select class="form-select" id="options" name="options" required>
-                <option value="" disabled selected>Select an option</option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-            </select>
-        </div>
+
 
     </div>
-
-    <div class="row mt-5">
-        <div class="col-12">
-            <app-table 
-    [headers]="['ID', 'Name', 'Email']" 
-    [apiUrl]="'https://jsonplaceholder.typicode.com/users'">
-</app-table>
-
-        </div>
-
-    </div>
-
-
 
 </div>
