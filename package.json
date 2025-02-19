@@ -7,7 +7,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod && ng run your-app-name:server:production",
+    "build": "ng build --prod ",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:village": "node dist/village/server/server.mjs"
