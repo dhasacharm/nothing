@@ -1,0 +1,120 @@
+/* Styles for wrapping the search box */
+input::placeholder {
+    font-size: 12px;
+    font-family: 'poppins', sans-serif;
+}
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: none;
+    border-color: none;
+    box-shadow: none;
+}
+.step-token-number {
+    background: #4c4545;
+    border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 3.6em;
+    margin-right: 5px;
+    text-align: center;
+    width: 3.6em;
+}
+.span-inlinr-flex {
+    display: flex;
+}
+.margin-left-2px {
+    margin-left: 5px;
+    cursor: pointer;
+}
+/* Bootstrap 4 text input with search icon */
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.add-Icon-img {
+    width: 30px;
+}
+.form-check-input {
+    width: 2em;
+    height: 2em;
+}
+.drhms-img-thumbnail {
+    width: 225px;
+    max-height: 200px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    height: 175px;
+}
+.hidden {
+    display: none;
+}
+button.drhms-webcam-btn {
+    border: 1px solid #00125a;
+    background: #00125a;
+    border-radius: 6px;
+    color: #fafafa !important;
+    padding: 4px 5px;
+}
+.accordion-button {
+    padding: 0;
+    background: none;
+    box-shadow: none;
+}
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+.select-wrapper select {
+    width: 100%;
+    padding-right: 30px; /* Space for the icon */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.select-wrapper .select-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #aaa;
+}
+.date-wrapper {
+    position: relative;
+    display: inline-block;
+    float: right;
+}
+.date-wrapper i {
+    position: absolute;
+    left: 10px;
+    top: 76%;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 16px;
+    cursor: pointer; /* Make the icon clickable */
+}
+.date-wrapper input {
+    width: 100%;
+    padding-left: 35px; /* Space for the icon */
+    cursor: pointer;
+}
+/* Hide the default datepicker icon */
+.date-wrapper input::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    width: 0;
+}
+.date-wrapper input:hover {
+    border-color: #666;
+}

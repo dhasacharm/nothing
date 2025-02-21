@@ -2,13 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { OpregisterComponent } from './opregister/opregister.component';
 import { OpvisitlinkComponent } from './opvisitlink/opvisitlink.component';
 import { FrontOfficeDashboardComponent } from './front-office-dashboard/front-office-dashboard.component';
 import { FullregisterComponent } from './fullregister/fullregister.component';
 import { BulkCheckOutComponent } from './bulk-check-out/bulk-check-out.component';
 import { PatientRegisteredComponent } from './patient-registered/patient-registered.component';
-import { SimpleRegisterComponent } from './simple-register/simple-register.component';
+import { SimpleRegisterComponent } from './FrontOffice/simple-register/simple-register.component';
 import { OrganisationsComponent } from './SystemSetting/organisations/organisations.component';
 import { AddOrganizationComponent } from './SystemSetting/add-organization/add-organization.component';
 import { HospitalsComponent } from './SystemSetting/hospitals/hospitals.component';
@@ -18,6 +17,7 @@ import { ReferralDoctorComponent } from './SystemSetting/referral-doctor/referra
 import { ReferenceNumberComponent } from './SystemSetting/reference-number/reference-number.component';
 import { DoctorpaymentComponent } from './SystemSetting/doctorpayment/doctorpayment.component';
 import { AddHospitalsComponent } from './SystemSetting/add-hospitals/add-hospitals.component';
+import { FrontofficeRegisterComponent } from './FrontOffice/frontoffice-register/frontoffice-register.component';
 
 const routes: Routes = [
   {
@@ -74,7 +74,7 @@ const routes: Routes = [
         path: "front-dashboard",
         component: FrontOfficeDashboardComponent
       },
-      { path: 'register', component: OpregisterComponent },
+      { path: 'register', component: FrontofficeRegisterComponent },
       {
         path: "op-vist-link",
         component: OpvisitlinkComponent
@@ -92,10 +92,7 @@ const routes: Routes = [
     path: "login",
     component: LoginComponent
   },
-  {
-    path: "op-register",
-    component: OpregisterComponent
-  },
+  
 
 
 ];

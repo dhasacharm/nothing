@@ -1,16 +1,17 @@
+
 import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ReferralModalComponent } from '../referral-modal/referral-modal.component';
-import { dropdownValue } from '../data/PatientRegister';
+import { ReferralModalComponent } from '../../referral-modal/referral-modal.component';
+import { dropdownValue } from '../../data/PatientRegister';
 
 
 @Component({
-  selector: 'app-opregister',
-  templateUrl: './opregister.component.html',
-  styleUrls: ['./opregister.component.css']
+  selector: 'app-frontoffice-register',
+  templateUrl: './frontoffice-register.component.html',
+  styleUrl: './frontoffice-register.component.css'
 })
-export class OpregisterComponent implements AfterViewInit, OnInit {
+export class FrontofficeRegisterComponent implements AfterViewInit, OnInit {
   @ViewChild('fileInput') fileInput!: ElementRef;
   @ViewChild('imagePreview') imagePreview!: ElementRef;
   @ViewChild('video') video!: ElementRef;
@@ -169,10 +170,30 @@ export class OpregisterComponent implements AfterViewInit, OnInit {
     this.fileInput.nativeElement.click();
   }
 
+  
   onSubmit() {
+    console.log(this.patientRegisterForm.value);
+    console.log(this.patientRegisterForm.errors); // Shows form errors (if any)
+
     if (this.patientRegisterForm.valid) {
-      console.log('Form Submitted', this.patientRegisterForm.value);
-      // Handle form submission logic here
+      console.log('✅ Form Submitted Successfully!', this.patientRegisterForm.value);
+      
+
+    } else {
+      console.log('❌ Form Invalid! Please check your inputs.');
+      this.markFormGroupTouched(this.patientRegisterForm); // ✅ Highlight errors
     }
+  }
+  
+  // ✅ Function to Mark Invalid Fields as Touched
+  markFormGroupTouched(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      const control = formGroup.get(field);
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control); // Recursively check nested forms
+      } else {
+        control?.markAsTouched(); // Mark field as touched to show errors
+      }
+    });
   }
 }

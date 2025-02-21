@@ -30,7 +30,7 @@
     </div>
 </div>
 <hr>
-<form [formGroup]="patientRegisterForm">
+<form [formGroup]="patientRegisterForm" (ngSubmit)="onSubmit()">
 
 
     <div class="container-fluid mt-3">
@@ -49,6 +49,11 @@
                             </select>
                             <i class="fa fa-chevron-down select-icon"></i>
                         </div>
+                        <div *ngIf="patientRegisterForm.get('title')?.touched && patientRegisterForm.get('title')?.invalid"
+                            class="text-danger">
+                            <small *ngIf="patientRegisterForm.get('title')?.errors?.['required']">Title is
+                                required.</small>
+                        </div>
 
                     </div>
 
@@ -57,15 +62,35 @@
             </div>
             <div class="col-sm-3  bg-white text-dark">
                 <label class="p-2">First Name<span style="color:red">*</span></label><br>
-                <input type="text" class="form-control" id="email" formControlName="FirstName"  name="FirstName" placeholder="Frist Name" required>
+                <input type="text" class="form-control" id="email" formControlName="FirstName" name="FirstName"
+                    placeholder="Frist Name" required>
+                <div *ngIf="patientRegisterForm.get('FirstName')?.touched && patientRegisterForm.get('FirstName')?.invalid"
+                    class="text-danger">
+                    <small *ngIf="patientRegisterForm.get('FirstName')?.errors?.['required']">First Name is
+                        required.</small>
+                    <small *ngIf="patientRegisterForm.get('FirstName')?.errors?.['pattern']">Only letters are
+                        allowed.</small>
+                    <small *ngIf="patientRegisterForm.get('FirstName')?.errors?.['minlength']">Must be at least 2
+                        characters.</small>
+                </div>
             </div>
             <div class="col-sm-3  bg-white text-dark">
                 <label class="p-2">Last Name<span style="color:red">*</span></label><br>
-                <input type="text" class="form-control" id="email" formControlName="LastName" name="email" placeholder="Last Name" required>
+                <input type="text" class="form-control" id="email" formControlName="LastName" name="email"
+                    placeholder="Last Name" required>
+                <div *ngIf="patientRegisterForm.get('LastName')?.touched && patientRegisterForm.get('LastName')?.invalid"
+                    class="text-danger">
+                    <small *ngIf="patientRegisterForm.get('LastName')?.errors?.['required']">Last Name is
+                        required.</small>
+                    <small *ngIf="patientRegisterForm.get('LastName')?.errors?.['pattern']">Only letters are
+                        allowed.</small>
+                    <small *ngIf="patientRegisterForm.get('LastName')?.errors?.['minlength']">Must be at least 2
+                        characters.</small>
+                </div>
             </div>
 
             <div class="col-sm-3  bg-white text-dark">
-                <div class="row ml-5">
+                <div class="row">
                     <div class="col-sm-6 bg-white text-dark">
                         <div class="date-wrapper">
                             <label class="p-2">DOB</label>
@@ -73,13 +98,29 @@
                             <i class="fa fa-calendar"></i>
                             <mat-datepicker #picker></mat-datepicker>
 
-                            <input type="date" formControlName="DOB" placeholder="DD/MM/YYYY" (click)="picker.open()" [matDatepicker]="picker"
-                                class="form-control" />
+                            <input type="text" formControlName="DOB" placeholder="DD/MM/YYYY" (click)="picker.open()"
+                                [matDatepicker]="picker" class="form-control" />
+                        </div>
+                        <div *ngIf="patientRegisterForm.get('DOB')?.touched && patientRegisterForm.get('DOB')?.invalid"
+                            class="text-danger">
+                            <small *ngIf="patientRegisterForm.get('DOB')?.errors?.['required']">Date of Birth is
+                                required.</small>
                         </div>
                     </div>
                     <div class="col-sm-6  bg-white text-dark">
                         <label class="p-2">Age<span style="color:red">*</span></label><br>
-                        <input type="text" class="form-control" formControlName="Age" id="email" name="email" placeholder="Age" required>
+                        <input type="text" class="form-control" formControlName="Age" id="email" name="email"
+                            placeholder="Age" required>
+                        <div *ngIf="patientRegisterForm.get('Age')?.touched && patientRegisterForm.get('Age')?.invalid"
+                            class="text-danger">
+                            <small *ngIf="patientRegisterForm.get('Age')?.errors?.['required']">Age is required.</small>
+                            <small *ngIf="patientRegisterForm.get('Age')?.errors?.['pattern']">Only numbers are
+                                allowed.</small>
+                            <small *ngIf="patientRegisterForm.get('Age')?.errors?.['min']">Age must be greater than
+                                0.</small>
+                            <small *ngIf="patientRegisterForm.get('Age')?.errors?.['max']">Age must be less than
+                                120.</small>
+                        </div>
                     </div>
                 </div>
 
@@ -93,30 +134,53 @@
     <div class="container-fluid mt-3">
         <div class="row">
             <div class="col-sm-3  bg-white text-dark">
-                <div class="mb-3">
-                    <label class="p-2">Gender<span style="color:red">*</span></label><br>
+                <label class="p-2">Gender<span style="color:red">*</span></label><br>
+
+                <div class="select-wrapper">
                     <select formControlName="Gender" class="form-select" id="options" name="options" required>
                         <option value="" disabled selected>Select an option</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
+                        <option *ngFor="let item of getDropdownValues('Gender')" [value]="item.value">{{
+                                    item.label }}</option>
                     </select>
+                    <i class="fa fa-chevron-down select-icon"></i>
+
+                </div>
+                <div *ngIf="patientRegisterForm.get('Gender')?.touched && patientRegisterForm.get('Gender')?.invalid"
+                    class="text-danger">
+                    <small *ngIf="patientRegisterForm.get('Gender')?.errors?.['required']">Gender is required.</small>
                 </div>
             </div>
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">Mobile<span style="color:red">*</span></label><br>
-                <input type="text" formControlName="Mobile" class="form-control" id="mobile" name="mobile" placeholder="Enter Your Mobile Number"
-                    required>
+                <input type="text" formControlName="Mobile" class="form-control" id="mobile" name="mobile"
+                    placeholder="Enter Your Mobile Number" required>
+                <div *ngIf="patientRegisterForm.get('Mobile')?.touched && patientRegisterForm.get('Mobile')?.invalid"
+                    class="text-danger">
+                    <small *ngIf="patientRegisterForm.get('Mobile')?.errors?.['required']">Mobile number is
+                        required.</small>
+                    <small *ngIf="patientRegisterForm.get('Mobile')?.errors?.['pattern']">Invalid mobile number (10
+                        digits required).</small>
+                </div>
             </div>
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">Alternate Mobile#</label><br>
-                <input type="text" formControlName="AlternateMobileNum" class="form-control" id="altMobile" name="altMobile"
-                    placeholder="Enter Your Alternate Mobile Number" required>
+                <input type="text" formControlName="AlternateMobileNum" class="form-control" id="altMobile"
+                    name="altMobile" placeholder="Enter Your Alternate Mobile Number" required>
+                <div *ngIf="patientRegisterForm.get('AlternateMobileNum')?.touched && patientRegisterForm.get('AlternateMobileNum')?.invalid"
+                    class="text-danger">
+                    <small *ngIf="patientRegisterForm.get('AlternateMobileNum')?.errors?.['pattern']">Invalid alternate
+                        mobile number (10 digits required).</small>
+                </div>
             </div>
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">Email</label><br>
-                <input type="email" formControlName="Email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                    required>
+                <input type="email" formControlName="Email" class="form-control" id="email" name="email"
+                    placeholder="Enter Your Email" required>
+                <div *ngIf="patientRegisterForm.get('Email')?.touched && patientRegisterForm.get('Email')?.invalid"
+                    class="text-danger">
+                    <small *ngIf="patientRegisterForm.get('Email')?.errors?.['required']">Email is required.</small>
+                    <small *ngIf="patientRegisterForm.get('Email')?.errors?.['email']">Invalid email format.</small>
+                </div>
             </div>
         </div>
     </div>
@@ -154,8 +218,8 @@
             </div>
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">Passport Number</label><br>
-                <input formControlName="PassportNumber" type="text" class="form-control" id="passportNumber" name="passportNumber"
-                    placeholder="Enter Your Passport Number" required>
+                <input formControlName="PassportNumber" type="text" class="form-control" id="passportNumber"
+                    name="passportNumber" placeholder="Enter Your Passport Number" required>
             </div>
         </div>
     </div>
@@ -171,18 +235,18 @@
             </div>
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">Attender Information</label><br>
-                <input type="text" formControlName="Attender_Information" class="form-control" id="attenderInfo" name="attenderInfo"
-                    placeholder="Enter Attender Information" required>
+                <input type="text" formControlName="Attender_Information" class="form-control" id="attenderInfo"
+                    name="attenderInfo" placeholder="Enter Attender Information" required>
             </div>
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">Nationality<span style="color:red">*</span></label><br>
-                <input formControlName="Nationality" type="text" class="form-control" id="nationality" name="nationality"
-                    placeholder="Enter Your Nationality" required>
+                <input formControlName="Nationality" type="text" class="form-control" id="nationality"
+                    name="nationality" placeholder="Enter Your Nationality" required>
             </div>
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">Address<span style="color:red">*</span></label><br>
-                <input formControlName="AddressLine1" type="text" class="form-control" id="address" name="address" placeholder="Enter Your Address"
-                    required>
+                <input formControlName="AddressLine1" type="text" class="form-control" id="address" name="address"
+                    placeholder="Enter Your Address" required>
             </div>
         </div>
     </div>
@@ -193,8 +257,8 @@
         <div class="row">
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">Address Search</label><br>
-                <input formControlName="addressSearch" type="text" class="form-control" id="addressSearch" name="addressSearch"
-                    placeholder="Enter Address Search" required>
+                <input formControlName="addressSearch" type="text" class="form-control" id="addressSearch"
+                    name="addressSearch" placeholder="Enter Address Search" required>
             </div>
             <div class="col-sm-3 bg-white text-dark">
                 <div class="mb-3">
@@ -209,12 +273,13 @@
             </div>
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">State</label><br>
-                <input formControlName="State" type="text" class="form-control" id="state" name="state" placeholder="Enter Your State" required>
+                <input formControlName="State" type="text" class="form-control" id="state" name="state"
+                    placeholder="Enter Your State" required>
             </div>
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">District</label><br>
-                <input formControlName="District" type="text" class="form-control" id="district" name="district" placeholder="Enter Your District"
-                    required>
+                <input formControlName="District" type="text" class="form-control" id="district" name="district"
+                    placeholder="Enter Your District" required>
             </div>
         </div>
     </div>
@@ -223,17 +288,18 @@
         <div class="row">
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">City/Town</label><br>
-                <input formControlName="City" type="text" class="form-control" id="cityTown" name="cityTown" placeholder="Enter Your City/Town"
-                    required>
+                <input formControlName="City" type="text" class="form-control" id="cityTown" name="cityTown"
+                    placeholder="Enter Your City/Town" required>
             </div>
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">Area</label><br>
-                <input formControlName="Area" type="text" class="form-control" id="area" name="area" placeholder="Enter Your Area" required>
+                <input formControlName="Area" type="text" class="form-control" id="area" name="area"
+                    placeholder="Enter Your Area" required>
             </div>
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">Pin Code</label><br>
-                <input formControlName="Pincode" type="text" class="form-control" id="pinCode" name="pinCode" placeholder="Enter Your Pin Code"
-                    required>
+                <input formControlName="Pincode" type="text" class="form-control" id="pinCode" name="pinCode"
+                    placeholder="Enter Your Pin Code" required>
             </div>
             <div class="col-sm-3  bg-white text-dark">
                 <div class="mb-3">
@@ -253,8 +319,8 @@
         <div class="row">
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">Covid Vaccine</label><br>
-                <input formControlName="CovidVaccine" type="text" class="form-control" id="covidVaccine" name="covidVaccine"
-                    placeholder="Enter Covid Vaccine Details" required>
+                <input formControlName="CovidVaccine" type="text" class="form-control" id="covidVaccine"
+                    name="covidVaccine" placeholder="Enter Covid Vaccine Details" required>
             </div>
             <div class="col-sm-3  bg-white text-dark">
                 <label class="p-2"> Is VIP</label><br>
@@ -296,20 +362,20 @@
         </div>
         <hr>
 
-        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse hide"
             aria-labelledby="panelsStayOpen-headingOne">
 
             <div class="container-fluid mt-3">
                 <div class="row">
                     <div class="col-sm-3 p-3 bg-white text-dark">
                         <label class="p-2">Visit Type<span style="color:red">*</span></label><br>
-                        <input formControlName="VisaType" type="text" class="form-control" id="visitType" name="visitType"
-                            placeholder="Enter Visit Type" required>
+                        <input formControlName="VisaType" type="text" class="form-control" id="visitType"
+                            name="visitType" placeholder="Enter Visit Type" required>
                     </div>
                     <div class="col-sm-3 p-3 bg-white text-dark">
                         <label class="p-2">Department</label><br>
-                        <input formControlName="Department" type="text" class="form-control" id="department" name="department"
-                            placeholder="Enter Department" required>
+                        <input formControlName="Department" type="text" class="form-control" id="department"
+                            name="department" placeholder="Enter Department" required>
                     </div>
                     <div class="col-sm-3 p-3 bg-white text-dark">
                         <label class="p-2">Doctor<span style="color:red">*</span></label><br>
@@ -328,19 +394,19 @@
                 <div class="row">
                     <div class="col-sm-3 p-3 bg-white text-dark">
                         <label class="p-2">Payer Type<span style="color:red">*</span></label><br>
-                        <input formControlName="PayerType" type="text" class="form-control" id="payerType" name="payerType"
-                            placeholder="Enter Payer Type" required>
+                        <input formControlName="PayerType" type="text" class="form-control" id="payerType"
+                            name="payerType" placeholder="Enter Payer Type" required>
                     </div>
                     <div class="col-sm-3 p-3 bg-white text-dark">
                         <label class="p-2">Source Type<span style="color:red">*</span></label><br>
-                        <input formControlName="Source_Type" type="text" class="form-control" id="sourceType" name="sourceType"
-                            placeholder="Enter Source Type" required>
+                        <input formControlName="Source_Type" type="text" class="form-control" id="sourceType"
+                            name="sourceType" placeholder="Enter Source Type" required>
                     </div>
                     <div class="col-sm-3 p-3 bg-white text-dark">
                         <label class="p-2"> Referral Name<span style="color:red">*</span></label><br>
                         <span class="span-inlinr-flex">
-                            <input formControlName="ReferralName" type="email" class="form-control" id="email" name="email"
-                                placeholder="Enter Your Email" required>
+                            <input formControlName="ReferralName" type="email" class="form-control" id="email"
+                                name="email" placeholder="Enter Your Email" required>
                             <!-- <div> -->
                             <img class="add-Icon-img margin-left-2px" src="../../assets/icons/plus.png"
                                 (click)="openReferralModal('Referral Name')"></span>
@@ -366,13 +432,13 @@
                 <div class="row">
                     <div class="col-sm-3 p-3 bg-white text-dark">
                         <label class="p-2">Payer Number</label><br>
-                        <input formControlName="PayerNumber" type="text" class="form-control" id="payerNumber" name="payerNumber"
-                            placeholder="Enter Payer Number" required>
+                        <input formControlName="PayerNumber" type="text" class="form-control" id="payerNumber"
+                            name="payerNumber" placeholder="Enter Payer Number" required>
                     </div>
                     <div class="col-sm-3 p-3 bg-white text-dark">
                         <label class="p-2">MLC</label><br>
                         <div class="form-check">
-                            <input formControlName="IsMlc"  class="form-check-input" type="checkbox" value="" id="mlc">
+                            <input formControlName="IsMlc" class="form-check-input" type="checkbox" value="" id="mlc">
                         </div>
                     </div>
                     <div class="col-sm-3 p-3 bg-white text-dark">
@@ -394,15 +460,15 @@
         </div>
         <hr>
 
-        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse show collapse"
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse hide collapse"
             aria-labelledby="panelsStayOpen-headingTwo">
             <div class="container-fluid mt-3">
                 <div class="row">
                     <div class="col-sm-3 p-3 bg-white text-dark">
                         <div>
                             <label class="p-2">Discount Type</label><br>
-                            <input  formControlName="Discount_Type" type="email" class="form-control" id="email" name="email"
-                                placeholder="Enter Your Email" required>
+                            <input formControlName="Discount_Type" type="email" class="form-control" id="email"
+                                name="email" placeholder="Enter Your Email" required>
                         </div>
                         <div>
                             <label class="p-2">Discount </label><br>
@@ -421,14 +487,16 @@
                         <div>
                             <label>Emergency</label><br>
 
-                            <input  formControlName="Emergency"  class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <input formControlName="Emergency" class="form-check-input" type="checkbox" value=""
+                                id="defaultCheck1">
                         </div>
 
                         <div>
                             <div>
                                 <label>No Bill</label><br>
 
-                                <input formControlName="No_Bill" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <input formControlName="No_Bill" class="form-check-input" type="checkbox" value=""
+                                    id="defaultCheck1">
                             </div>
                         </div>
 
@@ -437,7 +505,8 @@
                             <div>
                                 <label>Is OPD</label><br>
 
-                                <input formControlName="Is_OPD" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <input formControlName="Is_OPD" class="form-check-input" type="checkbox" value=""
+                                    id="defaultCheck1">
                             </div>
                         </div>
 
@@ -492,13 +561,13 @@
                 <div class="row">
                     <div class="col-sm-3 p-3 bg-white text-dark">
                         <label class="p-2">Payment Type</label><br>
-                        <input formControlName="Payment_Type" type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                            required>
+                        <input formControlName="Payment_Type" type="email" class="form-control" id="email" name="email"
+                            placeholder="Enter Your Email" required>
 
                         <div>
                             <label class="p-2"> Receipt Amount</label><br>
-                            <input formControlName="Receipt_Amount" type="email" class="form-control" id="email" name="email"
-                                placeholder="Enter Your Email" required>
+                            <input formControlName="Receipt_Amount" type="email" class="form-control" id="email"
+                                name="email" placeholder="Enter Your Email" required>
                         </div>
                     </div>
                     <div class="col-sm-3 p-3 bg-white text-dark">
@@ -549,23 +618,23 @@
             <div class="row">
                 <div class="col-sm-3  bg-white text-dark">
                     <label class="p-2">Membership Number</label><br>
-                    <input formControlName="Membership_Number" type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
+                    <input formControlName="Membership_Number" type="text" class="form-control" id="email" name="email"
+                        placeholder="Enter Your Email" required>
                 </div>
                 <div class="col-sm-3  bg-white text-dark">
                     <label class="p-2">Type </label><br>
-                    <input formControlName="MembershipType"  type="email" class="form-control" id="text" name="email" placeholder="Enter Your Email"
-                        required>
+                    <input formControlName="MembershipType" type="email" class="form-control" id="text" name="email"
+                        placeholder="Enter Your Email" required>
                 </div>
                 <div class="col-sm-3  bg-white text-dark">
                     <label class="p-2">Alternate Mobile#</label><br>
-                    <input formControlName="Membership_Alternate_Num"  type="email" class="form-control" id="text" name="email" placeholder="Enter Your Email"
-                        required>
+                    <input formControlName="Membership_Alternate_Num" type="email" class="form-control" id="text"
+                        name="email" placeholder="Enter Your Email" required>
                 </div>
                 <div class="col-sm-3 bg-white text-dark">
                     <label class="p-2">Email</label><br>
-                    <input formControlName="Membership_Alternate_Email" type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
-                        required>
+                    <input formControlName="Membership_Alternate_Email" type="email" class="form-control" id="email"
+                        name="email" placeholder="Enter Your Email" required>
                 </div>
             </div>
         </div>
@@ -589,7 +658,8 @@
                     <img [src]="imageUrl" #imagePreview alt="Default Image">
                 </canvas>
                 <div>
-                    <input formControlName="UserPic" type="file" accept="image/*" #fileInput class="hidden" (change)="previewImage($event)">
+                    <input formControlName="UserPic" type="file" accept="image/*" #fileInput class="hidden"
+                        (change)="previewImage($event)">
                     <button type="button" class="btn btn-outline-primary" (click)="triggerFileInput()">Upload</button>
                     <button type="button" class="drhms-webcam-btn margin-left-10px"
                         (click)="captureImage()">Webcam</button>
@@ -624,7 +694,7 @@
         <div class="row">
 
             <div class="text-end">
-                <p><button class="draftbutton">Activate</button></p>
+                <p><button type="submit" class="draftbutton">Activate</button></p>
 
             </div>
 

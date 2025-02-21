@@ -1,0 +1,246 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-7 p-2 bg-white text-dark">
+            <h5>Simple Registration</h5>
+        </div>
+        <div class="col-sm-3 p-2 bg-white text-dark">
+            <!-- Actual search box -->
+            <div class="form-group has-search">
+                <span class="fa fa-search form-control-feedback"></span>
+                <input type="text" class="form-control" placeholder="Search Your Membership#...">
+            </div>
+        </div>
+        <div class="col-sm-2 p-2 bg-white text-end">
+            <div>
+                <img class="add-Icon-img ml-5" src="../../assets/icons/plus.png">
+                <img class="add-Icon-img ml-4 margin-left-1em" src="../../assets/icons/bed.png">
+                <img class="add-Icon-img ml-4 margin-left-1em" src="../../assets/icons/home.png">
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<form [formGroup]="simpleRegistrationForm" (ngSubmit)="onSubmit()">
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-sm-3   text-dark">
+            <div class="mb-2 form-box">
+                <div class="mb-2">
+                    <label class="p-2">Type</label><br>
+                    <div class="select-wrapper">
+
+                        <select formControlName="Types" class="form-select" id="options" name="options" >
+                            <option *ngFor="let item of getDropdownValues('Types')" [value]="item.value">{{
+                                item.label }}</option>
+                        </select>
+                        <i class="fa fa-chevron-down select-icon"></i>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3   text-dark">
+            <div class="mb-2 form-box">
+                <div class="mb-2">
+                    <label class="p-2">Title<span style="color:red">*</span></label><br>
+                    <div class="select-wrapper">
+
+                        <select (change)="onTitleChange($event)" formControlName="title" class="form-select" id="options" name="options" >
+                            <option  *ngFor="let item of getDropdownValues('Title')" [value]="item.value">{{
+                                item.label }}</option>
+                        </select>
+                        <i class="fa fa-chevron-down select-icon"></i>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3 text-dark">
+            <label class="p-2">Patient Name <span style="color:red">*</span></label><br>
+            <input formControlName="PatientName" type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter Your First Name" required>
+            <div *ngIf="simpleRegistrationForm.get('PatientName')?.touched && simpleRegistrationForm.get('PatientName')?.invalid" class="text-danger">
+                <small *ngIf="simpleRegistrationForm.get('PatientName')?.errors?.['required']">Patient Name is required.</small>
+                <small *ngIf="simpleRegistrationForm.get('PatientName')?.errors?.['pattern']">Invalid Patient Name.</small>
+            </div>
+        </div>
+        <div class="col-sm-2 text-dark">
+            <div class="date-wrapper">
+                <label class="p-2">DOB</label>
+                <i class="fa fa-calendar"></i>
+                <mat-datepicker #picker></mat-datepicker>
+                <input  [value]="simpleRegistrationForm.get('DOB')?.value" formControlName="DOB" (dateChange)="setDOB($event)" type="text" (click)="picker.open()" [matDatepicker]="picker" class="form-control" placeholder="DD/MM/YYYY" />
+            </div>
+        </div>
+        <div class="col-sm-1 text-dark">
+            <label class="p-2">Age</label><br>
+            <input formControlName="Age" type="text" class="form-control" id="age" name="age" placeholder="Age"  readonly>
+        </div>
+        
+        
+    </div>
+</div>
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-sm-3   text-dark">
+            <div class="mb-2">
+                <label class="p-2">Gender<span style="color:red">*</span></label><br>
+                <input type="text" formControlName="Gender" class="form-control" readonly />
+            </div>
+        </div>
+        <div class="col-sm-3 text-dark">
+            <label class="p-2">Mobile*</label><br>
+            <input pattern="^[0-9]{10}$" formControlName="Mobile" type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Your Mobile Number" required>
+            <div *ngIf="simpleRegistrationForm.get('Mobile')?.touched && simpleRegistrationForm.get('Mobile')?.invalid" class="text-danger">
+                <small *ngIf="simpleRegistrationForm.get('Mobile')?.errors?.['required']">Mobile number is required.</small>
+                <small *ngIf="simpleRegistrationForm.get('Mobile')?.errors?.['pattern']">Mobile number must be 10 digits.</small>
+            </div>
+        </div>
+        <div class="col-sm-3  text-dark">
+            <div class="mb-2">
+                <label class="p-2">Marital Status</label><br>
+                <div class="select-wrapper">
+
+                    <select formControlName="MaritalStatus" class="form-select" id="options" name="options" >
+                        <option value="" disabled selected></option>
+                        <option *ngFor="let item of getDropdownValues('MaritalStatus')" [value]="item.value">{{
+                            item.label }}</option>
+                    </select>
+                    <i class="fa fa-chevron-down select-icon"></i>
+                </div>
+
+            </div>
+           
+        </div>
+        <div class="col-sm-3 text-dark">
+            <label class="p-2">Nationality ID<span style="color:red">*</span></label><br>
+            <input formControlName="NationalityId" type="text" class="form-control" id="nationality" name="nationality" placeholder="Enter Your Nationality" required>
+            <div *ngIf="simpleRegistrationForm.get('NationalityId')?.touched && simpleRegistrationForm.get('NationalityId')?.invalid" class="text-danger">
+                <small *ngIf="simpleRegistrationForm.get('NationalityId')?.errors?.['required']">Nationality ID is required.</small>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-sm-3 text-dark">
+            <label class="p-2">Address<span style="color:red">*</span></label><br>
+            <input formControlName="AddressLine1" type="text" class="form-control" id="address" name="address" placeholder="Enter Your Address" required>
+            <div *ngIf="simpleRegistrationForm.get('AddressLine1')?.touched && simpleRegistrationForm.get('AddressLine1')?.invalid" class="text-danger">
+                <small *ngIf="simpleRegistrationForm.get('AddressLine1')?.errors?.['required']">Address is required.</small>
+            </div>
+        </div>
+        <div class="col-sm-3 text-dark">
+            <label class="p-2">Address Search</label><br>
+            <input formControlName="addressSearch" type="text" class="form-control" id="addressSearch" name="addressSearch" placeholder="Enter Address Search" >
+        </div>
+        <div class="col-sm-1  text-dark">
+            <label class="p-2">MLC</label><br>
+            <div class="form-check">
+                <input formControlName="IsMlc" class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+            </div>
+        </div>
+        <div class="col-sm-2   text-dark">
+            <label class="p-2">IsVIP</label><br>
+                <div class="form-check">
+                    <input formControlName="IsVip" class="form-check-input " type="checkbox" value="" id="defaultCheck1">
+                </div>
+        </div>
+        <div class="col-sm-3  text-dark">
+            <div class="mb-2">
+                <label class="p-2"> VIP Type</label><br>
+                <div class="select-wrapper">
+
+                    <select formControlName="VipType" class="form-select" id="options" name="options" >
+                        <option value="" disabled selected></option>
+                        <option *ngFor="let item of getDropdownValues('VipType')" [value]="item.value">{{
+                            item.label }}</option>
+                    </select>
+                    <i class="fa fa-chevron-down select-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4">
+    <h4 class="">Upload & Image Preview</h4>
+</div>
+<hr>
+
+
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-sm-3  bg-white text-dark">
+            <canvas class="drhms-img-thumbnail" #canv1>
+                <img [src]="imageUrl" #imagePreview alt="Default Image">
+            </canvas>
+            <div>
+                <input formControlName="UserPic" type="file" accept="image/*" #fileInput class="hidden" (change)="previewImage($event)">
+                <button type="button" class="btn btn-outline-primary" (click)="triggerFileInput()">Upload</button>
+                <button type="button" class="drhms-webcam-btn margin-left-10px" (click)="captureImage()">Webcam</button>
+                <button type="button" class="btn btn-outline-danger margin-left-10px" (click)="removeImage()">Remove</button>
+                <video #video width="320" height="240" autoplay style="display:none;"></video>
+                <button #snap style="display:none;" (click)="snapImage()">Snap</button>
+            </div>
+        </div>
+       
+
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="text-end qucik-reg-save-button">
+            <p><button type="submit" class="draftbutton">Activate</button></p>
+
+        </div>
+
+    </div>
+</div>
+</form>
+
+
+<script>
+    function previewImage(event) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            const output = document.getElementById('imagePreview');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+    function captureImage() {
+        const video = document.getElementById('video');
+        const snapButton = document.getElementById('snap');
+        video.style.display = 'block';
+        snapButton.style.display = 'block';
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                video.srcObject = stream;
+            })
+            .catch(function(err) {
+                console.log("An error occurred: " + err);
+            });
+    }
+    function snapImage() {
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canv1');
+        const context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const imagePreview = document.getElementById('imagePreview');
+        imagePreview.src = canvas.toDataURL('image/png');
+        video.style.display = 'none';
+        document.getElementById('snap').style.display = 'none';
+        video.srcObject.getTracks().forEach(track => track.stop());
+    }
+    function removeImage() {
+        const imagePreview = document.getElementById('imagePreview');
+        imagePreview.src = '../../assets/icons/default.jpg';
+    }
+</script>

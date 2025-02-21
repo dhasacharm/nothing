@@ -1,9 +1,9 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angular/core';
-import { dropdownValue } from '../data/PatientRegister';
+import { dropdownValue } from '../../data/PatientRegister';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { PatientRegisterService } from '../../services/FrontOffice/patient-register.service'; // Import the service
-import { ToasterService } from '../shared/services/toaster.service';
+import { PatientRegisterService } from '../../../services/FrontOffice/patient-register.service'; // Import the service
+import { ToasterService } from '../../shared/services/toaster.service';
 @Component({
   selector: 'app-simple-register',
   templateUrl: './simple-register.component.html',
