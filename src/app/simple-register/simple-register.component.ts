@@ -1,22 +1,15 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { dropdownValue } from '../data/PatientRegister';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { formatDate } from '@angular/common';
-import {
-  DateAdapter,
-  MAT_DATE_LOCALE,
-  MAT_DATE_FORMATS
-} from "@angular/material/core";
-import { DatePipe } from "@angular/common";
+
 import { PatientRegisterService } from '../../services/FrontOffice/patient-register.service'; // Import the service
 import { ToasterService } from '../shared/services/toaster.service';
 @Component({
-  selector: 'app-quickregistration',
-  templateUrl: './quickregistration.component.html',
-  styleUrls: ['./quickregistration.component.css'],
-  
+  selector: 'app-simple-register',
+  templateUrl: './simple-register.component.html',
+  styleUrl: './simple-register.component.css'
 })
-export class QuickregistrationComponent implements OnInit, AfterViewInit {
+export class SimpleRegisterComponent implements OnInit, AfterViewInit {
   @ViewChild('fileInput') fileInput!: ElementRef;
   @ViewChild('imagePreview') imagePreview!: ElementRef;
   @ViewChild('video') video!: ElementRef;
@@ -141,6 +134,9 @@ setDOB(event: any) {
           const context = canvasElement.getContext('2d');
           context.clearRect(0, 0, canvasElement.width, canvasElement.height);
           context.drawImage(img, 0, 0, canvasElement.width, canvasElement.height);
+          this.simpleRegistrationForm.patchValue({
+            UserPic: file
+          });
         };
         img.src = reader.result as string;
         this.imageUrl = reader.result as string;

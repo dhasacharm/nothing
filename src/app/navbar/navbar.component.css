@@ -4,7 +4,7 @@
   }
   
   .example-sidenav.collapsed {
-    width: 60px;
+    width: 80px;
   }
   
   .example-sidenav .mat-list-item .full-width {
@@ -68,17 +68,13 @@
     transform: scaleY(1);
   }
   
-  .mat-drawer-inner-container {
-    background: linear-gradient(90deg, #66a4c4 0%, #257aa6 100%);
-  }
+
   
   .example-toolbar {
     background: linear-gradient(90deg, #66a4c4 0%, #257aa6 100%);
   }
   
-  #sidenav-fixed-container {
-    background: linear-gradient(90deg, #66a4c4 0%, #257aa6 100%);
-  }
+
   
   /* .mat-drawer-side {
       background: linear-gradient(90deg, #66a4c4 0%, #257aa6 100%) !important;
@@ -97,3 +93,4 @@
   .spacer {
     flex: 1 1 auto;
   }
+

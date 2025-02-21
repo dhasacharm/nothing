@@ -4,6 +4,7 @@
     font-size: 14px;
 
 }
+
 html, body { height: 100%;
   background-color: #f5f7fa;
 }
@@ -15,6 +16,11 @@ input {
 select {
   cursor: pointer;
 }
+/* .mat-drawer-inner-container {
+  overflow: hidden !important;
+  background: linear-gradient(90deg, #66a4c4 0%, #257aa6 100%);
+
+} */
 input[type=date], input[type=datetime-local], input[type=month], input[type=time]  {
   text-transform: uppercase;
 }
@@ -93,4 +99,18 @@ input::file-selector-button {
   color: black;
 
 }
+#sidenav-fixed-container .mat-drawer-inner-container {
+  background: linear-gradient(90deg, #66a4c4 0%, #257aa6 100%);
+  overflow-y: scroll; /* Add the ability to scroll */
+  width: 177px;
 
+}
+.mat-drawer-inner-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.mat-drawer-inner-container {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}

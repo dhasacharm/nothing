@@ -19,7 +19,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
-import { QuickregistrationComponent } from './quickregistration/quickregistration.component';  // <-- Import HttpClientModule
 import { OpregisterComponent } from './opregister/opregister.component';
 import { ReferralModalComponent } from './referral-modal/referral-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -65,6 +64,23 @@ import {MatTreeModule} from '@angular/material/tree';
 import { TableComponent } from './shared/table/table.component';
 import { FooterComponent } from './footer/footer.component';
 import { ToasterComponent } from './shared/toaster/toaster.component';
+import { SimpleRegisterComponent } from './simple-register/simple-register.component';
+import { AddOrganizationComponent } from './SystemSetting/add-organization/add-organization.component';
+import { OrganisationsComponent } from './SystemSetting/organisations/organisations.component';
+import { HospitalsComponent } from './SystemSetting/hospitals/hospitals.component';
+import { AddHospitalsComponent } from './SystemSetting/add-hospitals/add-hospitals.component';
+import { DepartmentsComponent } from './SystemSetting/departments/departments.component';
+import { AddDepartmentsComponent } from './SystemSetting/add-departments/add-departments.component';
+import { PrivilegesComponent } from './SystemSetting/privileges/privileges.component';
+import { AddPrivilegesComponent } from './SystemSetting/add-privileges/add-privileges.component';
+import { AddGroupsComponent } from './SystemSetting/add-groups/add-groups.component';
+import { GroupsComponent } from './SystemSetting/groups/groups.component';
+import { ReferralDoctorComponent } from './SystemSetting/referral-doctor/referral-doctor.component';
+import { MetaDataComponent } from './SystemSetting/meta-data/meta-data.component';
+import { AddMetaDataComponent } from './SystemSetting/add-meta-data/add-meta-data.component';
+import { AuditLogComponent } from './SystemSetting/audit-log/audit-log.component';
+import { ReferenceNumberComponent } from './SystemSetting/reference-number/reference-number.component';
+import { DoctorpaymentComponent } from './SystemSetting/doctorpayment/doctorpayment.component';
 @NgModule({
   schemas: [NO_ERRORS_SCHEMA],
 
@@ -74,7 +90,6 @@ import { ToasterComponent } from './shared/toaster/toaster.component';
     NavbarComponent,
     SidebarComponent,
     DashboardComponent,
-    QuickregistrationComponent,
     OpregisterComponent,
     ReferralModalComponent,
     OpvisitlinkComponent,
@@ -84,7 +99,24 @@ import { ToasterComponent } from './shared/toaster/toaster.component';
     PatientRegisteredComponent,
     TableComponent,
     FooterComponent,
-    ToasterComponent
+    ToasterComponent,
+    SimpleRegisterComponent,
+    AddOrganizationComponent,
+    OrganisationsComponent,
+    HospitalsComponent,
+    AddHospitalsComponent,
+    DepartmentsComponent,
+    AddDepartmentsComponent,
+    PrivilegesComponent,
+    AddPrivilegesComponent,
+    AddGroupsComponent,
+    GroupsComponent,
+    ReferralDoctorComponent,
+    MetaDataComponent,
+    AddMetaDataComponent,
+    AuditLogComponent,
+    ReferenceNumberComponent,
+    DoctorpaymentComponent
   ],
   imports: [
     BrowserModule,

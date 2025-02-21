@@ -5,43 +5,43 @@ export const navigation = [
         subNav: [
             {
                 title: 'Organizations',
-                route: '/dashboard'
+                route: '/dashboard/orgs'
             },
             {
                 title: 'Hospitals',
-                route: '/dashboard'
+                route: '/dashboard/facilitys'
             },
             {
                 title: 'Departments',
-                route: '/dashboard'
+                route: '/dashboard/depts'
             },
             {
                 title: 'Roles',
-                route: '/dashboard'
+                route: '/dashboard/roles'
             },
             {
                 title: 'Documents',
-                route: '/dashboard'
+                route: '/dashboard/dashboard'
             },
             {
                 title: 'Groups',
-                route: '/dashboard'
+                route: '/dashboard/groups'
             },
             {
                 title: 'Refferal Doctor Update',
-                route: '/dashboard'
+                route: '/dashboard/encdocupdate'
             },
             {
                 title: 'Reference Number',
-                route: '/dashboard'
+                route: '/dashboard/sequencemasters'
             },
             {
                 title: 'SMS Templates',
-                route: '/dashboard'
+                route: '/dashboard/sms'
             },
             {
                 title: 'Doctor Payment Update',
-                route: '/dashboard'
+                route: '/dashboard/docpayment'
             },
         ]
     },
@@ -51,11 +51,11 @@ export const navigation = [
         subNav: [
             {
                 title: 'Users',
-                route: '/users'
+                route: '/dashboard/users'
             },
             {
                 title: 'Users Info',
-                route: '/roles'
+                route: '/dashboard/roles'
             }
         ]
     },

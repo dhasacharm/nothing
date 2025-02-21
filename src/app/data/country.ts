@@ -8,7 +8,7 @@ export const country  = [
             'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan',
             'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh',
             'Uttarakhand', 'West Bengal'
-          ]
+        ]
         
 
     }

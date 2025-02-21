@@ -1,0 +1,89 @@
+<form [formGroup]="OrgRegistrationForm" (ngSubmit)="onSubmit()">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div>
+                <h4>Manage Organization</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <label class="p-2">Code<span style="color:red">*</span></label><br>
+                <input type="text" class="form-control" id="code" formControlName="Code" placeholder="Code" required>
+            </div>
+            <div class="col-4">
+                <label class="p-2">Organization Name<span style="color:red">*</span></label><br>
+                <input type="text" class="form-control" id="organizationName" formControlName="OrganizationName" placeholder="Organization Name" required>
+            </div>
+            <div class="col-4">
+                <label class="p-2">Address 1<span style="color:red">*</span></label><br>
+                <input type="text" class="form-control" id="addressLine1" formControlName="AddressLine1" placeholder="Address Line 1" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <label class="p-2">Address 2</label><br>
+                <input type="text" class="form-control" id="addressLine2" formControlName="AddressLine2" placeholder="Address Line 2">
+            </div>
+            <div class="col-4">
+                <label class="p-2">Area<span style="color:red">*</span></label><br>
+                <input type="text" class="form-control" id="area" formControlName="Area" placeholder="Area" required>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label class="p-2">Country<span style="color:red">*</span></label><br>
+                    <select formControlName="Country" class="form-select" id="country" required>
+                        <option value="" disabled selected>Select a country</option>
+                        <!-- Add actual country options here -->
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="mb-3">
+                    <label class="p-2">State<span style="color:red">*</span></label><br>
+                    <select formControlName="State" class="form-select" id="state" required>
+                        <option value="" disabled selected>Select a state</option>
+                        <!-- Add actual state options here -->
+                    </select>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label class="p-2">City<span style="color:red">*</span></label><br>
+                    <select formControlName="City" class="form-select" id="city" required>
+                        <option value="" disabled selected>Select a city</option>
+                        <!-- Add actual city options here -->
+                    </select>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label class="p-2">Post Code<span style="color:red">*</span></label><br>
+                    <input type="text" class="form-control" id="postCode" formControlName="PostCode" placeholder="Post Code" required>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4">
+                <label class="p-2">Is Active</label><br>
+                <div class="form-check p-2">
+                    <input formControlName="IsActive" class="form-check-input" type="checkbox" id="isActive">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-6">
+                <div class="back-button">
+                    <button type="button" (click)="navigateToBack()" class="btn pyr-color10 btn-sm" ><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;<span class="btn-fontsize ng-scope" translate="common.backaction.lbl"><span class="ng-scope">Back</span></span></button>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="text-end">
+                    <p><button class="draftbutton" type="submit">Activate</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>

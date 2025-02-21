@@ -90,7 +90,6 @@
     position: relative;
     display: inline-block;
     width: 200px;
-    float: right;
   }
   
   .date-wrapper i {
