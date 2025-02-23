@@ -1,0 +1,104 @@
+<div class="login-page-wrapper">
+    <div class="login-row">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6 text-center">
+                    <div class="login-carousel">
+                        <div id="carouselExampleIndicators" class="carousel " data-interval="false">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <div class="card-login">
+                                    <div class="card">
+                                        <div class="card-header-login">
+                                            <img src="../../assets/loginImages/images-CardImage.png" alt="">
+                                        </div>
+                                        <div class="card-body-login">
+                                            <h2>Industry&rsquo;s Most Comprehensive HMS Software Solution</h2>
+                                        </div>
+                                        <div class="card-footer-login">
+                                            <img src="../../../assets/loginImages/logo.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="carousel-item">
+                                <div class="card-login">
+                                    <div class="card">
+                                        <div class="card-header-login">
+                                            <img src="assets/loginImages/images-qms_image.png" alt="">
+                                        </div>
+                                        <div class="card-body-login">
+                                            <h2>Ready to Use HMS Software for Hospitals</h2>
+                                        </div>
+                                        <div class="card-footer-login">
+                                            <img src="../../../assets/loginImages/logo.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="carousel-item">
+                                <div class="card-login">
+                                    <div class="card">
+                                        <div class="card-header-login">
+                                            <img src="assets/loginImages/images-ApprovedQuality.png" alt="">
+                                        </div>
+                                        <div class="card-body-login">
+                                            <h2>Committed to Your Quality and Accreditation Journey</h2>
+                                        </div>
+                                        <div class="card-footer-login">
+                                            <img src="../../../assets/loginImages/logo.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                           
+                          </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="login-form-start">
+                        <div class="login-form-center">
+                            <div class="form-logo">
+
+                            </div>
+                            <div class="heading-login">
+                                <h2>LOGIN</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+   
+   document.addEventListener("DOMContentLoaded", function () {
+    var carousel = document.getElementById("carouselExampleIndicators");
+
+    carousel.addEventListener("slide.bs.carousel", function (event) {
+        var activeItem = document.querySelector(".carousel-item.active");
+        var nextItem = event.relatedTarget; // The upcoming active slide
+
+        if (activeItem) {
+            activeItem.classList.add("zoom-back"); // Zooms out (shrinks) previous item
+        }
+
+        if (nextItem) {
+            setTimeout(() => {
+                nextItem.classList.remove("zoom-back");
+                nextItem.classList.add("active");
+            }, 100); // Delay before zoom-in effect starts
+        }
+    });
+});
+
+
+
+</script>

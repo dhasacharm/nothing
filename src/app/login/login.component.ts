@@ -51,4 +51,48 @@ export class LoginComponent {
       console.log('Form is not valid');
     }
   }
+
+  account = {
+    username: '',
+    password: ''
+  };
+  passwordVisible = false;
+
+
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+    const inputPass = document.getElementById('pass') as HTMLInputElement;
+    if (inputPass.type === 'password') {
+      inputPass.type = 'text';
+    } else {
+      inputPass.type = 'password';
+    }
+  }
+
+  showForgotPassword() {
+    const signInDiv = document.getElementById('signindiv');
+    if (signInDiv) {
+      signInDiv.style.display = 'none';
+    }
+    const forgetPasswordDiv = document.getElementById('forgetpassworddiv');
+    if (forgetPasswordDiv) {
+      forgetPasswordDiv.style.display = 'inline-block';
+    }
+  }
+
+  showLogin() {
+    const signInDiv = document.getElementById('signindiv');
+    if (signInDiv) {
+      signInDiv.style.display = 'inline-block';
+    }
+    const forgetPasswordDiv = document.getElementById('forgetpassworddiv');
+    if (forgetPasswordDiv) {
+      forgetPasswordDiv.style.display = 'none';
+    }
+  }
+
+  currentSlide(n: number) {
+    // Implement slide logic here
+  }
 }

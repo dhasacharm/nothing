@@ -118,3 +118,16 @@ button.drhms-webcam-btn {
 .date-wrapper input:hover {
     border-color: #666;
 }
+.form-check-input {
+    margin: 0;
+}
+thead {
+    /* background: #0287a5b8; */
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.table-bordered {
+    border: 1px solid #eeeeee;
+}

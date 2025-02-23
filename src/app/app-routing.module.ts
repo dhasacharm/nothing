@@ -18,6 +18,7 @@ import { ReferenceNumberComponent } from './SystemSetting/reference-number/refer
 import { DoctorpaymentComponent } from './SystemSetting/doctorpayment/doctorpayment.component';
 import { AddHospitalsComponent } from './SystemSetting/add-hospitals/add-hospitals.component';
 import { FrontofficeRegisterComponent } from './FrontOffice/frontoffice-register/frontoffice-register.component';
+import { LoginViewHomeComponent } from './utills/login-view-home/login-view-home.component';
 
 const routes: Routes = [
   {
@@ -92,6 +93,10 @@ const routes: Routes = [
     path: "login",
     component: LoginComponent
   },
+  {
+    path:"new-login",
+    component:LoginViewHomeComponent
+  }
   
 
 

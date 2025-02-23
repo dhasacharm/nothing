@@ -190,25 +190,29 @@
     <div class="container-fluid mt-3">
         <div class="row">
             <div class="col-sm-3  bg-white text-dark">
-                <div class="mb-3">
-                    <label class="p-2">Marital Status</label><br>
+                <label class="p-2">Marital Status</label><br>
+
+                <div class="select-wrapper">
                     <select formControlName="MaritalStatus" class="form-select" id="options" name="options" required>
                         <option value="" disabled selected>Select an option</option>
-                        <option value="option1">Option 1</option>
-                        <option value="option2">Option 2</option>
-                        <option value="option3">Option 3</option>
+                        <option *ngFor="let item of getDropdownValues('MaritalStatus')" [value]="item.value">{{
+                                    item.label }}</option>
                     </select>
+                    <i class="fa fa-chevron-down select-icon"></i>
+
                 </div>
             </div>
             <div class="col-sm-3  bg-white text-dark">
-                <div class="mb-3">
-                    <label class="p-2">Ethnicity </label><br>
+                <label class="p-2">Ethnicity </label><br>
+
+                <div class="select-wrapper">
                     <select formControlName="Ethnicity" class="form-select" id="options" name="options" required>
                         <option value="" disabled selected>Select an option</option>
-                        <option value="option1">Option 1</option>
-                        <option value="option2">Option 2</option>
-                        <option value="option3">Option 3</option>
+                        <option *ngFor="let item of getDropdownValues('Ethnicity')" [value]="item.value">{{
+                                    item.label }}</option>
                     </select>
+                    <i class="fa fa-chevron-down select-icon"></i>
+
                 </div>
             </div>
             <div class="col-sm-3 bg-white text-dark">
@@ -245,7 +249,7 @@
             </div>
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">Address<span style="color:red">*</span></label><br>
-                <input formControlName="AddressLine1" type="text" class="form-control" id="address" name="address"
+                <input id="autocomplete-address" formControlName="AddressLine1" type="text" class="form-control" id="address" name="address"
                     placeholder="Enter Your Address" required>
             </div>
         </div>
@@ -265,7 +269,7 @@
                     <label class="p-2">Country</label>
                     <div class="select-wrapper">
                         <select formControlName="Country" class="form-select" id="options" name="options" required>
-                            <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+                            <option *ngFor="let country of countries"  [value]="country">{{ country }}</option>
                         </select>
                         <i class="fa fa-chevron-down select-icon"></i>
                     </div>
@@ -273,8 +277,13 @@
             </div>
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">State</label><br>
-                <input formControlName="State" type="text" class="form-control" id="state" name="state"
-                    placeholder="Enter Your State" required>
+                <div class="select-wrapper">
+                    <select formControlName="State" class="form-select" id="options" name="options" required>
+                        <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+                    </select>
+                    <i class="fa fa-chevron-down select-icon"></i>
+                </div>
+                
             </div>
             <div class="col-sm-3 bg-white text-dark">
                 <label class="p-2">District</label><br>
@@ -306,9 +315,8 @@
                     <label class="p-2"> Patient Type</label><br>
                     <select formControlName="PatientType" class="form-select" id="options" name="options" required>
                         <option value="" disabled selected>Select an option</option>
-                        <option value="option1">Option 1</option>
-                        <option value="option2">Option 2</option>
-                        <option value="option3">Option 3</option>
+                        <option *ngFor="let item of getDropdownValues('patientTypes')" [value]="item.value">{{
+                                    item.label }}</option>
                     </select>
                 </div>
             </div>
@@ -333,9 +341,8 @@
                     <label class="p-2"> VIP Type</label><br>
                     <select formControlName="VipType" class="form-select" id="options" name="options" required>
                         <option value="" disabled selected>Select an option</option>
-                        <option value="option1">Option 1</option>
-                        <option value="option2">Option 2</option>
-                        <option value="option3">Option 3</option>
+                        <option *ngFor="let item of getDropdownValues('VipType')" [value]="item.value">{{
+                                    item.label }}</option>
                     </select>
                 </div>
             </div>
@@ -485,28 +492,34 @@
 
                     <div class="col-sm-3 p-3 bg-white text-dark">
                         <div>
-                            <label>Emergency</label><br>
+                            <label  class="p-2">Emergency</label><br>
 
-                            <input formControlName="Emergency" class="form-check-input" type="checkbox" value=""
-                                id="defaultCheck1">
+                            
+                                <div class="form-check">
+                                    <input formControlName="Emergency" class="form-check-input" type="checkbox" value=""
+                                    id="defaultCheck1">                                </div>
                         </div>
 
                         <div>
                             <div>
-                                <label>No Bill</label><br>
+                                <label  class="p-2">No Bill</label><br>
 
-                                <input formControlName="No_Bill" class="form-check-input" type="checkbox" value=""
-                                    id="defaultCheck1">
+                                    
+                                    <div class="form-check">
+                                        <input formControlName="No_Bill" class="form-check-input" type="checkbox" value=""id="defaultCheck1">
+                                    </div>
                             </div>
                         </div>
 
 
                         <div>
                             <div>
-                                <label>Is OPD</label><br>
+                                <label  class="p-2">Is OPD</label><br>
 
-                                <input formControlName="Is_OPD" class="form-check-input" type="checkbox" value=""
-                                    id="defaultCheck1">
+                                <div class="form-check">
+                                    <input formControlName="Is_OPD" class="form-check-input" type="checkbox" value=""
+                                    id="defaultCheck1">                                </div>
+                                
                             </div>
                         </div>
 
@@ -516,7 +529,7 @@
 
 
                     <div class="col-sm-6 p-3 bg-white text-dark">
-                        <table>
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>Service code / Name</th>
@@ -575,7 +588,7 @@
                     <div class="col-sm-3 p-3 bg-white text-dark">
                     </div>
                     <div class="col-sm-3 p-3 bg-white text-dark">
-                        <table style="width:100%">
+                        <table style="width:100%" class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th>Net Amount</th>
@@ -678,7 +691,7 @@
                 <label class="p-2">Registered Date</label><br>
                 <!-- <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
                     required> -->
-                <p class="p-2">02/07/2025</p>
+                <p class="p-2">{{todayDate}}</p>
             </div>
             <div class="col-sm-3  bg-white text-dark">
                 <label class="p-2">Registered By</label><br>
@@ -741,3 +754,5 @@
         imagePreview.src = '../../assets/icons/default.jpg';
     }
 </script>
+
+  

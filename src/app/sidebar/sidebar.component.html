@@ -1,4 +1,4 @@
-<mat-sidenav #sidenav id="sidenav-fixed-container" class="example-sidenav" mode="side" [ngClass]="{'collapsed': !isExpanded}" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+<mat-sidenav #sidenav id="sidenav-fixed-container" class="example-sidenav" mode="side" mode="side" disableClose="true" opened="true" [ngClass]="{'collapsed': !isExpanded}" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
     <mat-nav-list>
         <ng-container *ngFor="let item of navigation_list">
             <mat-list-item (click)="toggleSubmenu(item)" class="parent">

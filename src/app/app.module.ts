@@ -80,7 +80,8 @@ import { AuditLogComponent } from './SystemSetting/audit-log/audit-log.component
 import { ReferenceNumberComponent } from './SystemSetting/reference-number/reference-number.component';
 import { DoctorpaymentComponent } from './SystemSetting/doctorpayment/doctorpayment.component';
 import { RouterModule } from '@angular/router';
-import { FrontofficeRegisterComponent } from './FrontOffice/frontoffice-register/frontoffice-register.component'; // Import RouterModule
+import { FrontofficeRegisterComponent } from './FrontOffice/frontoffice-register/frontoffice-register.component';
+import { LoginViewHomeComponent } from './utills/login-view-home/login-view-home.component';
 
 @NgModule({
   schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
@@ -117,7 +118,8 @@ import { FrontofficeRegisterComponent } from './FrontOffice/frontoffice-register
     AuditLogComponent,
     ReferenceNumberComponent,
     DoctorpaymentComponent,
-    FrontofficeRegisterComponent
+    FrontofficeRegisterComponent,
+    LoginViewHomeComponent,
   ],
   imports: [
     BrowserModule,

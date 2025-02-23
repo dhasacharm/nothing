@@ -1,34 +1,193 @@
-<div class="app">
-    <div class="bg"></div>
-
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <header>
-            <img src="https://assets.codepen.io/3931482/internal/avatars/users/default.png?format=auto&height=80&version=1592223909&width=80">
-        </header>
-
-        <div *ngIf="errorMessage" class="error-msg" id="login-error-message">
-            <mat-card class="error-box" id="error-card ">
-                <mat-card-content id="error-card">
-                    {{ errorMessage }}
-                    <img id="svg-icon-img" src="assets/icons/close.png" (click)="closeError()">
-                </mat-card-content>
-            </mat-card>
+<div class="page-wrapper">
+    <div class="login-con">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <div class="f-wrapper">
+                        <div class="carousel-wrapper">
+                            <div class="all-cards">
+                                <div class="card card-1 active">
+                                    <div class="card-wrapper">
+                                        <div class="card-img">
+                                            <img src="../../assets/loginImages/images-CardImage.png" alt="">
+                                        </div>
+                                        <div class="card-heading">
+                                            <h2>Industry&rsquo;s Most Comprehensive HMS Software Solution</h2>
+                                        </div>
+                                        <div class="card-text"></div>
+                                        <div class="image-wrapper">
+                                            <img src="../../assets/loginImages/drhmslogo.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-2">
+                                    <div class="card-wrapper">
+                                        <div class="card-img">
+                                            <img src="assets/loginImages/images-qms_image.png" alt="">
+                                        </div>
+                                        <div class="card-heading">
+                                            <h2>Ready to Use HMS Software for Hospitals</h2>
+                                        </div>
+                                        <div class="card-text"></div>
+                                        <div class="image-wrapper">
+                                            <img src="assets/loginImages/drhmslogo.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-3">
+                                    <div class="card-wrapper">
+                                        <div class="card-img">
+                                            <img src="assets/loginImages/images-ApprovedQuality.png" alt="">
+                                        </div>
+                                        <div class="card-heading">
+                                            <h2>Committed to Your Quality and Accreditation Journey</h2>
+                                        </div>
+                                        <div class="card-text"></div>
+                                        <div class="image-wrapper">
+                                            <img src="assets/loginImages/drhmslogo.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slider">
+                                <div class="slider-wrapper">
+                                    <div class="slides" (click)="currentSlide(1)"></div>
+                                    <div class="slides" (click)="currentSlide(2)"></div>
+                                    <div class="slides active" (click)="currentSlide(3)"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center f-wrapper" style="height: 90vh;">
+                    <div class="login-form" id="signindiv">
+                        <div class="logo">
+                            <img src="assets/loginImages/drhmslogo.png">
+                        </div>
+                        <h2 class="heading">LOGIN</h2>
+                        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                            <div class="input-wrapper email">
+                                <label for="email">User Name</label>
+                                <div class="mail-wrapper">
+                                    <input
+                                        type="text"
+                                        placeholder="Username"
+                                        name="account_user"
+                                        autocomplete="off"
+                                        [(ngModel)]="account.username"
+                                        autofocus
+                                        class="name"
+                                    >
+                                    <span class="user-icon">
+                                        <img src="assets/loginImages/user-svg.svg" alt="">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="input-wrapper pass">
+                                <label for="pass">Password</label>
+                                <div class="pass-wrapper">
+                                    <input
+                                        type="password"
+                                        placeholder="Password"
+                                        name="account_password"
+                                        [(ngModel)]="account.password"
+                                        class="password"
+                                        id="pass"
+                                    >
+                                    <span class="user-icon">
+                                        <img src="assets/loginImages/user-svg.svg" alt="">
+                                    </span>
+                                    <span class="show-hide-pass" (click)="togglePasswordVisibility()">
+                                        <i class="fa fa-eye" *ngIf="!passwordVisible"></i>
+                                        <i class="fa fa-eye-slash" *ngIf="passwordVisible"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <button class="btn btn-login" type="submit" value="SignIn">LOGIN</button>
+                            <p style="text-align: center; font-size: 14px; margin-top: 10px;">
+                                <a href="javascript:void(0);" (click)="showForgotPassword()">Forgot Password?</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+                <div class="bottom-line">
+                    <div class="bottom-wrapper justify-content-center">
+                        <p>Visit us:
+                            <a href="https://ideaedutech.com/" target="_blank">www.yourDomain.com</a>
+                        </p>
+                        &nbsp; &nbsp; &nbsp;
+                        <p>Write to us:
+                            <a>support.com</a>
+                        </p>
+                        &nbsp; &nbsp; &nbsp;
+                        <p>Contact us:
+                            <a>+91 0000000000</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="inputs">
-            <input [ngClass]="{'is-invalid': loginForm.controls['email'].invalid && loginForm.controls['email'].touched}" type="email" formControlName="email" class="form-control" placeholder="username or email">
-            <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
-                <small class="error-text" *ngIf="loginForm.controls['email'].errors?.['required']">Email is required.</small>
-                <small class="error-text" *ngIf="loginForm.controls['email'].errors?.['email']">Invalid email format.</small>
-              </div>
-            <input [ngClass]="{'is-invalid': loginForm.controls['password'].invalid && loginForm.controls['password'].touched}" type="password" formControlName="password" class="form-control" placeholder="password">
-            <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
-                <small class="error-text" *ngIf="loginForm.controls['password'].errors?.['required']">Password is required.</small>
-                <small class="error-text" *ngIf="loginForm.controls['password'].errors?.['minlength']">Password must be at least 6 characters.</small>
-              </div>
-        </div>
-        <footer>
-            <button type="submit" [disabled]="loginForm.invalid">Continue</button>
-        </footer>
-    </form>
+    </div>
 </div>
+<div id="helpmodal" class="modal fade helpmodalpopup" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <img src="jsLib/assets/login-asset/images/General_Steps_Troubleshooting.png" class="helpicon img-responsive">
+            </div>
+            <div class="panel-footer text-center" style="background:none;">
+                <button type="button" class="btn btn-danger" value="" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var slideIndex = 0;
+    var myTimer;
+    var timeLength = 4000;
+
+    window.addEventListener("load", function () {
+        showSlides();
+        myTimer = setInterval(showSlides, timeLength);
+
+        var slideshowContainer = document.getElementsByClassName('all-cards')[0];
+        slideshowContainer.addEventListener('mouseenter', pause);
+        slideshowContainer.addEventListener('mouseleave', resume);
+    });
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("card");
+        var dots = document.getElementsByClassName("slides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].className = slides[i].className.replace(" active", "");
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].className += " active";
+        dots[slideIndex - 1].className += " active";
+    }
+
+    function currentSlide(n) {
+        clearInterval(myTimer);
+        slideIndex = n - 1;
+        showSlides();
+        myTimer = setInterval(showSlides, timeLength);
+    }
+
+    function pause() {
+        clearInterval(myTimer);
+    }
+
+    function resume() {
+        clearInterval(myTimer);
+        myTimer = setInterval(showSlides, timeLength);
+    }
+</script>

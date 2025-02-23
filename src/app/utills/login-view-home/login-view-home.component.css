@@ -1,0 +1,90 @@
+.login-page-wrapper {
+background:#f5f6ff;
+}
+.login-row::before {
+    background-image: url(../../../assets/loginImages/NewLoginBackground1.png);
+    background-repeat: no-repeat;
+    background-position: center right;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    right: 330px;
+    transform: rotate(180deg);
+    content: "";
+}
+.login-carousel {
+    display: flex
+    ;
+        align-items: center;
+        height: 100vh;
+        justify-content: center;
+
+}
+
+
+.login-carousel .card .active {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+.card-header-login img {
+    width: -webkit-fill-available;
+}
+.card-header-login {
+    padding: 10px;
+    height: 330px;
+    display: flex;
+    justify-content: center;
+}
+.card-body-login {
+    font-weight: 600 !important;
+    line-height: 1.5;
+    color: #2db64a;
+    margin-top: 30px !important;
+}
+.card-footer-login {
+    width: 120px;
+    margin: auto;
+    margin-top: 18px;
+}
+.card-login {
+    position: relative;
+    height: 560px;
+    width: 460px;
+}
+.card {
+    padding: 20px;
+    border-radius: 20px;
+}
+.card-footer-login img {
+    height: 75px;
+}
+.carousel-indicators {
+    top: 560px;
+}
+.carousel-indicators [data-bs-target] {
+
+}
+/* Default state: slightly smaller and hidden */
+.carousel-item {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+/* Active slide: zooms in */
+.carousel-item.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Previous slide: zooms back (shrinks) */
+.carousel-item.zoom-back {
+    opacity: 0;
+    transform: scale(0.6);
+}
+
+
+
+
+

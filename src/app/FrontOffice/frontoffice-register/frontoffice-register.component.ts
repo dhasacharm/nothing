@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ReferralModalComponent } from '../../referral-modal/referral-modal.component';
 import { dropdownValue } from '../../data/PatientRegister';
-
+import { country, statesOfIndia } from '../../data/country';
 
 @Component({
   selector: 'app-frontoffice-register',
@@ -18,15 +18,23 @@ export class FrontofficeRegisterComponent implements AfterViewInit, OnInit {
   @ViewChild('snap') snap!: ElementRef;
   @ViewChild('canv1') canvas!: ElementRef;
   imageUrl: string = '../../assets/icons/default.jpg';
-  countries: string[] = [ 'India'];
+  countries: string[] = country;
+  states: string[] = statesOfIndia;
   FormDropDownValue :any = dropdownValue
   patientRegisterForm!: FormGroup;
+  todayDate :  string = ""
+  constructor(private fb: FormBuilder, public dialog: MatDialog) {
+    let today = new Date();
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog) {}
+    this.todayDate = today.getDate().toString().padStart(2, '0') + '-' +
+                        (today.getMonth() + 1).toString().padStart(2, '0') + '-' +
+                        today.getFullYear();
+
+  }
 
   ngOnInit(): void {
     this.patientRegisterForm = this.fb.group({
-      title: ['', Validators.required],
+      title: [ '', Validators.required],
       FirstName: ['', Validators.required],
       LastName: ['', Validators.required],
       DOB: ['', Validators.required],
@@ -44,7 +52,7 @@ export class FrontofficeRegisterComponent implements AfterViewInit, OnInit {
       Nationality: ['', Validators.required],
       AddressLine1: ['', Validators.required],
       addressSearch: ['', Validators.required],
-      Country: ['', Validators.required],
+      Country: [this.countries[0]  || '', Validators.required],
       State: ['', Validators.required],
       District: ['', Validators.required],
       City: ['', Validators.required],
@@ -82,12 +90,14 @@ export class FrontofficeRegisterComponent implements AfterViewInit, OnInit {
 
     });
   }
+  
 
   getDropdownValues(name: string) {
     const dropdown = this.FormDropDownValue.find((item: { name: string, value: any[] }) => item.name === name);
     return dropdown ? dropdown.value : [];
   }
   ngAfterViewInit() {
+
     // Ensure that the @ViewChild elements are available
     if (!this.fileInput || !this.imagePreview || !this.video || !this.snap || !this.canvas) {
       console.error('One or more @ViewChild elements are not available');
@@ -196,4 +206,7 @@ export class FrontofficeRegisterComponent implements AfterViewInit, OnInit {
       }
     });
   }
+
+
+  
 }

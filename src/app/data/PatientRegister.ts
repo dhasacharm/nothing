@@ -46,6 +46,21 @@ export const dropdownValue = [
         { name: "COMMISSIONER", label: "COMMISSIONER" }, // Consider changing to "COMMISSIONER"
         { name: "others", label: "OTHERS" }]
     },
+    {
+        name:"patientTypes",
+        value:[{ label: "Please Select", name: "please_select" },
+        { label: "OPD", name: "opd" },
+        { label: "IPD", name: "ipd" },
+        { label: "STAFF", name: "staff" },
+        { label: "OTC", name: "otc" },
+        { label: "HOME DELIVERY", name: "home_delivery" },
+        { label: "MEMBERSHIP", name: "membership" },
+        { label: "CORPORATE", name: "corporate" },
+        { label: "GENERAL", name: "general" },
+        { label: "INTERNATIONAL PATIENT", name: "international_patient" },
+        { label: "INSURANCE", name: "insurance" }]
+    }
+
 
 ]
 
