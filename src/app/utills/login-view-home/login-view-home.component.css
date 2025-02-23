@@ -1,6 +1,7 @@
 .login-page-wrapper {
-background:#f5f6ff;
+    background: #f5f6ff;
 }
+
 .login-row::before {
     background-image: url(../../../assets/loginImages/NewLoginBackground1.png);
     background-repeat: no-repeat;
@@ -12,12 +13,19 @@ background:#f5f6ff;
     transform: rotate(180deg);
     content: "";
 }
+
 .login-carousel {
-    display: flex
-    ;
-        align-items: center;
-        height: 100vh;
-        justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+
+}
+.login-form-start {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
 
 }
 
@@ -27,44 +35,57 @@ background:#f5f6ff;
     opacity: 1;
     transform: scale(1);
 }
+
 .card-header-login img {
     width: -webkit-fill-available;
 }
+
 .card-header-login {
     padding: 10px;
     height: 330px;
     display: flex;
     justify-content: center;
 }
+
 .card-body-login {
     font-weight: 600 !important;
     line-height: 1.5;
     color: #2db64a;
     margin-top: 30px !important;
 }
+.heading-login {
+    font-weight: 600 !important;
+    color: #2db64a;
+    text-align: center;
+}
+
 .card-footer-login {
     width: 120px;
     margin: auto;
     margin-top: 18px;
 }
+
 .card-login {
     position: relative;
     height: 560px;
     width: 460px;
 }
+
 .card {
     padding: 20px;
     border-radius: 20px;
 }
+
 .card-footer-login img {
     height: 75px;
 }
+
 .carousel-indicators {
     top: 560px;
 }
-.carousel-indicators [data-bs-target] {
 
-}
+.carousel-indicators [data-bs-target] {}
+
 /* Default state: slightly smaller and hidden */
 .carousel-item {
     opacity: 0;
@@ -85,6 +106,60 @@ background:#f5f6ff;
 }
 
 
+.input-wrapper {
+    position: relative;
+    
+  }
+  
+  input {
+    border: 3px solid #2db64a;
+    border-radius: 30px;
+    position: relative;
+    width: 200px;
+    margin: 10px;
+    line-height: 6ex;
+width: -webkit-fill-available;
+  }
+  
+  label {
+    position: absolute;
+    top: 0.2ex;
+    z-index: 1;
+    left: 2em;
+    background-color: white;
+    padding: 0 5px;
+  }
 
+  .btn-login {
+    background-color: #2db64a !important;
+    padding: 15px 20px 11px;
+    font-size: 16px;
+    width: 260px;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 20px;
+    border-radius: 35px;
+    width: 100%;
+    position: relative;
+}
+.login-form-center {
+    position: relative;
+    top: -64px;
+}
+input::placeholder {
+    opacity: 0.5;
+    position: absolute;
+    left: 1em;
+    top: 2.2ex;
 
+  }
 
+  .user-icon {
+    position: absolute;
+    top: 22px;
+    right: 28px;
+    /* color: #555; */
+    display: flex;
+    /* font-size: 12px; */
+    height: 25px;
+}

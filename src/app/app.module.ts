@@ -3,7 +3,6 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -88,7 +87,6 @@ import { LoginViewHomeComponent } from './utills/login-view-home/login-view-home
 
   declarations: [
     AppComponent,
-    LoginComponent,
     NavbarComponent,
     SidebarComponent,
     DashboardComponent,

@@ -114,3 +114,6 @@ input::file-selector-button {
 -ms-overflow-style: none;  /* IE and Edge */
 scrollbar-width: none;  /* Firefox */
 }
+small.error-text {
+  color: red;
+}

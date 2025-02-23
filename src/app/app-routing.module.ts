@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { OpvisitlinkComponent } from './opvisitlink/opvisitlink.component';
 import { FrontOfficeDashboardComponent } from './front-office-dashboard/front-office-dashboard.component';
@@ -90,11 +89,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: "login",
-    component: LoginComponent
-  },
-  {
-    path:"new-login",
+    path:"login",
     component:LoginViewHomeComponent
   }
   
