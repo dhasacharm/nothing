@@ -9,7 +9,6 @@ html, body { height: 100%;
   background-color: #f5f7fa;
 }
 body { margin: 0; font-family: po }
-@import "~@fortawesome/fontawesome-free/css/all.css";
 input {
   cursor: pointer;
 }
@@ -52,6 +51,11 @@ input.form-control{
 input::file-selector-button {
     display: block;
   }
+  .example-sidenav.collapsed {
+    width: 60px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
 
   .draftbutton {
     background: linear-gradient(270deg, #005687 0%, #1F94C6 100%);
@@ -116,4 +120,10 @@ scrollbar-width: none;  /* Firefox */
 }
 small.error-text {
   color: red;
+}
+.example-sidenav .collapsed .mat-drawer-content .mat-sidenav-content {
+  margin-left: 70px !important;
+}
+.example-sidenav .mat-drawer-content .mat-sidenav-content {
+  margin-left: 200px !important;
 }

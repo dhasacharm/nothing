@@ -113,15 +113,7 @@
     right: 0;
   }
   
-  mat-nav-list {
-    width: 60px;
-    overflow: hidden;
-    transition: width 0.3s;
-  
-    h4 {
-      opacity: 0;
-    }
-  }
+ 
   
   mat-drawer:hover {
     mat-nav-list {
@@ -133,5 +125,4 @@
       }
     }
   }
-  
   

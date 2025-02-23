@@ -1,5 +1,5 @@
 <app-navbar (sidenavToggle)="toggleSidenav()"></app-navbar>
-<mat-sidenav-container class="example-container" autosize>
+<mat-sidenav-container class="example-container" [autosize]="true">
     <mat-sidenav #sidenav id="sidenav-fixed-container" class="example-sidenav" mode="side" [ngClass]="{'collapsed': !isExpanded}" opened="true">
         <app-sidebar [isExpanded]="isExpanded"></app-sidebar>
     </mat-sidenav>

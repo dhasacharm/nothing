@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarComponent } from './utills/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';  // Import ReactiveFormsModule
 import { MatIconModule } from '@angular/material/icon';

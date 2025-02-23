@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, Input } from '@angular/core';
-import { navigation } from '../data/navigation';
+import { navigation } from '../../data/navigation';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,11 +17,10 @@ export class SidebarComponent {
     console.log(this.isExpanded)
   }
 
-  toggleSidenav() {
-    this.isExpanded = !this.isExpanded;
-  }
+ 
 
   mouseenter() {
+    console.log(this.isExpanded,"++++++muse+++++++++++++",this.isShowing)
     if (!this.isExpanded) {
       this.isShowing = true;
     }
