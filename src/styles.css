@@ -1,4 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #B3C100;  /* Lime Green */
+  --secondary-color: #4CB5F5; /* Sky Blue */
+  --background-color: #CED2CC; /* Light Gray-Green */
+  --text-color: #23282D; /* Dark Charcoal */
+  --accent-color: #D32D41; /* Crimson Red */
+  --dark-theme: #1F3F49; /* Deep Teal */
+  --success-color: #6AB187; /* Sage Green */
+  --side-nav:#181824;
+  --navbar:#20948B
+}
+
 * {
     font-family: 'poppins', sans-serif;
     font-size: 14px;

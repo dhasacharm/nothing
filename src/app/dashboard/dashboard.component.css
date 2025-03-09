@@ -1,50 +1,62 @@
 .example-container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.example-sidenav {
-  width: 200px;
-  transition: width 0.3s;
-}
-
-
-.example-sidenav.collapsed {
+mat-nav-list {
   width: 60px;
-}
-
-.mat-sidenav-content {
-  flex: 1;
-  padding: 20px;
-  transition: margin-left 0.3s;
-  background: white;
-}
-
-.example-sidenav-content {
-  padding: 20px;
-}
-
-.mat-sidenav-container {
-  display: flex;
-  flex: 1;
-  height: calc(100vh - 64px); /* Adjust based on your toolbar height */
-}
-
-.mat-sidenav {
-  flex: 0 0 auto;
   overflow: hidden;
+  transition: width 0.3s;
+
+  h4 {
+    opacity: 0;
+  }
 }
 
-.mat-sidenav-content {
-  flex: 1 1 auto;
+mat-drawer:hover {
+  mat-nav-list {
+    width: 180px;
+    h4 {
+      opacity: 1;
+      margin: auto 10px;
+      transition: all 0.1s ease-in 0.2s;
+    }
+  }
 }
 
-#customIconSize {
-  height: 18px;
+.dashboard-container {
+  display: flex;
+  height: 100vh; /* Full height of the viewport */
 }
 
-.spacer {
-  flex: 1 1 auto;
+app-sidebar {
+  flex: 0 0 70px; /* Initial width of the sidebar */
+  transition: flex 0.3s; /* Smooth transition for width change */
 }
 
+app-sidebar.expanded {
+  flex: 0 0 250px; /* Expanded width of the sidebar */
+}
+
+.main-content {
+  flex: 1; /* Take the remaining space */
+  padding: 20px;
+  overflow-y: auto; /* Enable scrolling if content overflows */
+}
+
+.example-container {
+  height: 100%;
+}
+mat-sidenav-content.mat-drawer-content.mat-sidenav-content {
+  margin-left: 70px !important;
+  margin-top: 74px;
+
+}
+.mat-drawer-side {
+  width: 60px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}

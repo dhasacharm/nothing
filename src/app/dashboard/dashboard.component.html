@@ -1,12 +1,10 @@
-<app-navbar (sidenavToggle)="toggleSidenav()"></app-navbar>
-<mat-sidenav-container class="example-container" [autosize]="true">
-    <mat-sidenav #sidenav id="sidenav-fixed-container" class="example-sidenav" mode="side" [ngClass]="{'collapsed': !isExpanded}" opened="true">
-        <app-sidebar [isExpanded]="isExpanded"></app-sidebar>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <div class="content-wrapper">
-            <router-outlet></router-outlet>
-        </div>
-    </mat-sidenav-content>
+<app-navbar></app-navbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
 </mat-sidenav-container>
-<!-- <app-footer></app-footer> -->

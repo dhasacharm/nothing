@@ -11,10 +11,28 @@ export class SidebarComponent {
 
   @Input() isExpanded = true;
   isShowing = false;
+  hoveredItem: any = null;
+  activeSubMenu: any = null;
+
+  menuItems = [
+    { text: 'Dashboard', icon: 'fa fa-home', route: '/dashboard' },
+    { 
+      text: 'Services', 
+      icon: 'fa fa-cog', 
+      submenu: [
+        { text: 'Web Development', route: '/services/web' },
+        { text: 'App Development', route: '/services/app' },
+        { text: 'SEO Optimization', route: '/services/seo' }
+      ]
+    },
+    { text: 'Contact', icon: 'fa fa-envelope', route: '/contact' }
+  ];
   navigation_list = navigation.map(item => ({ ...item, showSubmenu: false, }));
 
   ngOnInit() {
     console.log(this.isExpanded)
+    this.hoveredItem = this.navigation_list[0]; // Set the first item as default
+
   }
 
  
@@ -34,6 +52,14 @@ export class SidebarComponent {
 
   toggleSubmenu(item: any) {
     item.showSubmenu = !item.showSubmenu;
+  }
+
+  openSubMenu(item: any) {
+    this.activeSubMenu = item;
+  }
+
+  closeSubMenu() {
+    this.activeSubMenu = null;
   }
 
 }

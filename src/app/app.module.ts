@@ -4,7 +4,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './utills/navbar/navbar.component';
 import { SidebarComponent } from './utills/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';  // Import ReactiveFormsModule

@@ -1,7 +1,7 @@
 export const navigation = [
     {
         title: 'System Setting',
-        icon: 'fas fa-cogs',
+        icon: 'settings',
         subNav: [
             {
                 title: 'Organizations',
@@ -47,7 +47,7 @@ export const navigation = [
     },
     {
         title: 'User Settings',
-        icon: 'fas fa-users-cog',
+        icon: 'supervised_user_circle',
         subNav: [
             {
                 title: 'Users',
@@ -61,7 +61,7 @@ export const navigation = [
     },
     {
         title: 'Front Office',
-        icon: 'fas fa-user-plus',
+        icon: 'person_add_alt_1',
         subNav: [
             {
                 title: 'OP VisitBill Link',
@@ -99,7 +99,7 @@ export const navigation = [
     },
     {
         title: 'Billing',
-        icon: 'fas fa-file-invoice-dollar',
+        icon: 'calendar_month',
         subNav: [
             {
                 title: 'OP Billing',
@@ -181,7 +181,7 @@ export const navigation = [
     },
     {
         title: 'Appointment',
-        icon: 'fas fa-receipt',
+        icon: 'receipt',
         subNav: [
             {
                 title: 'Appointment Sessions',
@@ -211,7 +211,7 @@ export const navigation = [
     },
     {
         title: 'Billing Master',
-        icon: 'fas fa-receipt',
+        icon: 'receipt_long',
         subNav: [
             {
                 title: 'Billing Group',
@@ -245,7 +245,7 @@ export const navigation = [
     },
     {
         title: 'LIS',
-        icon: 'fas fa-microscope',
+        icon: 'linked_camera',
         subNav: [
             {
                 title: 'Order Acceptance',
@@ -295,7 +295,7 @@ export const navigation = [
     },
     {
         title: 'RIS',
-        icon: 'fas fa-project-diagram',
+        icon: 'child_friendly',
         subNav: [
             {
                 title: 'Order Acceptance',
@@ -325,7 +325,7 @@ export const navigation = [
     },
     {
         title: 'Ambulatory',
-        icon: 'settings',
+        icon: 'child_friendly',
         subNav: [
             {
                 title: 'Order Acceptance',

@@ -1,24 +1,33 @@
-<mat-sidenav #sidenav id="sidenav-fixed-container" class="example-sidenav" mode="side" mode="side" disableClose="true" opened="true" [ngClass]="{'collapsed': !isExpanded}" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
-    <mat-nav-list>
-        <ng-container *ngFor="let item of navigation_list">
-            <mat-list-item (click)="toggleSubmenu(item)" class="parent">
-                <!-- Title -->
-                <mat-icon id="customIconSize" class="menu-button">expand_more</mat-icon>
-
-                <span class="full-width" *ngIf="item.showSubmenu || isExpanded || isShowing">
-                    {{ item.title }}
-                </span>
-
-                <!-- Icon that rotates when submenu is expanded -->
-                <mat-icon id="customIconSize" class="menu-button" [ngClass]="{'rotated' : item.showSubmenu}" *ngIf="item.showSubmenu || isExpanded || isShowing">expand_more</mat-icon>
-            </mat-list-item>
-
-            <!-- Submenu -->
-            <div class="submenu" [ngClass]="{'expanded': item.showSubmenu}" *ngIf="item.showSubmenu">
-                <a id="sub-nav-list" mat-list-item *ngFor="let subItem of item.subNav" [routerLink]="subItem.route">
-                    {{ subItem.title }}
-                </a>
+<div class="nav-side">
+    <nav class="sidebar">
+        <ul class="side-bar-ul">
+          <li *ngFor="let item of navigation_list" 
+              class="menu-item" 
+              [class.has-submenu]="item.subNav"
+              (mouseenter)="openSubMenu(item)" 
+              (mouseleave)="closeSubMenu()">
+            
+            <!-- Main menu item (icon only) -->
+            <a *ngIf="!item.subNav">
+              <mat-icon mat-list-icon>{{ item.icon }}</mat-icon>
+            </a>
+      
+            <div *ngIf="item.subNav">
+              <a>
+                <mat-icon mat-list-icon>{{ item.icon }}</mat-icon>
+              </a>
+      
+              <!-- Submenu (only visible on hover) -->
+              <ul class="submenu" *ngIf="activeSubMenu === item">
+                <li *ngFor="let sub of item.subNav">
+                  <a [routerLink]="sub.route" (click)="closeSubMenu()">{{ sub.title }}</a>
+                </li>
+              </ul>
             </div>
-        </ng-container>
-    </mat-nav-list>
-</mat-sidenav>
+          </li>
+        </ul>
+      </nav>
+</div>
+<!-- <router-outlet/> -->
+
+  
